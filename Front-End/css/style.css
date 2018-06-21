@@ -1,3 +1,6 @@
+body {
+  font-family: "Montserrat", sans-serif; }
+
 a,
 abbr,
 acronym,
@@ -122,7 +125,88 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-body {
-  color: red; }
+#intro {
+  height: 500px;
+  background-color: lightgray;
+  position: relative;
+  top: -80px; }
+
+#navbar {
+  position: relative;
+  z-index: 5;
+  height: 80px;
+  background-color: #222;
+  font-family: "Montserrat", sans-serif;
+  padding: 30px 0px; }
+  #navbar .container {
+    position: relative; }
+    #navbar .container .row .logo a {
+      text-decoration: none;
+      color: #e600ff;
+      font-weight: 700; }
+    #navbar .container .row .right-nav {
+      padding: 6px 0px; }
+      #navbar .container .row .right-nav ul {
+        list-style-type: none;
+        display: none;
+        float: right; }
+        #navbar .container .row .right-nav ul li {
+          display: inline-block; }
+          #navbar .container .row .right-nav ul li a {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            margin: 0px 10px;
+            padding: 10px 0px;
+            position: relative;
+            transition: all 0.3s ease-in-out; }
+            #navbar .container .row .right-nav ul li a::after {
+              content: "";
+              position: absolute;
+              bottom: -10px;
+              left: 50%;
+              height: 2px;
+              width: 0%;
+              background-color: white;
+              opacity: 0;
+              transition: all 0.3s ease-in-out; }
+          #navbar .container .row .right-nav ul li .active::after {
+            bottom: 0px;
+            opacity: 1;
+            width: 100%;
+            left: 0%; }
+      #navbar .container .row .right-nav .menuContainer {
+        height: 30px;
+        width: 30px;
+        float: right;
+        position: relative;
+        top: -10px;
+        display: flex;
+        align-items: center; }
+        #navbar .container .row .right-nav .menuContainer:hover {
+          cursor: pointer; }
+        #navbar .container .row .right-nav .menuContainer .menu {
+          height: 3px;
+          width: 30px;
+          background-color: white;
+          position: relative;
+          z-index: 6; }
+          #navbar .container .row .right-nav .menuContainer .menu::before {
+            position: absolute;
+            left: 0px;
+            top: -10px;
+            content: "";
+            height: 3px;
+            width: 30px;
+            background-color: white; }
+          #navbar .container .row .right-nav .menuContainer .menu::after {
+            position: absolute;
+            left: 0px;
+            bottom: -10px;
+            content: "";
+            height: 3px;
+            width: 30px;
+            background-color: white; }
 
 /*# sourceMappingURL=style.css.map */

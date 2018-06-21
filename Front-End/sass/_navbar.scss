@@ -1,3 +1,110 @@
-body{
-    color: red;
+#navbar {
+    position: relative;
+    z-index: 5;
+    height: 80px;
+    background-color: $bg-col-nav;
+    font-family: $main-font;
+    padding: 30px 0px;
+    .container {
+        position: relative;
+        .row {
+            .logo {
+                a {
+                    text-decoration: none;
+                    color: #e600ff;
+                    font-weight: 700;
+                }
+            }
+            .right-nav {
+                padding: 6px 0px;
+                ul {
+                    list-style-type: none;
+                    display: none;
+                    float: right;
+                    li {
+                        display: inline-block;
+                        a {
+                            color: $txt-col;
+                            font-size: 14px;
+                            font-weight: 600;
+                            text-decoration: none;
+                            margin: 0px 10px;
+                            padding: 10px 0px;
+                            position: relative;
+                            transition: all 0.3s ease-in-out;
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                bottom: -10px;
+                                left: 50%;
+                                height: 2px;
+                                width: 0%;
+                                background-color: white;
+                                opacity: 0;
+                                transition: all 0.3s ease-in-out;
+                            }
+                        }
+                        .active {
+                            &::after {
+                                bottom: 0px;
+                                opacity: 1;
+                                width: 100%;
+                                left: 0%;
+                            }
+                        }
+                    }
+                }
+                .menuContainer {
+                    height: 30px;
+                    width: 30px;
+                    float: right;
+                    position: relative;
+                    top: -10px;
+                    display: flex;
+                    align-items: center;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+
+                    .menu {
+                        height: 3px;
+                        width: 30px;
+                        background-color: white;
+                        position: relative;
+                        z-index: 6;
+                        &::before {
+                            position: absolute;
+                            left: 0px;
+                            top: -10px;
+                            content: "";
+                            height: 3px;
+                            width: 30px;
+                            background-color: white;
+                        }
+                        &::after {
+                            position: absolute;
+                            left: 0px;
+                            bottom: -10px;
+                            content: "";
+                            height: 3px;
+                            width: 30px;
+                            background-color: white;
+                        }
+                    }
+                }
+
+                // .menuContainer {
+                //     width: 30px;
+                //     height: 20px;
+                //     background-color: white;
+                //     .menu {
+                //         height: 3px !important;
+                //         width: 30px !important;
+                //         background-color: red !important;
+                //     }
+                // }
+            }
+        }
+    }
 }

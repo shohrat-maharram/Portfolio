@@ -8,7 +8,7 @@ $bg-col: #0c0c0c;
 $bg-col2: #111;
 $bg-col-nav: #222;
 $bg-col-input: #151515;
-$font: 'Montserrat', sans-serif;
+$main-font: 'Montserrat', sans-serif;
 
 
 // <-- ~~~~~~~~~~~~~~~~~~    Mixins    ~~~~~~~~~~~~~~~~~~ --> //
@@ -17,6 +17,13 @@ $font: 'Montserrat', sans-serif;
     #{$property}: -webkit-calc(#{$expression});
     #{$property}: calc(#{$expression});
 }
+
+// <-- ~~~~~~~~~~~~~~~~~~    General Styles    ~~~~~~~~~~~~~~~~~~ --> //
+
+body{
+    font-family: $main-font;
+}
+
 
 // <-- ~~~~~~~~~~~~~~~~~~    Imports    ~~~~~~~~~~~~~~~~~~ --> //
 @import 'reset';
