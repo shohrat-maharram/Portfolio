@@ -1,0 +1,30 @@
+
+// <-- ~~~~~~~~~~~~~~~~~~    Variables    ~~~~~~~~~~~~~~~~~~ --> //
+
+$txt-col: white;
+$txt-col-dark: #9a9a9a;
+$txt-col-darker: #a9abb0;
+$bg-col: #0c0c0c;
+$bg-col2: #111;
+$bg-col-nav: #222;
+$bg-col-input: #151515;
+$font: 'Montserrat', sans-serif;
+
+
+// <-- ~~~~~~~~~~~~~~~~~~    Mixins    ~~~~~~~~~~~~~~~~~~ --> //
+@mixin calc($property, $expression) {
+    #{$property}: -moz-calc(#{$expression});
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: calc(#{$expression});
+}
+
+// <-- ~~~~~~~~~~~~~~~~~~    Imports    ~~~~~~~~~~~~~~~~~~ --> //
+@import 'reset';
+@import 'about';
+@import 'blog';
+@import 'contact';
+@import 'footer';
+@import 'intro';
+@import 'navbar';
+@import 'portfolio';
+@import 'skills';
