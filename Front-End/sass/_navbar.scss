@@ -1,7 +1,7 @@
 #navbar {
     position: relative;
     z-index: 5;
-    height: 80px;
+    height: auto;
     background-color: $bg-col-nav;
     font-family: $main-font;
     padding: 30px 0px;
@@ -9,6 +9,8 @@
         position: relative;
         .row {
             .logo {
+                display: flex;
+                align-items: center;
                 a {
                     text-decoration: none;
                     color: #e600ff;
@@ -19,7 +21,7 @@
                 padding: 6px 0px;
                 ul {
                     list-style-type: none;
-                    display: none;
+                    // display: none;
                     float: right;
                     li {
                         display: inline-block;
@@ -60,7 +62,8 @@
                     float: right;
                     position: relative;
                     top: -10px;
-                    display: flex;
+                    // display: flex;
+                    display: none;
                     align-items: center;
 
                     &:hover {
@@ -93,17 +96,77 @@
                         }
                     }
                 }
+            }
+            .responsive-nav{
+                background-color: $bg-col2;
+                padding: 0px 16px;
+                display: none;
+                ul{
+                    li{
+                        margin: 40px 0px;
+                        a{
+                            color: $txt-col;
+                            font-weight: 600;
+                            font-size: 13px;
+                            text-decoration: none;
+                            padding: 10px 0px;
+                            position: relative;
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                bottom: -10px;
+                                left: 50%;
+                                height: 2px;
+                                width: 0%;
+                                background-color: white;
+                                opacity:0;
+                                transition: all 0.3s ease-in-out;
+                            }
+                        }
 
-                // .menuContainer {
-                //     width: 30px;
-                //     height: 20px;
-                //     background-color: white;
-                //     .menu {
-                //         height: 3px !important;
-                //         width: 30px !important;
-                //         background-color: red !important;
-                //     }
-                // }
+                        .active {
+                            &::after {
+                                bottom: 0px;
+                                opacity: 1;
+                                width: 100%;
+                                left: 0%;
+                            }
+                        }
+                    }
+                }
+            }
+            .active-nav{
+                display: block;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    #navbar {
+        
+        .container {
+            
+            .row {
+                .logo {
+                   
+                    a {
+                        
+                    }
+                }
+                .right-nav {
+                    
+                    ul {
+                        display: none;   
+                    }
+                    .menuContainer {
+                        display: flex;
+                    }
+                }
+                .responsive-nav {
+                              
+                }
             }
         }
     }

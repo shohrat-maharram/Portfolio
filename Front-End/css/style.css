@@ -134,21 +134,23 @@ table {
 #navbar {
   position: relative;
   z-index: 5;
-  height: 80px;
+  height: auto;
   background-color: #222;
   font-family: "Montserrat", sans-serif;
   padding: 30px 0px; }
   #navbar .container {
     position: relative; }
-    #navbar .container .row .logo a {
-      text-decoration: none;
-      color: #e600ff;
-      font-weight: 700; }
+    #navbar .container .row .logo {
+      display: flex;
+      align-items: center; }
+      #navbar .container .row .logo a {
+        text-decoration: none;
+        color: #e600ff;
+        font-weight: 700; }
     #navbar .container .row .right-nav {
       padding: 6px 0px; }
       #navbar .container .row .right-nav ul {
         list-style-type: none;
-        display: none;
         float: right; }
         #navbar .container .row .right-nav ul li {
           display: inline-block; }
@@ -182,7 +184,7 @@ table {
         float: right;
         position: relative;
         top: -10px;
-        display: flex;
+        display: none;
         align-items: center; }
         #navbar .container .row .right-nav .menuContainer:hover {
           cursor: pointer; }
@@ -208,5 +210,41 @@ table {
             height: 3px;
             width: 30px;
             background-color: white; }
+    #navbar .container .row .responsive-nav {
+      background-color: #111;
+      padding: 0px 16px;
+      display: none; }
+      #navbar .container .row .responsive-nav ul li {
+        margin: 40px 0px; }
+        #navbar .container .row .responsive-nav ul li a {
+          color: white;
+          font-weight: 600;
+          font-size: 13px;
+          text-decoration: none;
+          padding: 10px 0px;
+          position: relative; }
+          #navbar .container .row .responsive-nav ul li a::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            height: 2px;
+            width: 0%;
+            background-color: white;
+            opacity: 0;
+            transition: all 0.3s ease-in-out; }
+        #navbar .container .row .responsive-nav ul li .active::after {
+          bottom: 0px;
+          opacity: 1;
+          width: 100%;
+          left: 0%; }
+    #navbar .container .row .active-nav {
+      display: block; }
+
+@media screen and (max-width: 768px) {
+  #navbar .container .row .right-nav ul {
+    display: none; }
+  #navbar .container .row .right-nav .menuContainer {
+    display: flex; } }
 
 /*# sourceMappingURL=style.css.map */
