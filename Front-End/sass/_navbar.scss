@@ -18,10 +18,9 @@
                 }
             }
             .right-nav {
-                padding: 6px 0px;
+                // padding: 6px 0px;
                 ul {
-                    list-style-type: none;
-                    // display: none;
+                    list-style-type: none; // display: none;
                     float: right;
                     li {
                         display: inline-block;
@@ -45,6 +44,9 @@
                                 opacity: 0;
                                 transition: all 0.3s ease-in-out;
                             }
+                            &:hover {
+                                color: $txt-col-darker;
+                            }
                         }
                         .active {
                             &::after {
@@ -61,15 +63,12 @@
                     width: 30px;
                     float: right;
                     position: relative;
-                    top: -10px;
-                    // display: flex;
+                    top: -10px; // display: flex;
                     display: none;
                     align-items: center;
-
                     &:hover {
                         cursor: pointer;
                     }
-
                     .menu {
                         height: 3px;
                         width: 30px;
@@ -97,14 +96,14 @@
                     }
                 }
             }
-            .responsive-nav{
+            .responsive-nav {
                 background-color: $bg-col2;
-                padding: 0px 16px;
+                padding: 0px 15px; // margin: 0px 16px;
                 display: none;
-                ul{
-                    li{
+                ul {
+                    li {
                         margin: 40px 0px;
-                        a{
+                        a {
                             color: $txt-col;
                             font-weight: 600;
                             font-size: 13px;
@@ -119,11 +118,10 @@
                                 height: 2px;
                                 width: 0%;
                                 background-color: white;
-                                opacity:0;
+                                opacity: 0;
                                 transition: all 0.3s ease-in-out;
                             }
                         }
-
                         .active {
                             &::after {
                                 bottom: 0px;
@@ -135,37 +133,32 @@
                     }
                 }
             }
-            .active-nav{
+            .active-nav {
                 display: block;
             }
         }
     }
 }
 
-
 @media screen and (max-width: 768px) {
     #navbar {
-        
         .container {
-            
             .row {
                 .logo {
-                   
-                    a {
-                        
-                    }
+                    a {}
                 }
                 .right-nav {
-                    
+                    position: absolute;
+                    top: 3px;
                     ul {
-                        display: none;   
+                        display: none;
                     }
                     .menuContainer {
                         display: flex;
                     }
                 }
                 .responsive-nav {
-                              
+                    margin-top: 20px;
                 }
             }
         }
