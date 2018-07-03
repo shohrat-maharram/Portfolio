@@ -1,6 +1,62 @@
 #intro {
-    height: 500px;
-    background-color: lightgray;
+    font-family: $main-font;
+    height: auto;
+    background-color: $bg-col2;
     position: relative;
     top: -80px;
+    padding-top: 120px;
+    .container {
+        .row {
+            .intro-text {
+                h1 {
+                    color: $txt-col;
+                    font-size: 30px;
+                    margin-top: 35px;
+                    line-height: 40px;
+                }
+                .name {
+                    font-weight: 600;
+                    span {
+                        font-weight: 700;
+                        font-size: 38px;
+                        letter-spacing: 3px;
+                    }
+                }
+                .cv {
+                    ul {
+                        display: flex;
+                        justify-content: space-between;
+                        li {
+                            list-style-type: none;
+                            display: inline-block;
+                            margin-top: 75px;
+                            a {
+                                color: $txt-col-trend;
+                                text-decoration: none;
+                                border: 2px solid $txt-col-trend;
+                                padding: 8px 18px;
+                                font-weight: 500;
+                                transition: all .2s ease-out;
+                                &:hover {
+                                    background-color: $txt-col-trend;
+                                    color: white;
+                                    transition: all .2s ease-out;    
+                                }
+                            }
+                            &:last-child {
+                                margin-right: 28px;
+                            }
+                        }
+                    }
+                }
+            }
+            .intro-image {
+                display: flex;
+                justify-content: center;
+                img {
+                    height: 575px;
+                }
+            }
+        }
+    }
 }

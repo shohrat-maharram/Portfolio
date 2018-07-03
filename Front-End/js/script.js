@@ -19,9 +19,6 @@ $(document).ready(function () {
         } else if (width > 768) {
             $(".right-nav li[data-index=" + indexNavR + "] a").addClass("active");
         }
-
-        // console.log($(".right-nav .active").parent().data("index"));
-        // console.log(text);
     });
 
 
@@ -33,9 +30,14 @@ $(document).ready(function () {
         $(this).addClass("active");
     })
 
-    //Display&Hide responsive nav    
+    //Display&Hide responsive nav Click    
     $("#navbar .right-nav .menuContainer").click(function () {
         $("#navbar .responsive-nav").slideToggle("slow");
         $("#navbar").css("padding-bottom", "30px");
     })
+
+    //Make navber fixed
+    // var 
+    // console.log();
+
 });
