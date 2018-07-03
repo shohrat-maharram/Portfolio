@@ -197,7 +197,7 @@ table {
           font-size: 13px;
           font-weight: 600;
           text-decoration: none;
-          margin: 0px 20px;
+          margin: 0px 10px;
           padding: 10px 0px;
           position: relative;
           transition: all 0.3s ease-in-out; }
@@ -250,6 +250,11 @@ table {
           height: 3px;
           width: 30px;
           background-color: white; }
+    #navbar .container .row .lang {
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer; }
     #navbar .container .row .responsive-nav {
       background-color: #111;
       padding: 0px 15px;
@@ -282,13 +287,10 @@ table {
       display: block; }
 
 @media screen and (max-width: 768px) {
-  #navbar .container .row .right-nav {
-    position: absolute;
-    top: 3px; }
-    #navbar .container .row .right-nav ul {
-      display: none; }
-    #navbar .container .row .right-nav .menuContainer {
-      display: flex; }
+  #navbar .container .row .right-nav ul {
+    display: none; }
+  #navbar .container .row .right-nav .menuContainer {
+    display: flex; }
   #navbar .container .row .responsive-nav {
     margin-top: 20px; } }
 
