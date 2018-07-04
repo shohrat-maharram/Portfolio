@@ -134,7 +134,7 @@ table {
   background-color: #111;
   position: relative;
   top: -80px;
-  padding-top: 120px; }
+  padding-top: 170px; }
   #intro .container .row .intro-text h1 {
     color: white;
     font-size: 30px;
@@ -173,7 +173,10 @@ table {
       height: 575px; }
 
 #navbar {
-  position: relative;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
   z-index: 5;
   height: auto;
   font-family: "Montserrat", sans-serif;
@@ -251,10 +254,28 @@ table {
           width: 30px;
           background-color: white; }
     #navbar .container .row .lang {
-      color: white;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer; }
+      position: relative; }
+      #navbar .container .row .lang p {
+        color: white;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer; }
+      #navbar .container .row .lang ul {
+        display: none;
+        position: absolute;
+        padding: 0px 10px;
+        background-color: #222;
+        margin-top: 30px; }
+        #navbar .container .row .lang ul li {
+          padding: 10px 0px; }
+          #navbar .container .row .lang ul li a {
+            text-decoration: none;
+            color: #9a9a9a;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s ease-out; }
+            #navbar .container .row .lang ul li a:hover {
+              color: #c43235; }
     #navbar .container .row .responsive-nav {
       background-color: #111;
       padding: 0px 15px;
@@ -286,7 +307,7 @@ table {
     #navbar .container .row .active-nav {
       display: block; }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   #navbar .container .row .right-nav ul {
     display: none; }
   #navbar .container .row .right-nav .menuContainer {
