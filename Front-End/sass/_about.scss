@@ -1,0 +1,71 @@
+#about {
+    font-family: $main-font;
+    height: auto;
+    background-color: $bg-col;
+    position: relative;
+    padding: 100px 0px 40px 0px;
+    .container {
+        .title {
+           @extend %title-style;
+        }
+        .content {
+            margin-top: 50px;
+            .aboutMe {
+                color: $txt-col2;
+                font-size: 14px;
+                p {
+                    line-height: 24px;
+                    margin-bottom: 40px;
+                }
+                ul {
+                    li {
+                        font-size: 13px;
+                        strong {
+                            color: $txt-col-trend;
+                            font-weight: 600;
+                            width: 150px;
+                            position: relative;
+                            display: inline-block;
+                            margin: 30px 50px 0px 0px;
+                            &:before {
+                                content: ":";
+                                position: absolute;
+                                right: 0px;
+                            }
+                        }
+                    }
+                }
+            }
+            .knowladge {
+                .row {
+                    text-align: center;
+                    div {
+                        margin-bottom: 30px;
+                        transition: all 0.2s ease-out;
+                        i {
+                            color: $txt-col-trend;
+                            font-size: 55px;
+                            border: 1px solid $txt-col2;
+                            width: 110px;
+                            height: 110px;
+                            line-height: 110px;
+                            transition: all 0.2s ease-out;
+                        }
+                        p {
+                            margin-top: 10px;
+                            color: $txt-col2;
+                            transition: all 0.2s ease-out;
+                            font-weight: 500;
+                        }
+                        &:hover i {
+                            border-color: $txt-col-trend;
+                        }
+                        &:hover p {
+                            color: $txt-col-trend;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

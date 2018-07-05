@@ -4,6 +4,32 @@ body {
 body {
   font-family: "Montserrat", sans-serif; }
 
+#about .container .title, #skills .container .title {
+  text-align: center; }
+  #about .container .title h1, #skills .container .title h1 {
+    font-size: 35px;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 20px; }
+  #about .container .title p, #skills .container .title p {
+    display: inline-block;
+    color: white;
+    padding: 1px 5px;
+    background-color: #c43235;
+    transform: rotate(45deg);
+    position: relative;
+    z-index: 5; }
+    #about .container .title p:before, #skills .container .title p:before {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 1px;
+      background-color: #c43235;
+      transform: rotate(-45deg);
+      top: 10px;
+      right: -65px;
+      z-index: -1; }
+
 a,
 abbr,
 acronym,
@@ -128,13 +154,62 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+#about {
+  font-family: "Montserrat", sans-serif;
+  height: auto;
+  background-color: #0c0c0c;
+  position: relative;
+  padding: 100px 0px 40px 0px; }
+  #about .container .content {
+    margin-top: 50px; }
+    #about .container .content .aboutMe {
+      color: #d4d2d2;
+      font-size: 14px; }
+      #about .container .content .aboutMe p {
+        line-height: 24px;
+        margin-bottom: 40px; }
+      #about .container .content .aboutMe ul li {
+        font-size: 13px; }
+        #about .container .content .aboutMe ul li strong {
+          color: #c43235;
+          font-weight: 600;
+          width: 150px;
+          position: relative;
+          display: inline-block;
+          margin: 30px 50px 0px 0px; }
+          #about .container .content .aboutMe ul li strong:before {
+            content: ":";
+            position: absolute;
+            right: 0px; }
+    #about .container .content .knowladge .row {
+      text-align: center; }
+      #about .container .content .knowladge .row div {
+        margin-bottom: 30px;
+        transition: all 0.2s ease-out; }
+        #about .container .content .knowladge .row div i {
+          color: #c43235;
+          font-size: 55px;
+          border: 1px solid #d4d2d2;
+          width: 110px;
+          height: 110px;
+          line-height: 110px;
+          transition: all 0.2s ease-out; }
+        #about .container .content .knowladge .row div p {
+          margin-top: 10px;
+          color: #d4d2d2;
+          transition: all 0.2s ease-out;
+          font-weight: 500; }
+        #about .container .content .knowladge .row div:hover i {
+          border-color: #c43235; }
+        #about .container .content .knowladge .row div:hover p {
+          color: #c43235; }
+
 #intro {
   font-family: "Montserrat", sans-serif;
   height: auto;
   background-color: #111;
   position: relative;
-  top: -80px;
-  padding-top: 170px; }
+  padding-top: 100px; }
   #intro .container .row .intro-text h1 {
     color: white;
     font-size: 30px;
@@ -177,7 +252,7 @@ table {
   left: 0px;
   right: 0px;
   top: 0px;
-  z-index: 5;
+  z-index: 99;
   height: auto;
   font-family: "Montserrat", sans-serif;
   padding: 30px 0px; }
@@ -259,7 +334,10 @@ table {
         color: white;
         font-size: 13px;
         font-weight: 600;
-        cursor: pointer; }
+        cursor: pointer;
+        transition: all .2s ease-out; }
+        #navbar .container .row .lang p:hover {
+          color: #a9abb0; }
       #navbar .container .row .lang ul {
         display: none;
         position: absolute;
@@ -314,5 +392,68 @@ table {
     display: flex; }
   #navbar .container .row .responsive-nav {
     margin-top: 20px; } }
+#skills {
+  font-family: "Montserrat", sans-serif;
+  height: auto;
+  background: url("../img/bg-my-skills.jpg") no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  padding-top: 100px; }
+  #skills:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%; }
+  #skills .container .content {
+    padding: 70px 0px 30px 0px; }
+    #skills .container .content .col-md-6 {
+      margin-bottom: 70px; }
+      #skills .container .content .col-md-6 h2 {
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 30px; }
+      #skills .container .content .col-md-6 .range {
+        width: 100%;
+        height: 18px;
+        background-color: white;
+        position: relative; }
+        #skills .container .content .col-md-6 .range .rating {
+          position: absolute;
+          left: 0px;
+          top: -2px;
+          width: 0%;
+          height: 22px;
+          background-color: #c43235;
+          box-shadow: 0px 0px 1px #c43239; }
+          #skills .container .content .col-md-6 .range .rating:before {
+            content: attr(data-before);
+            font-size: 12px;
+            position: absolute;
+            width: 46px;
+            height: 24px;
+            background-color: #c43235;
+            top: -29px;
+            right: -23px;
+            border-radius: 4px;
+            text-align: center;
+            line-height: 24px;
+            color: white;
+            font-weight: 600; }
+          #skills .container .content .col-md-6 .range .rating:after {
+            content: "";
+            width: 6px;
+            height: 6px;
+            background-color: #c43235;
+            position: absolute;
+            top: -9px;
+            right: -2px;
+            transform: rotate(45deg); }
+          #skills .container .content .col-md-6 .range .rating span {
+            display: none; }
 
 /*# sourceMappingURL=style.css.map */

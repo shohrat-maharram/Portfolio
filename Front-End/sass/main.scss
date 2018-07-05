@@ -1,19 +1,19 @@
-body{
+body {
     height: 3000px;
 }
-// <-- ~~~~~~~~~~~~~~~~~~    Variables    ~~~~~~~~~~~~~~~~~~ --> //
 
+// <-- ~~~~~~~~~~~~~~~~~~    Variables    ~~~~~~~~~~~~~~~~~~ --> //
 $txt-col: white;
-$txt-col-trend:#c43235;//#5e0231; //#6534ff; //#b56969; //#6ed3cf;
+$txt-col2: #d4d2d2;
+$txt-col-trend:#c43235; //#5e0231; //#6534ff; //#b56969; //#6ed3cf;
 $txt-col-dark: #9a9a9a;
 $txt-col-darker: #a9abb0;
 $bg-col: #0c0c0c;
 $bg-col2: #111;
 $bg-col-nav: #222;
 $bg-col-input: #151515;
-$main-font: 'Montserrat', sans-serif;
-
-
+$main-font: 'Montserrat',
+sans-serif;
 // <-- ~~~~~~~~~~~~~~~~~~    Mixins    ~~~~~~~~~~~~~~~~~~ --> //
 @mixin calc($property, $expression) {
     #{$property}: -moz-calc(#{$expression});
@@ -22,11 +22,39 @@ $main-font: 'Montserrat', sans-serif;
 }
 
 // <-- ~~~~~~~~~~~~~~~~~~    General Styles    ~~~~~~~~~~~~~~~~~~ --> //
-
-body{
+body {
     font-family: $main-font;
 }
 
+%title-style {
+    text-align: center;
+    h1 {
+        font-size: 35px;
+        color: $txt-col;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+    p {
+        display: inline-block;
+        color: $txt-col;
+        padding: 1px 5px;
+        background-color: $txt-col-trend;
+        transform: rotate(45deg);
+        position: relative;
+        z-index: 5;
+        &:before {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 1px;
+            background-color: $txt-col-trend;
+            transform: rotate(-45deg);
+            top: 10px;
+            right: -65px;
+            z-index: -1;
+        }
+    }
+}
 
 // <-- ~~~~~~~~~~~~~~~~~~    Imports    ~~~~~~~~~~~~~~~~~~ --> //
 @import 'reset';

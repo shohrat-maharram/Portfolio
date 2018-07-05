@@ -2,10 +2,13 @@ $(document).ready(function () {
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  << Functions Executed on Window scroll >>  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
+    //Variables
+    var shiftSkill = 0;
     $(window).scroll(function () {
 
         //Make navber fixed
         var scrollTopWindow = $(window).scrollTop();
+        // console.log(scrollTopWindow);
         if (scrollTopWindow >= 100) {
             $("#navbar").css({
                 "background-color": "#222",
@@ -18,19 +21,51 @@ $(document).ready(function () {
                 top: "0px"
             }, 300, "linear");
 
-        } else if (scrollTopWindow < 100) {
+        }
+
+        if (scrollTopWindow < 100) {
             $("#navbar").css({
                 "background-color": "transparent",
                 "position": "absolute",
-                "top": "0px",
+                // "top": "0px",
                 "left": "0px",
-                "right": "0px",
+                "right": "0px"
             });
         }
 
         //Slide Up Lang
         $("#navbar .row .lang ul").slideUp("slow");
         shift = 0;
+
+        //Animating skills percent
+        var skillElem, skillElemTop, skillElemPercent;
+
+        function animateSkills(skillIndex) {
+            skillElem = $("#skills .content .col-md-6[data-index=" + skillIndex + "]");
+            skillElemTop = skillElem.offset().top;
+
+            if (((skillElemTop - 550) < scrollTopWindow) && shiftSkill == 0) {
+                // $("#skills .content .col-md-6[data-index=" + skillIndex + "]:nth-child(2):nth-child(1)").css("width", "50%");
+                skillElemPercent = skillElem.find(".rating span").text();
+                var width = 0;
+                setInterval(function () {
+                    if (width <= skillElemPercent) {
+                        width += 1;
+                    }
+                    skillElem.find(".rating").css("width", "" + width + "%");
+                    skillElem.attr('data-before', '60%');
+                }, 10);
+                shiftSkill = 1;
+
+                // skillElem.find(".rating").animate({
+                //     width: "50%"
+                // }, 800, "linear");
+
+            }
+        }
+
+        animateSkills(5);
+        console.log(skillElemPercent);
     })
     //~~~~~~~~~~~~~~~~~~~~  << End of Window scroll >>  ~~~~~~~~~~~~~~~~~~~~//
 
@@ -94,7 +129,7 @@ $(document).ready(function () {
     //~~~~~~~~~~ << End of Function : Language position settings >> ~~~~~~~~~~//
 
 
-    //Language Slide down
+    //Language Slide down&up
     var shift = 0;
     $("#navbar .row .lang p").click(function () {
         if (shift == 0) {
@@ -116,7 +151,7 @@ $(document).ready(function () {
         $("#navbar .container ul li .active").removeClass("active");
         $(this).addClass("active");
     });
-    
+
     $("#navbar .container .responsive-nav ul li a").click(function (e) {
         e.preventDefault();
         $("#navbar .container ul li .active").removeClass("active");
