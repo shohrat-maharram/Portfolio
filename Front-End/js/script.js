@@ -3,12 +3,12 @@ $(document).ready(function () {
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  << Functions Executed on Window scroll >>  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
     //Variables
-    var shiftSkill = 0;
+    var shiftSkill1 = 0;
+    var shiftSkill2 = 0;
     $(window).scroll(function () {
 
         //Make navber fixed
         var scrollTopWindow = $(window).scrollTop();
-        // console.log(scrollTopWindow);
         if (scrollTopWindow >= 100) {
             $("#navbar").css({
                 "background-color": "#222",
@@ -38,34 +38,77 @@ $(document).ready(function () {
         shift = 0;
 
         //Animating skills percent
-        var skillElem, skillElemTop, skillElemPercent;
+        // var skillElem, skillElemTop, skillElemPercent;
 
-        function animateSkills(skillIndex) {
-            skillElem = $("#skills .content .col-md-6[data-index=" + skillIndex + "]");
-            skillElemTop = skillElem.offset().top;
+        // function animateSkills(skillIndex) {
+        //     skillElem = $("#skills .content .col-md-6[data-index=" + skillIndex + "]");
+        //     skillElemTop = skillElem.offset().top;
+        //     skillElemPercent = skillElem.find(".rating span").text();
 
-            if (((skillElemTop - 550) < scrollTopWindow) && shiftSkill == 0) {
-                // $("#skills .content .col-md-6[data-index=" + skillIndex + "]:nth-child(2):nth-child(1)").css("width", "50%");
-                skillElemPercent = skillElem.find(".rating span").text();
-                var width = 0;
+        //     if (((skillElemTop - 550) < scrollTopWindow) && shiftSkill == 0) {
+        //         var width = 0;
+        //         setInterval(function () {
+        //             if (width <= skillElemPercent) {
+        //                 width += 1;
+        //             }
+        //             skillElem.find(".rating").css("width", "" + width + "%");
+
+        //         }, 10);
+        //         skillElem.attr('data-before', '60%');
+        //         shiftSkill = 1;
+
+        //         // skillElem.find(".rating").animate({
+        //         //     width: "50%"
+        //         // }, 800, "linear");
+
+        //     }
+        // }
+        // for (var i = 1; i < 5; i++) {
+        //     animateSkills(i);
+        // }
+
+        // animateSkills(2);
+        // animateSkills(5);
+
+        //Elem 1
+        for (var i = 1; i < 7; i++) {
+            var skillElem1 = $("#skills .content .col-md-6[data-index=" + 1 + "]");
+            var elemTop1 = skillElem1.offset().top;
+            var skillElemPercent1 = skillElem1.find(".rating span").text();
+
+            skillElem1.find(".rating:before").css("BackgrounColor", "blue");;
+
+            if (((elemTop1 - 550) < scrollTopWindow && shiftSkill1 == 0)) {
+                var width1 = 30;
                 setInterval(function () {
-                    if (width <= skillElemPercent) {
-                        width += 1;
+                    if (width1 <= skillElemPercent1) {
+                        width1 += 1;
                     }
-                    skillElem.find(".rating").css("width", "" + width + "%");
-                    skillElem.attr('data-before', '60%');
-                }, 10);
-                shiftSkill = 1;
+                    skillElem1.find(".rating").css("width", "" + width1 + "%");
 
-                // skillElem.find(".rating").animate({
-                //     width: "50%"
-                // }, 800, "linear");
-
+                }, 5);
+                shiftSkill1 = 1;
             }
         }
 
-        animateSkills(5);
-        console.log(skillElemPercent);
+
+        //Elem 2
+        var skillElem2 = $("#skills .content .col-md-6[data-index=" + 2 + "]");
+        var elemTop2 = skillElem2.offset().top;
+        var skillElemPercent2 = skillElem2.find(".rating span").text();
+
+        if (((elemTop2 - 550) < scrollTopWindow && shiftSkill2 == 0)) {
+            var width2 = 30;
+            setInterval(function () {
+                if (width2 <= skillElemPercent2) {
+                    width2 += 1;
+                }
+                skillElem2.find(".rating").css("width", "" + width2 + "%");
+
+            }, 5);
+            shiftSkill2 = 1;
+        }
+
     })
     //~~~~~~~~~~~~~~~~~~~~  << End of Window scroll >>  ~~~~~~~~~~~~~~~~~~~~//
 

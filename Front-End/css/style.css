@@ -397,19 +397,20 @@ table {
   height: auto;
   background: url("../img/bg-my-skills.jpg") no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   background-position: center center;
   position: relative;
   padding-top: 100px; }
   #skills:before {
     content: "";
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     background: rgba(0, 0, 0, 0.5);
     width: 100%;
     height: 100%; }
   #skills .container .content {
-    padding: 70px 0px 30px 0px; }
+    padding: 70px 0 30px; }
     #skills .container .content .col-md-6 {
       margin-bottom: 70px; }
       #skills .container .content .col-md-6 h2 {
@@ -424,16 +425,15 @@ table {
         position: relative; }
         #skills .container .content .col-md-6 .range .rating {
           position: absolute;
-          left: 0px;
+          left: 0;
           top: -2px;
-          width: 0%;
+          width: 30%;
           height: 22px;
           background-color: #c43235;
-          box-shadow: 0px 0px 1px #c43239; }
-          #skills .container .content .col-md-6 .range .rating:before {
-            content: attr(data-before);
-            font-size: 12px;
+          box-shadow: 0 0 1px #c43239; }
+          #skills .container .content .col-md-6 .range .rating span {
             position: absolute;
+            font-size: 12px;
             width: 46px;
             height: 24px;
             background-color: #c43235;
@@ -444,16 +444,14 @@ table {
             line-height: 24px;
             color: white;
             font-weight: 600; }
-          #skills .container .content .col-md-6 .range .rating:after {
-            content: "";
-            width: 6px;
-            height: 6px;
-            background-color: #c43235;
-            position: absolute;
-            top: -9px;
-            right: -2px;
-            transform: rotate(45deg); }
-          #skills .container .content .col-md-6 .range .rating span {
-            display: none; }
+            #skills .container .content .col-md-6 .range .rating span:after {
+              content: "";
+              width: 6px;
+              height: 6px;
+              background-color: #c43235;
+              position: absolute;
+              bottom: -2px;
+              right: 20px;
+              transform: rotate(45deg); }
 
 /*# sourceMappingURL=style.css.map */
