@@ -5,13 +5,17 @@ $(document).ready(function () {
     //Variables
     var shiftSkill1 = 0;
     var shiftSkill2 = 0;
+    var shiftScrollNav = 0;
     $(window).scroll(function () {
 
-        //Make navber fixed
+        //Scroll Top Windows
         var scrollTopWindow = $(window).scrollTop();
-        if (scrollTopWindow >= 100) {
+
+        //Make navber fixed           
+        if ((scrollTopWindow > 100) && (shiftScrollNav == 0)) {
             $("#navbar").css({
-                "background-color": "#222",
+                "background-color": "#151515",
+                "opacity": 0.98,
                 "position": "fixed",
                 "top": "-50px",
                 "left": "0px",
@@ -20,10 +24,9 @@ $(document).ready(function () {
             $("#navbar").animate({
                 top: "0px"
             }, 300, "linear");
-
+            shiftScrollNav = 1;
         }
-
-        if (scrollTopWindow < 100) {
+        if ((scrollTopWindow <= 100) && (shiftScrollNav == 1)) {
             $("#navbar").css({
                 "background-color": "transparent",
                 "position": "absolute",
@@ -31,7 +34,24 @@ $(document).ready(function () {
                 "left": "0px",
                 "right": "0px"
             });
+            shiftScrollNav = 0;
         }
+
+        // var topp = $("#about").offset().top; 35
+        // var topp = $('#about').offset().top - $(window).scrollTop()
+        // console.log(topp);
+
+        //Scrol Spy
+        var sections = $(".section");
+        sections.each(function () {
+            var This = $(this);
+            var height = This.height();
+            var top = This.offset().top - $(window).scrollTop();
+            var bottom = top + height;
+            if ((top < 35) && (bottom > 40)) {
+                addRemoveActive($("#navbar .container ul li .active"), This);
+            }
+        });
 
         //Slide Up Lang
         $("#navbar .row .lang ul").slideUp("slow");
@@ -78,7 +98,7 @@ $(document).ready(function () {
 
             skillElem1.find(".rating:before").css("BackgrounColor", "blue");;
 
-            if (((elemTop1 - 550) < scrollTopWindow && shiftSkill1 == 0)) {
+            if (((elemTop1 - 650) < scrollTopWindow && shiftSkill1 == 0)) {
                 var width1 = 30;
                 setInterval(function () {
                     if (width1 <= skillElemPercent1) {
@@ -86,7 +106,7 @@ $(document).ready(function () {
                     }
                     skillElem1.find(".rating").css("width", "" + width1 + "%");
 
-                }, 5);
+                }, 10);
                 shiftSkill1 = 1;
             }
         }
@@ -97,7 +117,7 @@ $(document).ready(function () {
         var elemTop2 = skillElem2.offset().top;
         var skillElemPercent2 = skillElem2.find(".rating span").text();
 
-        if (((elemTop2 - 550) < scrollTopWindow && shiftSkill2 == 0)) {
+        if (((elemTop2 - 650) < scrollTopWindow && shiftSkill2 == 0)) {
             var width2 = 30;
             setInterval(function () {
                 if (width2 <= skillElemPercent2) {
@@ -105,7 +125,7 @@ $(document).ready(function () {
                 }
                 skillElem2.find(".rating").css("width", "" + width2 + "%");
 
-            }, 5);
+            }, 10);
             shiftSkill2 = 1;
         }
 
@@ -188,17 +208,27 @@ $(document).ready(function () {
     });
 
     // Navbar section
+
+    //~~~~~~~~~~ << New Function : Adding&Removing active class to element >> ~~~~~~~~~~//
+
+    function addRemoveActive(elem, This) {
+        elem.removeClass("active");
+        This.addClass("active");
+    }
+
+    //~~~~~~~~~~ << End of Function : Adding&Removing active class to element >> ~~~~~~~~~~//
+
     //Adding active class to clicked tab
     $("#navbar .container .right-nav ul li a").click(function (e) {
         e.preventDefault();
-        $("#navbar .container ul li .active").removeClass("active");
-        $(this).addClass("active");
+        var This = $(this);
+        addRemoveActive($("#navbar .container ul li .active"), This);
     });
 
     $("#navbar .container .responsive-nav ul li a").click(function (e) {
         e.preventDefault();
-        $("#navbar .container ul li .active").removeClass("active");
-        $(this).addClass("active");
+        var This = $(this);
+        addRemoveActive($("#navbar .container ul li .active"), This);
     })
 
     //Display&Hide responsive nav Click    

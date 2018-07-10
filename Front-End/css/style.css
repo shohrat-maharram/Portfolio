@@ -341,11 +341,13 @@ table {
       #navbar .container .row .lang ul {
         display: none;
         position: absolute;
-        padding: 0px 10px;
-        background-color: #222;
         margin-top: 30px; }
         #navbar .container .row .lang ul li {
-          padding: 10px 0px; }
+          padding: 5px 10px;
+          background-color: #222;
+          margin: 5px 0px;
+          border-radius: 5px;
+          line-height: 16px; }
           #navbar .container .row .lang ul li a {
             text-decoration: none;
             color: #9a9a9a;
@@ -426,9 +428,9 @@ table {
         #skills .container .content .col-md-6 .range .rating {
           position: absolute;
           left: 0;
-          top: -2px;
+          top: -1px;
           width: 30%;
-          height: 22px;
+          height: 20px;
           background-color: #c43235;
           box-shadow: 0 0 1px #c43239; }
           #skills .container .content .col-md-6 .range .rating span {
@@ -437,8 +439,8 @@ table {
             width: 46px;
             height: 24px;
             background-color: #c43235;
-            top: -29px;
-            right: -23px;
+            top: -30px;
+            right: -22px;
             border-radius: 4px;
             text-align: center;
             line-height: 24px;
