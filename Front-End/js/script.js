@@ -37,19 +37,21 @@ $(document).ready(function () {
             shiftScrollNav = 0;
         }
 
-        // var topp = $("#about").offset().top; 35
-        // var topp = $('#about').offset().top - $(window).scrollTop()
-        // console.log(topp);
+        //Hide responsive nav
+        $("#navbar .responsive-nav").slideUp("slow");
+        $("#navbar").css("padding-bottom", "30px");
 
         //Scrol Spy
         var sections = $(".section");
         sections.each(function () {
             var This = $(this);
+            var dataIndex = This.data("index");
             var height = This.height();
             var top = This.offset().top - $(window).scrollTop();
             var bottom = top + height;
-            if ((top < 35) && (bottom > 40)) {
-                addRemoveActive($("#navbar .container ul li .active"), This);
+            if ((top < 45) && (bottom > 100)) {
+                var thisTag = $("#navbar .container ul li[data-index='" + dataIndex + "'] a")
+                addRemoveActive($("#navbar .container ul li .active"), thisTag);
             }
         });
 
@@ -208,7 +210,6 @@ $(document).ready(function () {
     });
 
     // Navbar section
-
     //~~~~~~~~~~ << New Function : Adding&Removing active class to element >> ~~~~~~~~~~//
 
     function addRemoveActive(elem, This) {
@@ -222,13 +223,25 @@ $(document).ready(function () {
     $("#navbar .container .right-nav ul li a").click(function (e) {
         e.preventDefault();
         var This = $(this);
+        var parentIndex = This.parent().data("index");
+        var section = $(".section[data-index='" + parentIndex + "']");
         addRemoveActive($("#navbar .container ul li .active"), This);
+
+        $('html, body').animate({
+            scrollTop: section.offset().top
+        }, 1000);
     });
 
     $("#navbar .container .responsive-nav ul li a").click(function (e) {
         e.preventDefault();
         var This = $(this);
+        var parentIndex = This.parent().data("index");
+        var section = $(".section[data-index='" + parentIndex + "']");
         addRemoveActive($("#navbar .container ul li .active"), This);
+
+        $('html, body').animate({
+            scrollTop: section.offset().top
+        }, 1000);
     })
 
     //Display&Hide responsive nav Click    

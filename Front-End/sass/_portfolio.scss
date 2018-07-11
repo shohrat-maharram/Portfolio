@@ -1,0 +1,14 @@
+#portfolio {
+    font-family: $main-font;
+    height: 600px;
+    background-color: $bg-col;
+    position: relative;
+    padding: 100px 0px 40px 0px;
+    .container {
+        .title {
+            @extend %title-style;
+        }
+
+        
+    }
+}

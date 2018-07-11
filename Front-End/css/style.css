@@ -1,17 +1,17 @@
 body {
-  height: 3000px; }
+  height: 5000px; }
 
 body {
   font-family: "Montserrat", sans-serif; }
 
-#about .container .title, #skills .container .title {
+#about .container .title, #portfolio .container .title, #skills .container .title {
   text-align: center; }
-  #about .container .title h1, #skills .container .title h1 {
+  #about .container .title h1, #portfolio .container .title h1, #skills .container .title h1 {
     font-size: 35px;
     color: white;
     font-weight: 600;
     margin-bottom: 20px; }
-  #about .container .title p, #skills .container .title p {
+  #about .container .title p, #portfolio .container .title p, #skills .container .title p {
     display: inline-block;
     color: white;
     padding: 1px 5px;
@@ -19,7 +19,7 @@ body {
     transform: rotate(45deg);
     position: relative;
     z-index: 5; }
-    #about .container .title p:before, #skills .container .title p:before {
+    #about .container .title p:before, #portfolio .container .title p:before, #skills .container .title p:before {
       content: "";
       position: absolute;
       width: 150px;
@@ -215,12 +215,10 @@ table {
     font-size: 30px;
     margin-top: 35px;
     line-height: 40px; }
-  #intro .container .row .intro-text .name {
-    font-weight: 600; }
-    #intro .container .row .intro-text .name span {
-      font-weight: 700;
-      font-size: 38px;
-      letter-spacing: 3px; }
+  #intro .container .row .intro-text .name span {
+    font-weight: 600;
+    font-size: 38px;
+    letter-spacing: 3px; }
   #intro .container .row .intro-text .cv ul {
     display: flex;
     justify-content: space-between; }
@@ -394,6 +392,13 @@ table {
     display: flex; }
   #navbar .container .row .responsive-nav {
     margin-top: 20px; } }
+#portfolio {
+  font-family: "Montserrat", sans-serif;
+  height: 600px;
+  background-color: #0c0c0c;
+  position: relative;
+  padding: 100px 0px 40px 0px; }
+
 #skills {
   font-family: "Montserrat", sans-serif;
   height: auto;
