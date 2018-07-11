@@ -1,5 +1,6 @@
 body {
-  height: 5000px; }
+  height: 5000px;
+  position: relative; }
 
 body {
   font-family: "Montserrat", sans-serif; }
@@ -479,6 +480,21 @@ table {
     #portfolio .container .itemsCover .show {
       transform: scale(1);
       transition: all 0.5s ease-out; }
+
+#slideCover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  background-color: black;
+  opacity: 0.6; }
+  #slideCover .slideContainer {
+    position: relative;
+    z-index: 1000;
+    max-width: 500px;
+    width: 100%; }
 
 #skills {
   font-family: "Montserrat", sans-serif;
