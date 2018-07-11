@@ -49,7 +49,7 @@ $(document).ready(function () {
             var height = This.height();
             var top = This.offset().top - $(window).scrollTop();
             var bottom = top + height;
-            if ((top < 45) && (bottom > 100)) {
+            if ((top < 55) && (bottom > 100)) {
                 var thisTag = $("#navbar .container ul li[data-index='" + dataIndex + "'] a")
                 addRemoveActive($("#navbar .container ul li .active"), thisTag);
             }
@@ -244,9 +244,140 @@ $(document).ready(function () {
         }, 1000);
     })
 
+    //Adding active class to clicked tab i Portfolio section
+    $("#portfolio .container .menu ul li a").click(function (e) {
+        e.preventDefault();
+        var This = $(this);
+        addRemoveActive($("#portfolio .container .menu ul li .active"), This);
+    });
+
+    //Scroll to Contact info
+    $("#intro .intro-text .cv ul li.contactInfo a").click(function (e) {
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: $("#contacts").offset().top
+        }, 500);
+    });
+
+
+
     //Display&Hide responsive nav Click    
     $("#navbar .right-nav .menuContainer").click(function () {
         $("#navbar .responsive-nav").slideToggle("slow");
         $("#navbar").css("padding-bottom", "30px");
     })
+
+
+    //Show portfolio works by category #IzotopByMe
+
+    var category, elemPort;
+    $("#portfolio .container .menu ul li a").click(function () {
+        var This = $(this);
+        category = This.parent().data("cat");
+        elemPort = $("#portfolio .container .items");
+        elemPortCat = $("#portfolio .container .items[data-cat='" + category + "']");
+        // alert(category);
+
+        // if (category == 0) {
+        //     $("#portfolio .container .items").addClass("hide");
+        //     var inter = setInterval(function () {
+        //         $("#portfolio .container .items").removeClass("hide");
+        //     }, 500);
+        //     // clearInterval(inter);
+        // } else {
+        //     $("#portfolio .container .items").addClass("hide");
+        //     setInterval(function () {
+        //         $("#portfolio .container .items[data-cat='" + category + "']").removeClass("hide");
+        //     }, 500);
+
+        //     // $("#portfolio .container .items[data-cat='" + category + "']").show("slow");
+        // }
+
+
+        if (category == 0) {
+
+            elemPort.animate({
+                opacity: '0',
+                width: '0px'
+            }, 500, function () {
+                elemPort.css({
+                    "display": "block"
+                });
+            });
+            elemPort.animate({
+                opacity: '1',
+                width: '100%'
+            }, 500);
+        } else {
+            elemPort.animate({
+                opacity: '0',
+                width: '0px'
+            }, 500, function () {
+                elemPort.css({
+                    "display": "none"
+                });
+                elemPortCat.css({
+                    "display": "block"
+                });
+            });
+            elemPortCat.animate({
+                opacity: '1',
+                width: '100%'
+            }, 500);
+        }
+
+        // if (category == 0) {
+        //     $("#portfolio .container .items").show("slow");
+        // } else {
+        //     $("#portfolio .container .items[data-cat='" + category + "']").show("slow");
+        // }
+        // $("#portfolio .container .itemsCover .items").css({"width":"0px"});
+
+    })
+
+
+
+
+
+
+
+
+
+
+    //Create scrollTop button
+    // function scrollToTop(e) {
+    //     var step;
+    //     var posOne = window.pageYOffset;
+
+    //     if (posOne < 1500) {
+    //         step = 10;
+    //     } else {
+    //         step = 40;
+    //     }
+
+    //     var scrollToTopInt = setInterval(function () {
+    //         var pos = window.pageYOffset;
+    //         if (pos > 0) {
+    //             window.scrollTo(0, pos - step);
+    //         } else {
+    //             window.clearInterval(scrollToTopInt);
+    //         }
+    //     }, 0.2);
+    // }
+
+    // function showScrollToTop() {
+    //     var scrollToTop = document.getElementsByClassName("scrollToTop")[0];
+    //     var viewPortHeight = document.documentElement.clientHeight;
+    //     var windowTopPos = window.pageYOffset;
+    //     if (windowTopPos > (viewPortHeight - 500)) {
+    //         scrollToTop.style.opacity = "1";
+    //         scrollToTop.style.cursor = "pointer";
+
+    //     }
+    //     if (windowTopPos < (viewPortHeight - 300)) {
+    //         scrollToTop.style.opacity = "0";
+    //         scrollToTop.style.cursor = "default";
+    //     }
+    // }
+    // window.addEventListener("scroll", showScrollToTop);
 });

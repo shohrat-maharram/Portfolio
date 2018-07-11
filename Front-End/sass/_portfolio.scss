@@ -1,6 +1,6 @@
 #portfolio {
     font-family: $main-font;
-    height: 600px;
+    height: auto;
     background-color: $bg-col;
     position: relative;
     padding: 100px 0px 40px 0px;
@@ -8,7 +8,112 @@
         .title {
             @extend %title-style;
         }
+        .menu {
+            ul {
+                text-align: center;
+                margin-top: 70px;
+                li {
+                    display: inline-block;
+                    list-style: none;
+                    a {
+                        text-decoration: none;
+                        color: $txt-col-trend;
+                        font-size: 13px;
+                        font-weight: 600;
+                        padding: 8px 27px;
+                        margin: 0px 5px;
+                        border: 1px dashed $txt-col-trend;
+                        border-radius: 25px;
+                        transition: all 0.3s ease-out;
+                        &:hover {
+                            color: $txt-col;
+                            background-color: $txt-col-trend;
+                        }
+                    }
+                    .active {
+                        color: $txt-col;
+                        background-color: $txt-col-trend;
+                    }
+                }
+            }
+        }
+        .itemsCover {
+            margin-top: 80px;
+            .items {
+                margin-bottom: 30px;
+                position: relative;
+                .item {
+                    width: 100%;
+                    max-height: 250px;
+                    position: relative;
+                    overflow: hidden;
+                    transition: all 0.3s ease-out;
+                    border: 5px solid white;
+                    &:hover {
+                        // border: 3px solid $txt-col-trend;
+                        .overlay {
+                            opacity: 1;
+                            h2 {
+                                top: 95px;
+                            }
+                            p {
+                                top: 105px; // color: $txt-col-trend;
+                            }
+                        }
+                    }
+                    img {
+                        width: 100%;
+                        max-height: 250px;
+                        position: relative;
+                    }
+                    .overlay {
+                        position: absolute;
+                        right: 0;
+                        left: 0;
+                        top: 0;
+                        bottom: 0;
+                        background-color: $bg-col2;
+                        opacity: 0;
+                        text-align: center;
+                        transition: all 0.3s ease-out;
+                        h2 {
+                            color: $txt-col;
+                            font-size: 19px;
+                            font-weight: 700;
+                            letter-spacing: 2px;
+                            position: relative;
+                            top: 85px;
+                            transition: all 0.3s ease-out;
+                        }
+                        p {
+                            color: #a5a2a2;
+                            font-size: 15px;
+                            position: relative;
+                            top: 115px;
+                            transition: all 0.3s ease-out;
+                        }
+                        i {
+                            position: absolute;
+                            right: 15px;
+                            color: white;
+                            bottom: 15px;
+                            font-size: 30px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
 
-        
+            .hide{
+                // transform: ;
+                transform: translate(-100px, -100px) scale(0);
+                transition: all 0.5s ease-out;
+            }
+
+            .show {
+                transform: scale(1);
+                transition: all 0.5s ease-out;
+            }
+        }
     }
 }

@@ -394,10 +394,91 @@ table {
     margin-top: 20px; } }
 #portfolio {
   font-family: "Montserrat", sans-serif;
-  height: 600px;
+  height: auto;
   background-color: #0c0c0c;
   position: relative;
   padding: 100px 0px 40px 0px; }
+  #portfolio .container .menu ul {
+    text-align: center;
+    margin-top: 70px; }
+    #portfolio .container .menu ul li {
+      display: inline-block;
+      list-style: none; }
+      #portfolio .container .menu ul li a {
+        text-decoration: none;
+        color: #c43235;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 8px 27px;
+        margin: 0px 5px;
+        border: 1px dashed #c43235;
+        border-radius: 25px;
+        transition: all 0.3s ease-out; }
+        #portfolio .container .menu ul li a:hover {
+          color: white;
+          background-color: #c43235; }
+      #portfolio .container .menu ul li .active {
+        color: white;
+        background-color: #c43235; }
+  #portfolio .container .itemsCover {
+    margin-top: 80px; }
+    #portfolio .container .itemsCover .items {
+      margin-bottom: 30px;
+      position: relative; }
+      #portfolio .container .itemsCover .items .item {
+        width: 100%;
+        max-height: 250px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease-out;
+        border: 5px solid white; }
+        #portfolio .container .itemsCover .items .item:hover .overlay {
+          opacity: 1; }
+          #portfolio .container .itemsCover .items .item:hover .overlay h2 {
+            top: 95px; }
+          #portfolio .container .itemsCover .items .item:hover .overlay p {
+            top: 105px; }
+        #portfolio .container .itemsCover .items .item img {
+          width: 100%;
+          max-height: 250px;
+          position: relative; }
+        #portfolio .container .itemsCover .items .item .overlay {
+          position: absolute;
+          right: 0;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          background-color: #111;
+          opacity: 0;
+          text-align: center;
+          transition: all 0.3s ease-out; }
+          #portfolio .container .itemsCover .items .item .overlay h2 {
+            color: white;
+            font-size: 19px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            position: relative;
+            top: 85px;
+            transition: all 0.3s ease-out; }
+          #portfolio .container .itemsCover .items .item .overlay p {
+            color: #a5a2a2;
+            font-size: 15px;
+            position: relative;
+            top: 115px;
+            transition: all 0.3s ease-out; }
+          #portfolio .container .itemsCover .items .item .overlay i {
+            position: absolute;
+            right: 15px;
+            color: white;
+            bottom: 15px;
+            font-size: 30px;
+            cursor: pointer; }
+    #portfolio .container .itemsCover .hide {
+      transform: translate(-100px, -100px) scale(0);
+      transition: all 0.5s ease-out; }
+    #portfolio .container .itemsCover .show {
+      transform: scale(1);
+      transition: all 0.5s ease-out; }
 
 #skills {
   font-family: "Montserrat", sans-serif;
