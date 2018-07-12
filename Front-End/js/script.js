@@ -1,10 +1,33 @@
 $(document).ready(function () {
 
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  << Functions Executed on Window load >>  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+
+    $(function () {
+        $(window).on("load", function () {
+
+            var width = $(window).width();
+            var height = $(window).height();
+
+        });
+    });
+    //~~~~~~~~~~~~~~~~~~~~  << End of Window load >>  ~~~~~~~~~~~~~~~~~~~~//
+
+
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  << Functions Executed on Window scroll >>  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
     //Variables
+    // var shiftSkill = {};
+    // for (var i = 1; i <= $("#skills .content .col-md-6").length; i++) {
+    //     shiftSkill[i] = 0;
+    // }
     var shiftSkill1 = 0;
     var shiftSkill2 = 0;
+    var shiftSkill3 = 0;
+    var shiftSkill4 = 0;
+    var shiftSkill5 = 0;
+    var shiftSkill6 = 0;
+    var shiftSkill7 = 0;
     var shiftScrollNav = 0;
     $(window).scroll(function () {
 
@@ -60,57 +83,50 @@ $(document).ready(function () {
         shift = 0;
 
         //Animating skills percent
-        // var skillElem, skillElemTop, skillElemPercent;
+        // var skillElements;
+        // var skillElem = {};
+        // var elemTop = {};
+        // var skillElemPercent = {};
+        // skillElements = $("#skills .content .col-md-6");
+        // for (var i = 1; i <= skillElements.length; i++) {
+        //     skillElem[i] = $("#skills .content .col-md-6[data-index=" + i + "]");
+        //     elemTop[i] = skillElem[i].offset().top;
+        //     skillElemPercent[i] = skillElem[i].find(".rating span").text();
+        //     // shiftSkill[4] = 1;
 
-        // function animateSkills(skillIndex) {
-        //     skillElem = $("#skills .content .col-md-6[data-index=" + skillIndex + "]");
-        //     skillElemTop = skillElem.offset().top;
-        //     skillElemPercent = skillElem.find(".rating span").text();
+        //     if (((elemTop[i] - 650) < scrollTopWindow && shiftSkill[i] == 0)) {
+        //         console.log(skillElem[i]);
 
-        //     if (((skillElemTop - 550) < scrollTopWindow) && shiftSkill == 0) {
-        //         var width = 0;
-        //         setInterval(function () {
-        //             if (width <= skillElemPercent) {
-        //                 width += 1;
-        //             }
-        //             skillElem.find(".rating").css("width", "" + width + "%");
+        //         // var width = {};
+        //         // width[i] = 30;
+        //         // setInterval(function () {
+        //         //     if (width[i] <= skillElemPercent[i]) {
+        //         //         width[i] += 1;
+        //         //     }
+        //         //     $("#skills .content .col-md-6[data-index=" + i + "]").find(".rating").css("width", "" + width[i] + "%");
 
-        //         }, 10);
-        //         skillElem.attr('data-before', '60%');
-        //         shiftSkill = 1;
-
-        //         // skillElem.find(".rating").animate({
-        //         //     width: "50%"
-        //         // }, 800, "linear");
-
+        //         // }, 10);
+        //         // shiftSkill[i] = 1;
         //     }
         // }
-        // for (var i = 1; i < 5; i++) {
-        //     animateSkills(i);
-        // }
 
-        // animateSkills(2);
-        // animateSkills(5);
 
         //Elem 1
-        for (var i = 1; i < 7; i++) {
-            var skillElem1 = $("#skills .content .col-md-6[data-index=" + 1 + "]");
-            var elemTop1 = skillElem1.offset().top;
-            var skillElemPercent1 = skillElem1.find(".rating span").text();
 
-            skillElem1.find(".rating:before").css("BackgrounColor", "blue");;
+        var skillElem1 = $("#skills .content .col-md-6[data-index=" + 1 + "]");
+        var elemTop1 = skillElem1.offset().top;
+        var skillElemPercent1 = skillElem1.find(".rating span").text();
 
-            if (((elemTop1 - 650) < scrollTopWindow && shiftSkill1 == 0)) {
-                var width1 = 30;
-                setInterval(function () {
-                    if (width1 <= skillElemPercent1) {
-                        width1 += 1;
-                    }
-                    skillElem1.find(".rating").css("width", "" + width1 + "%");
+        if (((elemTop1 - 650) < scrollTopWindow && shiftSkill1 == 0)) {
+            var width1 = 30;
+            setInterval(function () {
+                if (width1 <= skillElemPercent1) {
+                    width1 += 1;
+                }
+                skillElem1.find(".rating").css("width", "" + width1 + "%");
 
-                }, 10);
-                shiftSkill1 = 1;
-            }
+            }, 10);
+            shiftSkill1 = 1;
         }
 
 
@@ -159,6 +175,24 @@ $(document).ready(function () {
         //Slide Up Lang
         $("#navbar .row .lang ul").slideUp("slow");
         shift = 0;
+
+        //Margins of slider
+        var imageHeight = $("#slideCover .slideContainer img").height();
+        var elemAdj = $("#slideCover .slideContainer")
+        adjElemTop(elemAdj, imageHeight, height);
+
+        //Margins of slider
+        var buttonHeight = $("#slideCover .angleBoth").height();
+        var buttonAdj = $("#slideCover .angleBoth")
+        adjElemTop(buttonAdj, buttonHeight, height);
+
+
+        //Max-Width and max-height of Slider
+        $("#slideCover .slideContainer img").css({
+            "maxWidth": "" + (width * 70) / 100 + "px",
+            "maxHeight": "" + (height * 70) / 100 + "px"
+        });
+
     });
     //~~~~~~~~~~~~~~~~~~~~  << End of Window resize >>  ~~~~~~~~~~~~~~~~~~~~//
 
@@ -169,20 +203,58 @@ $(document).ready(function () {
         pageX = event.pageX;
         pageY = event.pageY;
 
-        //Slude up Language
-        langPositions($("#navbar .row .lang"), 105, 150);
+        //Slide up Language
+        elemPositions($("#navbar .row .lang"), 105, 150);
         if (!((pageX > elemLeft) && (pageX < elemRight) && (pageY > elemTop) && (pageY < elemBottom))) {
             $("#navbar .row .lang ul").slideUp("slow");
             shift = 0;
         }
+
+
+
+        // elemPositions($("#navbar .row .lang"), 105, 150, "lang", $("#navbar .row .lang ul").slideUp("slow"));
+
+        // //Close Slide Image
+        // if ($("#slideCover.active").length > 0) {
+        //     var elemImage = $("#slideCover .slideContainer img");
+        //     var elemImageWidth = $("#slideCover .slideContainer img").width();
+        //     var elemImageHeight = $("#slideCover .slideContainer img").height();
+
+        //     elemPositions(elemImage, elemImageWidth, elemImageHeight, "slide");
+        //     if (!((pageX > elemLeft) && (pageX < elemRight) && (pageY > elemTop) && (pageY < elemBottom))) {
+        //         $("#slideCover").css("display", "none");
+        //     }
+        // }
     });
     //~~~~~~~~~~~~~~~~~~~~  << End of Mouse clicked position >>  ~~~~~~~~~~~~~~~~~~~~//
 
 
     //~~~~~~~~~~ << New Function : Language position settings >> ~~~~~~~~~~//
+    // var elemLeft = {},
+    //     elemRight = {},
+    //     elemTop = {},
+    //     elemBottom = {},
+    //     elemPos = {};
+
+    // function elemPositions(elem, Width, Height, dif, func) {
+    //     if (elem && Width > 0 && Height > 0) {
+    //         elemPos[dif] = elem.offset();
+    //         elemTop[dif] = elemPos[dif].top;
+    //         elemLeft[dif] = elemPos[dif].left;
+    //         elemRight[dif] = (elemLeft[dif] + Width);
+    //         elemBottom[dif] = (elemTop[dif] + Height);
+    //     }
+
+    //     if (!((pageX > elemLeft[dif]) && (pageX < elemRight[dif]) && (pageY > elemTop[dif]) && (pageY < elemBottom[dif]))) {
+    //         func;
+    //         shift = 0;
+    //     }
+    // }
+
+
     var elemLeft, elemRight, elemTop, elemBottom, elemPos;
 
-    function langPositions(elem, Width, Height) {
+    function elemPositions(elem, Width, Height) {
         if (elem && Width > 0 && Height > 0) {
             elemPos = elem.offset();
             elemTop = elemPos.top;
@@ -191,6 +263,14 @@ $(document).ready(function () {
             elemBottom = (elemTop + Height);
         }
     }
+    //~~~~~~~~~~ << End of Function : Language position settings >> ~~~~~~~~~~//
+
+
+    //~~~~~~~~~~ << New Function : Adjust top of Slider >> ~~~~~~~~~~//
+    function adjElemTop(elemAdj, elemHeight, windowHeight) {
+        elemAdj.css("top", "" + (windowHeight - elemHeight) / 2 + "px");
+    }
+
     //~~~~~~~~~~ << End of Function : Language position settings >> ~~~~~~~~~~//
 
 
@@ -276,23 +356,6 @@ $(document).ready(function () {
         category = This.parent().data("cat");
         elemPort = $("#portfolio .container .items");
         elemPortCat = $("#portfolio .container .items[data-cat='" + category + "']");
-        // alert(category);
-
-        // if (category == 0) {
-        //     $("#portfolio .container .items").addClass("hide");
-        //     var inter = setInterval(function () {
-        //         $("#portfolio .container .items").removeClass("hide");
-        //     }, 500);
-        //     // clearInterval(inter);
-        // } else {
-        //     $("#portfolio .container .items").addClass("hide");
-        //     setInterval(function () {
-        //         $("#portfolio .container .items[data-cat='" + category + "']").removeClass("hide");
-        //     }, 500);
-
-        //     // $("#portfolio .container .items[data-cat='" + category + "']").show("slow");
-        // }
-
 
         if (category == 0) {
 
@@ -325,16 +388,30 @@ $(document).ready(function () {
                 width: '100%'
             }, 500);
         }
-
-        // if (category == 0) {
-        //     $("#portfolio .container .items").show("slow");
-        // } else {
-        //     $("#portfolio .container .items[data-cat='" + category + "']").show("slow");
-        // }
-        // $("#portfolio .container .itemsCover .items").css({"width":"0px"});
-
     })
 
+    //Slider of portfolio section
+
+    var slideImgIcon = $("#portfolio .itemsCover .items .item .overlay .slideImgIcon");
+    slideImgIcon.click(function () {
+        var This = $(this);
+        var slideImgIconIndex = This.data("index");
+        $("#slideCover").css("display", "flex").addClass("active");
+
+        //Margins of slider
+        var imageHeight = $("#slideCover .slideContainer img").height();
+        var elemAdj = $("#slideCover .slideContainer")
+        adjElemTop(elemAdj, imageHeight, $(window).height());
+
+        //Margins of angles
+        var buttonHeight = $("#slideCover .angleBoth").height();
+        var buttonAdj = $("#slideCover .angleBoth")
+        adjElemTop(buttonAdj, buttonHeight, $(window).height());
+    });
+
+    $("#slideCover .closeSlide").click(function () {
+        $("#slideCover").css("display", "none").removeClass("active");
+    });
 
 
 
@@ -344,7 +421,10 @@ $(document).ready(function () {
 
 
 
-    //Create scrollTop button
+
+
+
+    // Create scrollTop button
     // function scrollToTop(e) {
     //     var step;
     //     var posOne = window.pageYOffset;

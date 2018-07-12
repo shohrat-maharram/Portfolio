@@ -117,19 +117,108 @@
 }
 
 #slideCover {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    z-index: 999;
-    background-color: black;
-    opacity: 0.6;
-
-    .slideContainer{
-        position: relative;
-        z-index: 1000;
-        max-width: 500px;
+    font-family: $font-2;
+    display: none;
+    justify-content: center;
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
+        height: 100%;
+        z-index: 999;
+        background-color: #000;
+        opacity: .9;
+    }
+    .slideContainer {
+        position: fixed;
+        top: 100px;
+        opacity: 1;
+        z-index: 1000;
+        max-width: 900px;
+        max-height: 700px;
+        display: flex;
+        margin: 4px;
+        justify-content: center;
+        img {
+            opacity: 1;
+            max-width: 100%;
+            max-height: 80%;
+        }
+        .closeSlide {
+            position: absolute;
+            top: -26px;
+            right: -3px;
+            width: 26px;
+            height: 26px;
+            cursor: pointer;
+            transition: all 0.2s ease-out;
+            &:hover {
+                &:before {
+                    background-color: $txt-col;
+                }
+                &:after {
+                    background-color: $txt-col;
+                }
+            }
+            &:before {
+                content: "";
+                height: 2px;
+                width: 13px;
+                background-color: $txt-col-darker;
+                position: absolute;
+                top: 6px;
+                transform: rotate(45deg);
+                left: 12px;
+                transition: all 0.2s ease-out;
+            }
+            &:after {
+                content: "";
+                height: 2px;
+                width: 13px;
+                background-color: $txt-col-darker;
+                position: absolute;
+                bottom: 18px;
+                transform: rotate(-45deg);
+                left: 12px;
+                transition: all 0.2s ease-out;
+            }
+        }
+        .countSlide {
+            position: absolute;
+            bottom: -20px;
+            right: -1px;
+            color: $txt-col-darker;
+            font-size: 13px;
+        }
+    }
+    .angleBoth {
+        position: fixed;
+        top: 100px;
+        width: 100px;
+        height: 100px;
+        z-index: 1000;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        cursor: pointer;
+        i {
+            color: $txt-col-darker;
+            font-size: 60px;
+            align-self: center;
+            transition: all 0.2s ease-out;
+        }
+        &:hover {
+            i {
+                color: $txt-col;
+            }
+        }
+    }
+    .angleRight {
+        right: 0px;
+    }
+    .angleLeft {
+        left: 0px;
     }
 }

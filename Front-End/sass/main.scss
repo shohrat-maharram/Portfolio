@@ -15,6 +15,8 @@ $bg-col-nav: #222;
 $bg-col-input: #151515;
 $main-font: 'Montserrat',
 sans-serif;
+$font-2:"Times New Roman";
+
 // <-- ~~~~~~~~~~~~~~~~~~    Mixins    ~~~~~~~~~~~~~~~~~~ --> //
 @mixin calc($property, $expression) {
     #{$property}: -moz-calc(#{$expression});

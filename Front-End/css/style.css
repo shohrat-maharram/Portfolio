@@ -482,19 +482,92 @@ table {
       transition: all 0.5s ease-out; }
 
 #slideCover {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: 999;
-  background-color: black;
-  opacity: 0.6; }
+  font-family: "Times New Roman";
+  display: none;
+  justify-content: center; }
+  #slideCover .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background-color: #000;
+    opacity: .9; }
   #slideCover .slideContainer {
-    position: relative;
+    position: fixed;
+    top: 100px;
+    opacity: 1;
     z-index: 1000;
-    max-width: 500px;
-    width: 100%; }
+    max-width: 900px;
+    max-height: 700px;
+    display: flex;
+    margin: 4px;
+    justify-content: center; }
+    #slideCover .slideContainer img {
+      opacity: 1;
+      max-width: 100%;
+      max-height: 80%; }
+    #slideCover .slideContainer .closeSlide {
+      position: absolute;
+      top: -26px;
+      right: -3px;
+      width: 26px;
+      height: 26px;
+      cursor: pointer;
+      transition: all 0.2s ease-out; }
+      #slideCover .slideContainer .closeSlide:hover:before {
+        background-color: white; }
+      #slideCover .slideContainer .closeSlide:hover:after {
+        background-color: white; }
+      #slideCover .slideContainer .closeSlide:before {
+        content: "";
+        height: 2px;
+        width: 13px;
+        background-color: #a9abb0;
+        position: absolute;
+        top: 6px;
+        transform: rotate(45deg);
+        left: 12px;
+        transition: all 0.2s ease-out; }
+      #slideCover .slideContainer .closeSlide:after {
+        content: "";
+        height: 2px;
+        width: 13px;
+        background-color: #a9abb0;
+        position: absolute;
+        bottom: 18px;
+        transform: rotate(-45deg);
+        left: 12px;
+        transition: all 0.2s ease-out; }
+    #slideCover .slideContainer .countSlide {
+      position: absolute;
+      bottom: -20px;
+      right: -1px;
+      color: #a9abb0;
+      font-size: 13px; }
+  #slideCover .angleBoth {
+    position: fixed;
+    top: 100px;
+    width: 100px;
+    height: 100px;
+    z-index: 1000;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    cursor: pointer; }
+    #slideCover .angleBoth i {
+      color: #a9abb0;
+      font-size: 60px;
+      align-self: center;
+      transition: all 0.2s ease-out; }
+    #slideCover .angleBoth:hover i {
+      color: white; }
+  #slideCover .angleRight {
+    right: 0px; }
+  #slideCover .angleLeft {
+    left: 0px; }
 
 #skills {
   font-family: "Montserrat", sans-serif;
