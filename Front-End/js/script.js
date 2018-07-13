@@ -399,7 +399,7 @@ $(document).ready(function () {
         $("#slideCover").css("display", "flex").addClass("active");
 
         //Margins of slider
-        var imageHeight = $("#slideCover .slideContainer img").height();
+        var imageHeight = $("#slideCover .slideContainer .active").height();
         var elemAdj = $("#slideCover .slideContainer")
         adjElemTop(elemAdj, imageHeight, $(window).height());
 
@@ -468,14 +468,15 @@ $(document).ready(function () {
         });
     }
 
+    //Send message button
 
+    $("#contacts .form button").mouseenter(function () {
+        $(this).removeClass("back").removeClass("hoverB").addClass("hoverR");
+    });
 
-
-
-
-
-
-
+    $("#contacts .form button").mouseout(function () {
+        $(this).removeClass("hoverR").addClass("hoverB");
+    });
 
 
 

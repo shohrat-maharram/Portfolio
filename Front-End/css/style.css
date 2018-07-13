@@ -5,14 +5,14 @@ body {
 body {
   font-family: "Montserrat", sans-serif; }
 
-#about .container .title, #portfolio .container .title, #skills .container .title {
+#about .container .title, #contacts .container .title, #portfolio .container .title, #skills .container .title {
   text-align: center; }
-  #about .container .title h1, #portfolio .container .title h1, #skills .container .title h1 {
+  #about .container .title h1, #contacts .container .title h1, #portfolio .container .title h1, #skills .container .title h1 {
     font-size: 35px;
     color: white;
     font-weight: 600;
     margin-bottom: 20px; }
-  #about .container .title p, #portfolio .container .title p, #skills .container .title p {
+  #about .container .title p, #contacts .container .title p, #portfolio .container .title p, #skills .container .title p {
     display: inline-block;
     color: white;
     padding: 1px 5px;
@@ -20,7 +20,7 @@ body {
     transform: rotate(45deg);
     position: relative;
     z-index: 5; }
-    #about .container .title p:before, #portfolio .container .title p:before, #skills .container .title p:before {
+    #about .container .title p:before, #contacts .container .title p:before, #portfolio .container .title p:before, #skills .container .title p:before {
       content: "";
       position: absolute;
       width: 150px;
@@ -205,6 +205,63 @@ table {
         #about .container .content .knowladge .row div:hover p {
           color: #c43235; }
 
+#contacts {
+  font-family: "Montserrat", sans-serif;
+  height: auto;
+  background-color: #0c0c0c;
+  position: relative;
+  padding: 100px 0px 40px 0px; }
+  #contacts .container .form {
+    margin-top: 60px; }
+    #contacts .container .form .row {
+      margin-top: 25px; }
+      #contacts .container .form .row .input {
+        background-color: #151515;
+        border: none;
+        font-size: 14px;
+        color: #d4d2d2;
+        max-height: 200px; }
+        #contacts .container .form .row .input::placeholder {
+          color: #696969; }
+        #contacts .container .form .row .input:focus {
+          box-shadow: none; }
+      #contacts .container .form .row p {
+        font-size: 12px;
+        color: #696969;
+        margin-top: 12px; }
+        #contacts .container .form .row p span {
+          font-weight: bold; }
+      #contacts .container .form .row button {
+        background-color: #151515;
+        border: none;
+        font-size: 13px;
+        padding: 11px 30px;
+        letter-spacing: 2px;
+        transition: all 0.2s ease-out;
+        float: right;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        font-weight: 500; }
+        #contacts .container .form .row button:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -200px;
+          width: 100%;
+          height: 100%;
+          background-color: #c43235;
+          border-radius: 4px;
+          z-index: -1;
+          transition: left 0.2s ease-in-out; }
+      #contacts .container .form .row .hoverR:before {
+        left: 0px; }
+      #contacts .container .form .row .hoverB:before {
+        left: 200px; }
+      #contacts .container .form .row .back:before {
+        transition: none;
+        left: -200px; }
+
 #intro {
   font-family: "Montserrat", sans-serif;
   height: auto;
@@ -274,7 +331,7 @@ table {
           font-size: 13px;
           font-weight: 600;
           text-decoration: none;
-          margin: 0px 10px;
+          margin: 0px 20px;
           padding: 10px 0px;
           position: relative;
           transition: all 0.3s ease-in-out; }
@@ -396,7 +453,7 @@ table {
 #portfolio {
   font-family: "Montserrat", sans-serif;
   height: auto;
-  background-color: #0c0c0c;
+  background-color: #111;
   position: relative;
   padding: 100px 0px 40px 0px; }
   #portfolio .container .menu ul {
@@ -487,7 +544,6 @@ table {
   justify-content: center; }
   #slideCover .slideContainer {
     position: fixed;
-    top: 100px;
     opacity: 1;
     z-index: 1000;
     max-width: 900px;
@@ -557,7 +613,6 @@ table {
     z-index: 1000;
     border-radius: 100%;
     display: flex;
-    justify-content: center;
     align-content: center;
     cursor: pointer; }
     #slideCover .angleBoth i {
@@ -568,9 +623,11 @@ table {
     #slideCover .angleBoth:hover i {
       color: white; }
   #slideCover .angleRight {
-    right: 0px; }
+    right: 10px;
+    justify-content: flex-end; }
   #slideCover .angleLeft {
-    left: 0px; }
+    left: 10px;
+    justify-content: flex-start; }
 
 #skills {
   font-family: "Montserrat", sans-serif;
