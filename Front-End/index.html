@@ -352,14 +352,24 @@
 
     <div id="slideCover">
         <div class="slideContainer">
-            <img src="img/4.jpg" alt="">
+            <img class="item active" src="img/1.jpg" alt="" data-pos="1">
+            <img class="item" src="img/2.jpg" alt="" data-pos="2">
+            <img class="item" src="img/3.jpg" alt="" data-pos="3">
+            <img class="item" src="img/4.jpg" alt="" data-pos="4">
+            <img class="item" src="img/5.jpg" alt="" data-pos="5">
+            <img class="item" src="img/6.jpg" alt="" data-pos="6">
+            <video class="item" controls data-pos="7">
+                <source src="img/7.mp4" type="video/mp4">
+            </video>
+
             <span class="closeSlide"></span>
             <span class="countSlide">2 / 7</span>
         </div>
-        <div class="angleRight angleBoth">
+
+        <div class="angleRight angleBoth" data-name="next">
             <i class="fas fa-caret-right"></i>
         </div>
-        <div class="angleLeft angleBoth">
+        <div class="angleLeft angleBoth" data-name="prev">
             <i class="fas fa-caret-left"></i>
         </div>
         <div class="overlay"></div>
