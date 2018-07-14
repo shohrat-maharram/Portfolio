@@ -1,5 +1,4 @@
 body {
-  height: 5000px;
   position: relative; }
 
 body {
@@ -210,7 +209,7 @@ table {
   height: auto;
   background-color: #0c0c0c;
   position: relative;
-  padding: 100px 0px 40px 0px; }
+  padding: 100px 0 40px; }
   #contacts .container .form {
     margin-top: 60px; }
     #contacts .container .form .row {
@@ -237,7 +236,7 @@ table {
         font-size: 13px;
         padding: 11px 30px;
         letter-spacing: 2px;
-        transition: all 0.2s ease-out;
+        transition: all .2s ease-out;
         float: right;
         position: relative;
         z-index: 1;
@@ -253,14 +252,70 @@ table {
           background-color: #c43235;
           border-radius: 4px;
           z-index: -1;
-          transition: left 0.2s ease-in-out; }
+          transition: left .2s ease-in-out; }
       #contacts .container .form .row .hoverR:before {
-        left: 0px; }
+        left: 0; }
       #contacts .container .form .row .hoverB:before {
         left: 200px; }
       #contacts .container .form .row .back:before {
         transition: none;
         left: -200px; }
+
+#footer {
+  font-family: "Montserrat", sans-serif;
+  height: auto;
+  background-color: #111;
+  padding: 50px 0 30px; }
+  #footer .container .content {
+    text-align: center; }
+    #footer .container .content h1 {
+      font-size: 20px;
+      color: #d4d2d2;
+      margin-bottom: 20px;
+      font-weight: 600;
+      letter-spacing: 5px; }
+    #footer .container .content ul {
+      margin-bottom: 20px; }
+      #footer .container .content ul li {
+        list-style-type: none;
+        display: inline-block; }
+        #footer .container .content ul li a {
+          color: #696969;
+          margin: 0 15px;
+          font-size: 16px;
+          transition: all .3s ease-out; }
+        #footer .container .content ul li:first-child:hover a {
+          color: #4875B4; }
+        #footer .container .content ul li:nth-child(2):hover a {
+          color: #1da1f2; }
+        #footer .container .content ul li:last-child:hover a {
+          color: #3B5998; }
+    #footer .container .content p {
+      color: #696969;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 5px; }
+  #footer .scrollToTop {
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    background-color: #040000;
+    bottom: 35px;
+    right: 22px;
+    line-height: 58px;
+    text-align: center;
+    border-radius: 100%;
+    cursor: pointer;
+    box-shadow: 0 0 10px #211b1b;
+    transition: all .3s ease-out;
+    opacity: 0; }
+    #footer .scrollToTop:hover {
+      background-color: #c43235; }
+      #footer .scrollToTop:hover i {
+        color: white; }
+    #footer .scrollToTop i {
+      font-size: 20px;
+      color: #e0d5d5; }
 
 #intro {
   font-family: "Montserrat", sans-serif;

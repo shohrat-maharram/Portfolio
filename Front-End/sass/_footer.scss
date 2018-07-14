@@ -1,0 +1,96 @@
+#footer {
+  font-family: $main-font;
+  height: auto;
+  background-color: $bg-col2;
+  padding: 50px 0 30px;
+
+  .container {
+    .content {
+      text-align: center;
+
+      h1 {
+        font-size: 20px;
+        color: $txt-col2;
+        margin-bottom: 20px;
+        font-weight: 600;
+        letter-spacing: 5px;
+      }
+
+      ul {
+        margin-bottom: 20px;
+
+        li {
+          list-style-type: none;
+          display: inline-block;
+
+          a {
+            color: $txt-col-dark;
+            margin: 0 15px;
+            font-size: 16px;
+            transition: all .3s ease-out;
+          }
+
+          &:first-child {
+            &:hover {
+              a {
+                color: #4875B4;
+              }
+            }
+          }
+
+          &:nth-child(2) {
+            &:hover {
+              a {
+                color: #1da1f2;
+              }
+            }
+          }
+
+          &:last-child {
+            &:hover {
+              a {
+                color: #3B5998;
+              }
+            }
+          }
+        }
+      }
+
+      p {
+        color: $txt-col-dark;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 5px;
+      }
+    }
+  }
+
+  .scrollToTop {
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    background-color: #040000;
+    bottom: 35px;
+    right: 22px;
+    line-height: 58px;
+    text-align: center;
+    border-radius: 100%;
+    cursor: pointer;
+    box-shadow: 0 0 10px #211b1b;
+    transition: all .3s ease-out;
+    opacity: 0;
+
+    &:hover {
+      background-color: $txt-col-trend;
+
+      i {
+        color: $txt-col;
+      }
+    }
+
+    i {
+      font-size: 20px;
+      color: #e0d5d5;
+    }
+  }
+}

@@ -147,6 +147,9 @@ $(document).ready(function () {
             shiftSkill2 = 1;
         }
 
+
+        //Show scroll to top element
+        showScrollToTop();
     })
     //~~~~~~~~~~~~~~~~~~~~  << End of Window scroll >>  ~~~~~~~~~~~~~~~~~~~~//
 
@@ -268,7 +271,11 @@ $(document).ready(function () {
 
     //~~~~~~~~~~ << New Function : Adjust top of Slider >> ~~~~~~~~~~//
     function adjElemTop(elemAdj, elemHeight, windowHeight) {
-        elemAdj.css("top", "" + (windowHeight - elemHeight) / 2 + "px");
+        if (((windowHeight - elemHeight) / 2) <= 0) {
+            elemAdj.css("top", "" + 30 + "px");
+        } else {
+            elemAdj.css("top", "" + (windowHeight - elemHeight) / 2 + "px");
+        }
     }
 
     //~~~~~~~~~~ << End of Function : Language position settings >> ~~~~~~~~~~//
@@ -348,8 +355,7 @@ $(document).ready(function () {
     })
 
 
-    //Show portfolio works by category #IzotopByMe
-
+    //Show portfolio works by category #IsotopeByMe
     var category, elemPort;
     $("#portfolio .container .menu ul li a").click(function () {
         var This = $(this);
@@ -391,7 +397,6 @@ $(document).ready(function () {
     })
 
     //Slider of portfolio section
-
     var slideImgIcon = $("#portfolio .itemsCover .items .item .overlay .slideImgIcon");
     slideImgIcon.click(function () {
         var This = $(this);
@@ -417,8 +422,8 @@ $(document).ready(function () {
 
     //Changing slider to next one
     $("#slideCover .angleBoth").click(function () {
-        var dirName = $(this).data("name");
-        changeSlide(dirName);
+        var directionName = $(this).data("name");
+        changeSlide(directionName);
         $("#slideCover .slideContainer video")[0].pause();
     });
 
@@ -466,10 +471,11 @@ $(document).ready(function () {
             "maxWidth": "" + (width * 70) / 100 + "px",
             "maxHeight": "" + (height * 70) / 100 + "px"
         });
+
+        console.log("Image height: " + imageHeight + " Container top: " + (height - imageHeight) / 2);
     }
 
     //Send message button
-
     $("#contacts .form button").mouseenter(function () {
         $(this).removeClass("back").removeClass("hoverB").addClass("hoverR");
     });
@@ -480,40 +486,48 @@ $(document).ready(function () {
 
 
 
-    // Create scrollTop button
-    // function scrollToTop(e) {
-    //     var step;
-    //     var posOne = window.pageYOffset;
+    // Create scrollTop button part
+    //Scroll to top function
+    function scrollToTop() {
+        var step;
+        var windowTopPos = $(window).scrollTop();
 
-    //     if (posOne < 1500) {
-    //         step = 10;
-    //     } else {
-    //         step = 40;
-    //     }
+        if (windowTopPos < 1500) {
+            step = 10;
+        } else {
+            step = 30;
+        }
 
-    //     var scrollToTopInt = setInterval(function () {
-    //         var pos = window.pageYOffset;
-    //         if (pos > 0) {
-    //             window.scrollTo(0, pos - step);
-    //         } else {
-    //             window.clearInterval(scrollToTopInt);
-    //         }
-    //     }, 0.2);
-    // }
+        var scrollToTopInt = setInterval(function () {
+            var windowTopPos = $(window).scrollTop();
+            if (windowTopPos > 0) {
+                window.scrollTo(0, windowTopPos - step);
+            } else {
+                window.clearInterval(scrollToTopInt);
+            }
+        }, 0.2);
+    }
 
-    // function showScrollToTop() {
-    //     var scrollToTop = document.getElementsByClassName("scrollToTop")[0];
-    //     var viewPortHeight = document.documentElement.clientHeight;
-    //     var windowTopPos = window.pageYOffset;
-    //     if (windowTopPos > (viewPortHeight - 500)) {
-    //         scrollToTop.style.opacity = "1";
-    //         scrollToTop.style.cursor = "pointer";
+    $("#footer .scrollToTop").click(function () {
+        scrollToTop();
+    });
 
-    //     }
-    //     if (windowTopPos < (viewPortHeight - 300)) {
-    //         scrollToTop.style.opacity = "0";
-    //         scrollToTop.style.cursor = "default";
-    //     }
-    // }
-    // window.addEventListener("scroll", showScrollToTop);
+    //Show Scroll to top function 
+    function showScrollToTop() {
+        var scrollToTopPos = $("#footer .scrollToTop");
+        var windowTop = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        if (windowTop > (windowHeight - 500)) {
+            scrollToTopPos.css({
+                "opacity": "1",
+                "cursor": "pointer"
+            });
+        }
+        if (windowTop < (windowHeight - 300)) {
+            scrollToTopPos.css({
+                "opacity": "0",
+                "cursor": "default"
+            });
+        }
+    }
 });

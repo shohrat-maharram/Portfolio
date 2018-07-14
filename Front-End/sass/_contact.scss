@@ -1,98 +1,111 @@
 #contacts {
-    font-family: $main-font;
-    height: auto;
-    background-color: $bg-col;
-    position: relative;
-    padding: 100px 0px 40px 0px;
-    .container {
-        .title {
-            @extend %title-style;
-        }
-        .form {
-            margin-top: 60px;
-            .row {
-                margin-top: 25px;
-                .input {
-                    background-color: $bg-col-input;
-                    border: none;
-                    font-size: 14px;
-                    color: $txt-col2; // resize: none;
-                    max-height: 200px;
-                    &::placeholder {
-                        color: #696969;
-                    }
-                    &:focus {
-                        box-shadow: none;
-                    }
-                }
-                p {
-                    font-size: 12px;
-                    color: #696969;
-                    margin-top: 12px;
-                    span {
-                        font-weight: bold;
-                    }
-                }
-                button {
-                    background-color: $bg-col-input;
-                    border: none;
-                    font-size: 13px;
-                    padding: 11px 30px;
-                    letter-spacing: 2px;
-                    transition: all 0.2s ease-out;
-                    float: right;
-                    position: relative;
-                    z-index: 1;
-                    overflow: hidden;
-                    font-weight: 500;
-                    &:before {
-                        content: "";
-                        position: absolute;
-                        top: 0;
-                        left: -200px;
-                        width: 100%;
-                        height: 100%;
-                        background-color: $txt-col-trend;
-                        border-radius: 4px;
-                        z-index: -1;
-                        transition: left 0.2s ease-in-out;
-                    }
-                    // &:after {
-                    //     content: "";
-                    //     position: absolute;
-                    //     top: 0;
-                    //     left: -200px;
-                    //     width: 100%;
-                    //     height: 100%;
-                    //     background-color: $bg-col-input;
-                    //     border-radius: 4px;
-                    //     transition: left 0.2s ease-in-out;
-                    //     z-index: -1;
-                    // }
-                }
-                .hoverR {
-                    &:before {
-                        left: 0px;
-                    }
-                    // &:after {
-                    //     left: -200px;
-                    // }
-                }
-                .hoverB {
-                    &:before {
-                        left: 200px;
-                    }
-                    // &:after {
-                    //     left: 0px;
-                    // }
-                }
-                .back{
-                    &:before {
-                        transition: none;
-                        left: -200px;
-                    }
-                }
-            }
-        }
+  font-family: $main-font;
+  height: auto;
+  background-color: $bg-col;
+  position: relative;
+  padding: 100px 0 40px;
+
+  .container {
+    .title {
+      @extend %title-style;
     }
+
+    .form {
+      margin-top: 60px;
+
+      .row {
+        margin-top: 25px;
+
+        .input {
+          background-color: $bg-col-input;
+          border: none;
+          font-size: 14px;
+          color: $txt-col2; // resize: none;
+          max-height: 200px;
+
+          &::placeholder {
+            color: $txt-col-dark;
+          }
+
+          &:focus {
+            box-shadow: none;
+          }
+        }
+
+        p {
+          font-size: 12px;
+          color: $txt-col-dark;
+          margin-top: 12px;
+
+          span {
+            font-weight: bold;
+          }
+        }
+
+        button {
+          background-color: $bg-col-input;
+          border: none;
+          font-size: 13px;
+          padding: 11px 30px;
+          letter-spacing: 2px;
+          transition: all .2s ease-out;
+          float: right;
+          position: relative;
+          z-index: 1;
+          overflow: hidden;
+          font-weight: 500;
+
+          &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -200px;
+            width: 100%;
+            height: 100%;
+            background-color: $txt-col-trend;
+            border-radius: 4px;
+            z-index: -1;
+            transition: left .2s ease-in-out;
+          }
+          // &:after {
+          //     content: "";
+          //     position: absolute;
+          //     top: 0;
+          //     left: -200px;
+          //     width: 100%;
+          //     height: 100%;
+          //     background-color: $bg-col-input;
+          //     border-radius: 4px;
+          //     transition: left 0.2s ease-in-out;
+          //     z-index: -1;
+          // }
+        }
+
+        .hoverR {
+          &:before {
+            left: 0;
+          }
+          // &:after {
+          //     left: -200px;
+          // }
+        }
+
+        .hoverB {
+          &:before {
+            left: 200px;
+          }
+          // &:after {
+          //     left: 0px;
+          // }
+        }
+
+        .back {
+          &:before {
+            transition: none;
+            left: -200px;
+          }
+        }
+      }
+    }
+  }
 }
