@@ -88,7 +88,7 @@ $(document).ready(function () {
         //~~~~~~~~~~ << New Function : Animating Skills width >> ~~~~~~~~~~//
         function skillsAnimate(skillElem, elemTop, skillElemPercent, shiftSkill, count) {
             if (((elemTop - 650) < scrollTopWindow && shiftSkill == 0)) {
-                var width = 30;
+                var width = 10;
                 setInterval(function () {
                     if (width <= skillElemPercent) {
                         width += 1;
