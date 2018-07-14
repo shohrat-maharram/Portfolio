@@ -241,12 +241,13 @@ table {
         #contacts .container .form .row .input:focus {
           box-shadow: none; }
       #contacts .container .form .row p {
+        position: relative;
         font-size: 12px;
         color: #696969;
         margin-top: 12px; }
         #contacts .container .form .row p span {
           font-weight: bold; }
-      #contacts .container .form .row button {
+      #contacts .container .form .row .submit button {
         background-color: #151515;
         border: none;
         font-size: 13px;
@@ -258,7 +259,9 @@ table {
         z-index: 1;
         overflow: hidden;
         font-weight: 500; }
-        #contacts .container .form .row button:before {
+        #contacts .container .form .row .submit button:focus {
+          box-shadow: none; }
+        #contacts .container .form .row .submit button:before {
           content: "";
           position: absolute;
           top: 0;
@@ -269,12 +272,9 @@ table {
           border-radius: 4px;
           z-index: -1;
           transition: left .2s ease-in-out; }
-      #contacts .container .form .row .hoverR:before {
-        left: 0; }
-      #contacts .container .form .row .hoverB:before {
-        left: 200px; }
-      #contacts .container .form .row .back:before {
-        transition: none;
+      #contacts .container .form .row .submit .hoverR:before {
+        left: 0px; }
+      #contacts .container .form .row .submit .hoverB:before {
         left: -200px; }
 
 @media screen and (max-width: 992px) {

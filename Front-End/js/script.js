@@ -101,13 +101,12 @@ $(document).ready(function () {
         }
         //~~~~~~~~~~ << End of Function : Animating Skills width >> ~~~~~~~~~~//       
 
-        for (var i = 1; i <= skillsCount ; i++) {
+        for (var i = 1; i <= skillsCount; i++) {
             this["skillElem" + i] = $("#skills .content .col-md-6[data-index=" + i + "]");
             this["elemTop" + i] = this["skillElem" + i].offset().top;
             this["skillElemPercent" + i] = this["skillElem" + i].find(".rating span").text();
             skillsAnimate(this["skillElem" + i], this["elemTop" + i], this["skillElemPercent" + i], this["shiftSkill" + i], i);
         }
-
 
         //Show scroll to top element
         showScrollToTop();
@@ -172,22 +171,6 @@ $(document).ready(function () {
             $("#navbar .row .lang ul").slideUp("slow");
             shift = 0;
         }
-
-
-
-        // elemPositions($("#navbar .row .lang"), 105, 150, "lang", $("#navbar .row .lang ul").slideUp("slow"));
-
-        // //Close Slide Image
-        // if ($("#slideCover.active").length > 0) {
-        //     var elemImage = $("#slideCover .slideContainer img");
-        //     var elemImageWidth = $("#slideCover .slideContainer img").width();
-        //     var elemImageHeight = $("#slideCover .slideContainer img").height();
-
-        //     elemPositions(elemImage, elemImageWidth, elemImageHeight, "slide");
-        //     if (!((pageX > elemLeft) && (pageX < elemRight) && (pageY > elemTop) && (pageY < elemBottom))) {
-        //         $("#slideCover").css("display", "none");
-        //     }
-        // }
     });
     //~~~~~~~~~~~~~~~~~~~~  << End of Mouse clicked position >>  ~~~~~~~~~~~~~~~~~~~~//
 
@@ -240,7 +223,7 @@ $(document).ready(function () {
     }
     //~~~~~~~~~~ << End of Function : Adding&Removing active class to element >> ~~~~~~~~~~//
 
-    //Adding active class to clicked tab
+    //Adding active class to clicked tab to Scroll that section
     $("#navbar .container .right-nav ul li a").click(function (e) {
         e.preventDefault();
         var This = $(this);
@@ -250,7 +233,7 @@ $(document).ready(function () {
 
         $('html, body').animate({
             scrollTop: section.offset().top
-        }, 1000);
+        }, 1500);
     });
 
     $("#navbar .container .responsive-nav ul li a").click(function (e) {
@@ -407,13 +390,14 @@ $(document).ready(function () {
     }
 
     //Send message button
-    $("#contacts .form button").mouseenter(function () {
+    $("#contacts .form .submit button").mouseenter(function () {
         $(this).removeClass("back").removeClass("hoverB").addClass("hoverR");
     });
 
-    $("#contacts .form button").mouseout(function () {
-        $(this).removeClass("hoverR").addClass("hoverB");
+    $("#contacts .form .submit button").mouseout(function () {
+        $(this).removeClass("hoverR").addClass("hoverB");      
     });
+
 
     // Create scrollTop button part
     //Scroll to top function
