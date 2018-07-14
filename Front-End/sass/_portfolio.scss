@@ -1,232 +1,388 @@
 #portfolio {
-    font-family: $main-font;
-    height: auto;
-    background-color: $bg-col2;
-    position: relative;
-    padding: 100px 0px 40px 0px;
-    .container {
-        .title {
-            @extend %title-style;
-        }
-        .menu {
-            ul {
-                text-align: center;
-                margin-top: 70px;
-                li {
-                    display: inline-block;
-                    list-style: none;
-                    a {
-                        text-decoration: none;
-                        color: $txt-col-trend;
-                        font-size: 13px;
-                        font-weight: 600;
-                        padding: 8px 27px;
-                        margin: 0px 5px;
-                        border: 1px dashed $txt-col-trend;
-                        border-radius: 25px;
-                        transition: all 0.3s ease-out;
-                        &:hover {
-                            color: $txt-col;
-                            background-color: $txt-col-trend;
-                        }
-                    }
-                    .active {
-                        color: $txt-col;
-                        background-color: $txt-col-trend;
-                    }
-                }
-            }
-        }
-        .itemsCover {
-            margin-top: 80px;
-            .items {
-                margin-bottom: 30px;
-                position: relative;
-                .item {
-                    width: 100%;
-                    max-height: 250px;
-                    position: relative;
-                    overflow: hidden;
-                    transition: all 0.3s ease-out;
-                    border: 5px solid white;
-                    &:hover {
-                        // border: 3px solid $txt-col-trend;
-                        .overlay {
-                            opacity: 1;
-                            h2 {
-                                top: 95px;
-                            }
-                            p {
-                                top: 105px; // color: $txt-col-trend;
-                            }
-                        }
-                    }
-                    img {
-                        width: 100%;
-                        max-height: 250px;
-                        position: relative;
-                    }
-                    .overlay {
-                        position: absolute;
-                        right: 0;
-                        left: 0;
-                        top: 0;
-                        bottom: 0;
-                        background-color: $bg-col2;
-                        opacity: 0;
-                        text-align: center;
-                        transition: all 0.3s ease-out;
-                        h2 {
-                            color: $txt-col;
-                            font-size: 19px;
-                            font-weight: 700;
-                            letter-spacing: 2px;
-                            position: relative;
-                            top: 85px;
-                            transition: all 0.3s ease-out;
-                        }
-                        p {
-                            color: #a5a2a2;
-                            font-size: 15px;
-                            position: relative;
-                            top: 115px;
-                            transition: all 0.3s ease-out;
-                        }
-                        i {
-                            position: absolute;
-                            right: 15px;
-                            color: white;
-                            bottom: 15px;
-                            font-size: 30px;
-                            cursor: pointer;
-                        }
-                    }
-                }
-            }
-            .hide {
-                // transform: ;
-                transform: translate(-100px, -100px) scale(0);
-                transition: all 0.5s ease-out;
-            }
-            .show {
-                transform: scale(1);
-                transition: all 0.5s ease-out;
-            }
-        }
+  font-family: $main-font;
+  height: auto;
+  background-color: $bg-col2;
+  position: relative;
+  padding: 100px 0 40px;
+
+  .container {
+    .title {
+      @extend %title-style;
     }
+
+    .menu {
+      ul {
+        text-align: center;
+        margin-top: 70px;
+
+        li {
+          display: inline-block;
+          list-style: none;
+
+          a {
+            text-decoration: none;
+            color: $txt-col-trend;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 8px 27px;
+            margin: 0 5px;
+            border: 1px dashed $txt-col-trend;
+            border-radius: 25px;
+            transition: all .3s ease-out;
+
+            &:hover {
+              color: $txt-col;
+              background-color: $txt-col-trend;
+            }
+          }
+
+          .active {
+            color: $txt-col;
+            background-color: $txt-col-trend;
+          }
+        }
+      }
+    }
+
+    .itemsCover {
+      margin-top: 80px;
+
+      .items {
+        margin-bottom: 30px;
+        position: relative;
+
+        .item {
+          width: 100%;
+          max-height: 250px;
+          position: relative;
+          overflow: hidden;
+          transition: all .3s ease-out;
+          border: 5px solid white;
+
+          &:hover {
+            // border: 3px solid $txt-col-trend;
+            .overlay {
+              opacity: 1;
+
+              h2 {
+                top: 95px;
+              }
+
+              p {
+                top: 105px; // color: $txt-col-trend;
+              }
+            }
+          }
+
+          img {
+            width: 100%;
+            max-height: 250px;
+            position: relative;
+          }
+
+          .overlay {
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            background-color: $bg-col2;
+            opacity: 0;
+            text-align: center;
+            transition: all .3s ease-out;
+
+            h2 {
+              color: $txt-col;
+              font-size: 19px;
+              font-weight: 700;
+              letter-spacing: 2px;
+              position: relative;
+              top: 85px;
+              transition: all .3s ease-out;
+            }
+
+            p {
+              color: #a5a2a2;
+              font-size: 15px;
+              position: relative;
+              top: 115px;
+              transition: all .3s ease-out;
+            }
+
+            i {
+              position: absolute;
+              right: 15px;
+              color: white;
+              bottom: 15px;
+              font-size: 30px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      .hide {
+        // transform: ;
+        transform: translate(-100px, -100px) scale(0);
+        transition: all .5s ease-out;
+      }
+
+      .show {
+        transform: scale(1);
+        transition: all .5s ease-out;
+      }
+    }
+  }
 }
 
 #slideCover {
-    font-family: $font-2;
-    display: none;
+  font-family: $font-2;
+  display: none;
+  justify-content: center;
+
+  .slideContainer {
+    position: fixed;
+    // top: 100px;
+    opacity: 1;
+    z-index: 1000;
+    max-width: 900px;
+    max-height: 700px;
+    display: flex;
+    margin: 4px;
     justify-content: center;
-    
+
+    .item {
+      opacity: 1;
+      max-width: 100%;
+      max-height: 80%;
+      display: none;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .closeSlide {
+      position: absolute;
+      top: -26px;
+      right: -3px;
+      width: 26px;
+      height: 26px;
+      cursor: pointer;
+      transition: all .2s ease-out;
+
+      &:hover {
+        &:before {
+          background-color: $txt-col;
+        }
+
+        &:after {
+          background-color: $txt-col;
+        }
+      }
+
+      &:before {
+        content: "";
+        height: 2px;
+        width: 13px;
+        background-color: $txt-col-darker;
+        position: absolute;
+        top: 6px;
+        transform: rotate(45deg);
+        left: 12px;
+        transition: all .2s ease-out;
+      }
+
+      &:after {
+        content: "";
+        height: 2px;
+        width: 13px;
+        background-color: $txt-col-darker;
+        position: absolute;
+        bottom: 18px;
+        transform: rotate(-45deg);
+        left: 12px;
+        transition: all .2s ease-out;
+      }
+    }
+
+    .countSlide {
+      position: absolute;
+      bottom: -20px;
+      right: -1px;
+      color: $txt-col-darker;
+      font-size: 13px;
+    }
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background-color: #000;
+    opacity: .9;
+  }
+
+  .angleBoth {
+    position: fixed;
+    top: 100px;
+    width: 100px;
+    height: 100px;
+    z-index: 1000;
+    border-radius: 100%;
+    display: flex;
+    align-content: center;
+    cursor: pointer;
+
+    i {
+      color: $txt-col-darker;
+      font-size: 60px;
+      align-self: center;
+      transition: all .2s ease-out;
+    }
+
+    &:hover {
+      i {
+        color: $txt-col;
+      }
+    }
+  }
+
+  .angleRight {
+    right: 10px;
+    justify-content: flex-end;
+  }
+
+  .angleLeft {
+    left: 10px;
+    justify-content: flex-start;
+  }
+}
+@media screen and (max-width: 992px) {
+  #portfolio {
+    .container {
+      .menu {
+        ul {
+          li {
+              margin-top: 20px;
+            a {
+              font-size: 10px;
+              padding: 6px 16px;
+            }
+
+            .active {
+              }
+          }
+        }
+      }
+
+      .itemsCover {
+        .items {
+          .item {
+            img {
+              }
+
+            .overlay {
+              h2 {
+                }
+
+              p {
+                }
+
+              i {
+                }
+            }
+          }
+        }
+
+        .hide {
+          }
+
+        .show {
+          }
+      }
+    }
+  }
+}
+@media screen and (max-width: 576px) {
+  #portfolio {
+    .container {
+      .menu {
+        ul {
+          li {
+            a {
+              font-size: 10px;
+              padding: 6px 16px;
+            }
+
+            .active {
+              }
+          }
+        }
+      }
+
+      .itemsCover {
+        .items {
+          .item {
+            img {
+              }
+
+            .overlay {
+              h2 {
+                }
+
+              p {
+                }
+
+              i {
+                }
+            }
+          }
+        }
+
+        .hide {
+          }
+
+        .show {
+          }
+      }
+    }
+  }
+
+  #slideCover {
     .slideContainer {
-        position: fixed;
-        // top: 100px;
-        opacity: 1;
-        z-index: 1000;
-        max-width: 900px;
-        max-height: 700px;
-        display: flex;
-        margin: 4px;
-        justify-content: center;
-        .item {
-            opacity: 1;
-            max-width: 100%;
-            max-height: 80%;
-            display: none;
-        }
-        .active{
-            display: block;
-        }
-        .closeSlide {
-            position: absolute;
-            top: -26px;
-            right: -3px;
-            width: 26px;
-            height: 26px;
-            cursor: pointer;
-            transition: all 0.2s ease-out;
-            &:hover {
-                &:before {
-                    background-color: $txt-col;
-                }
-                &:after {
-                    background-color: $txt-col;
-                }
-            }
-            &:before {
-                content: "";
-                height: 2px;
-                width: 13px;
-                background-color: $txt-col-darker;
-                position: absolute;
-                top: 6px;
-                transform: rotate(45deg);
-                left: 12px;
-                transition: all 0.2s ease-out;
-            }
-            &:after {
-                content: "";
-                height: 2px;
-                width: 13px;
-                background-color: $txt-col-darker;
-                position: absolute;
-                bottom: 18px;
-                transform: rotate(-45deg);
-                left: 12px;
-                transition: all 0.2s ease-out;
-            }
-        }
-        .countSlide {
-            position: absolute;
-            bottom: -20px;
-            right: -1px;
-            color: $txt-col-darker;
-            font-size: 13px;
-        }
+      .item {
+       
+      }
+
+      .closeSlide {
+       
+      }
+
+      .countSlide {
+      
+      }
     }
 
     .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 999;
-        background-color: #000;
-        opacity: .9;
+     
     }
 
     .angleBoth {
-        position: fixed;
-        top: 100px;
-        width: 100px;
-        height: 100px;
-        z-index: 1000;
-        border-radius: 100%;
-        display: flex;        
-        align-content: center;
-        cursor: pointer;
-        i {
-            color: $txt-col-darker;
-            font-size: 60px;
-            align-self: center;
-            transition: all 0.2s ease-out;
-        }
-        &:hover {
-            i {
-                color: $txt-col;
-            }
-        }
+      i {
+        font-size: 35px;
+      }
     }
+
     .angleRight {
-        right: 10px;
-        justify-content:flex-end;
+      right: 5px;
     }
+
     .angleLeft {
-        left: 10px;
-        justify-content: flex-start;
+      left: 5px;
     }
+  }
 }

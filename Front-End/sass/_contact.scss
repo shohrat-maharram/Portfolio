@@ -109,3 +109,87 @@
     }
   }
 }
+@media screen and (max-width: 992px) {
+  #contacts {
+    .container {
+      .form {
+        .row {
+          .input {}
+
+          p {
+            span {}
+          }
+
+          .submit {
+            button {
+              float: right;
+            }
+          }
+
+          .hoverR {}
+
+          .hoverB {}
+
+          .back {}
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  #contacts {
+    .container {
+      .form {
+        .row {
+          .input {
+            &::placeholder {
+              font-size: 11px;
+            }
+          }
+
+          p {
+            span {}
+          }
+
+          .submit {
+            margin-top: 20px;
+            button {
+              float: left;
+            }
+          }
+
+          .hoverR {}
+
+          .hoverB {}
+
+          .back {}
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 576px) {
+  #contacts {
+    .container {
+      .form {
+        .row {
+          .input {
+            margin-top: 10px;
+          }
+
+          p {
+            span {}
+          }
+
+          button {}
+
+          .hoverR {}
+
+          .hoverB {}
+
+          .back {}
+        }
+      }
+    }
+  }
+}

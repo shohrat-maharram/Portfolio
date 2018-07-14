@@ -1,33 +1,35 @@
 $(document).ready(function () {
 
-
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  << Functions Executed on Window load >>  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
     $(function () {
         $(window).on("load", function () {
 
             var width = $(window).width();
             var height = $(window).height();
-
         });
     });
     //~~~~~~~~~~~~~~~~~~~~  << End of Window load >>  ~~~~~~~~~~~~~~~~~~~~//
 
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  << Functions Executed on Window scroll >>  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+    //Variables    
+    //New Function which create dynamic variables
+    function createDynamicVariable(Variable, count) {
+        this["" + Variable + "" + count] = 0;
+    }
 
-    //Variables
-    // var shiftSkill = {};
-    // for (var i = 1; i <= $("#skills .content .col-md-6").length; i++) {
-    //     shiftSkill[i] = 0;
-    // }
-    var shiftSkill1 = 0;
-    var shiftSkill2 = 0;
-    var shiftSkill3 = 0;
-    var shiftSkill4 = 0;
-    var shiftSkill5 = 0;
-    var shiftSkill6 = 0;
-    var shiftSkill7 = 0;
+    var skillsCount = $("#skills .content .col-md-6").length;
+    var shiftSkill = "shiftSkill";
+    var skillElem = "skillElem";
+    var elemTop = "elemTop";
+    var skillElemPercent = "skillElemPercent";
+    for (var i = 1; i <= skillsCount; i++) {
+        createDynamicVariable(shiftSkill, i);
+        createDynamicVariable(skillElem, i);
+        createDynamicVariable(elemTop, i);
+        createDynamicVariable(skillElemPercent, i);
+    }
+
     var shiftScrollNav = 0;
     $(window).scroll(function () {
 
@@ -83,68 +85,27 @@ $(document).ready(function () {
         shift = 0;
 
         //Animating skills percent
-        // var skillElements;
-        // var skillElem = {};
-        // var elemTop = {};
-        // var skillElemPercent = {};
-        // skillElements = $("#skills .content .col-md-6");
-        // for (var i = 1; i <= skillElements.length; i++) {
-        //     skillElem[i] = $("#skills .content .col-md-6[data-index=" + i + "]");
-        //     elemTop[i] = skillElem[i].offset().top;
-        //     skillElemPercent[i] = skillElem[i].find(".rating span").text();
-        //     // shiftSkill[4] = 1;
+        //~~~~~~~~~~ << New Function : Animating Skills width >> ~~~~~~~~~~//
+        function skillsAnimate(skillElem, elemTop, skillElemPercent, shiftSkill, count) {
+            if (((elemTop - 650) < scrollTopWindow && shiftSkill == 0)) {
+                var width = 30;
+                setInterval(function () {
+                    if (width <= skillElemPercent) {
+                        width += 1;
+                    }
+                    skillElem.find(".rating").css("width", "" + width + "%");
+                }, 5);
 
-        //     if (((elemTop[i] - 650) < scrollTopWindow && shiftSkill[i] == 0)) {
-        //         console.log(skillElem[i]);
-
-        //         // var width = {};
-        //         // width[i] = 30;
-        //         // setInterval(function () {
-        //         //     if (width[i] <= skillElemPercent[i]) {
-        //         //         width[i] += 1;
-        //         //     }
-        //         //     $("#skills .content .col-md-6[data-index=" + i + "]").find(".rating").css("width", "" + width[i] + "%");
-
-        //         // }, 10);
-        //         // shiftSkill[i] = 1;
-        //     }
-        // }
-
-
-        //Elem 1
-
-        var skillElem1 = $("#skills .content .col-md-6[data-index=" + 1 + "]");
-        var elemTop1 = skillElem1.offset().top;
-        var skillElemPercent1 = skillElem1.find(".rating span").text();
-
-        if (((elemTop1 - 650) < scrollTopWindow && shiftSkill1 == 0)) {
-            var width1 = 30;
-            setInterval(function () {
-                if (width1 <= skillElemPercent1) {
-                    width1 += 1;
-                }
-                skillElem1.find(".rating").css("width", "" + width1 + "%");
-
-            }, 10);
-            shiftSkill1 = 1;
+                this["shiftSkill" + count] = 1;
+            }
         }
+        //~~~~~~~~~~ << End of Function : Animating Skills width >> ~~~~~~~~~~//       
 
-
-        //Elem 2
-        var skillElem2 = $("#skills .content .col-md-6[data-index=" + 2 + "]");
-        var elemTop2 = skillElem2.offset().top;
-        var skillElemPercent2 = skillElem2.find(".rating span").text();
-
-        if (((elemTop2 - 650) < scrollTopWindow && shiftSkill2 == 0)) {
-            var width2 = 30;
-            setInterval(function () {
-                if (width2 <= skillElemPercent2) {
-                    width2 += 1;
-                }
-                skillElem2.find(".rating").css("width", "" + width2 + "%");
-
-            }, 10);
-            shiftSkill2 = 1;
+        for (var i = 1; i <= skillsCount ; i++) {
+            this["skillElem" + i] = $("#skills .content .col-md-6[data-index=" + i + "]");
+            this["elemTop" + i] = this["skillElem" + i].offset().top;
+            this["skillElemPercent" + i] = this["skillElem" + i].find(".rating span").text();
+            skillsAnimate(this["skillElem" + i], this["elemTop" + i], this["skillElemPercent" + i], this["shiftSkill" + i], i);
         }
 
 
@@ -155,7 +116,6 @@ $(document).ready(function () {
 
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  << Functions Executed on Window resize >>  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
     $(window).resize(function () {
 
         //Window width and height
@@ -232,31 +192,8 @@ $(document).ready(function () {
     //~~~~~~~~~~~~~~~~~~~~  << End of Mouse clicked position >>  ~~~~~~~~~~~~~~~~~~~~//
 
 
-    //~~~~~~~~~~ << New Function : Language position settings >> ~~~~~~~~~~//
-    // var elemLeft = {},
-    //     elemRight = {},
-    //     elemTop = {},
-    //     elemBottom = {},
-    //     elemPos = {};
-
-    // function elemPositions(elem, Width, Height, dif, func) {
-    //     if (elem && Width > 0 && Height > 0) {
-    //         elemPos[dif] = elem.offset();
-    //         elemTop[dif] = elemPos[dif].top;
-    //         elemLeft[dif] = elemPos[dif].left;
-    //         elemRight[dif] = (elemLeft[dif] + Width);
-    //         elemBottom[dif] = (elemTop[dif] + Height);
-    //     }
-
-    //     if (!((pageX > elemLeft[dif]) && (pageX < elemRight[dif]) && (pageY > elemTop[dif]) && (pageY < elemBottom[dif]))) {
-    //         func;
-    //         shift = 0;
-    //     }
-    // }
-
-
+    //~~~~~~~~~~ << New Function : Element position settings >> ~~~~~~~~~~//
     var elemLeft, elemRight, elemTop, elemBottom, elemPos;
-
     function elemPositions(elem, Width, Height) {
         if (elem && Width > 0 && Height > 0) {
             elemPos = elem.offset();
@@ -266,7 +203,7 @@ $(document).ready(function () {
             elemBottom = (elemTop + Height);
         }
     }
-    //~~~~~~~~~~ << End of Function : Language position settings >> ~~~~~~~~~~//
+    //~~~~~~~~~~ << End of Function : Element position settings >> ~~~~~~~~~~//
 
 
     //~~~~~~~~~~ << New Function : Adjust top of Slider >> ~~~~~~~~~~//
@@ -277,8 +214,7 @@ $(document).ready(function () {
             elemAdj.css("top", "" + (windowHeight - elemHeight) / 2 + "px");
         }
     }
-
-    //~~~~~~~~~~ << End of Function : Language position settings >> ~~~~~~~~~~//
+    //~~~~~~~~~~ << End of Function : Adjust top of Slider >> ~~~~~~~~~~//
 
 
     //Language Slide down&up
@@ -298,12 +234,10 @@ $(document).ready(function () {
 
     // Navbar section
     //~~~~~~~~~~ << New Function : Adding&Removing active class to element >> ~~~~~~~~~~//
-
     function addRemoveActive(elem, This) {
         elem.removeClass("active");
         This.addClass("active");
     }
-
     //~~~~~~~~~~ << End of Function : Adding&Removing active class to element >> ~~~~~~~~~~//
 
     //Adding active class to clicked tab
@@ -346,14 +280,11 @@ $(document).ready(function () {
         }, 500);
     });
 
-
-
     //Display&Hide responsive nav Click    
     $("#navbar .right-nav .menuContainer").click(function () {
         $("#navbar .responsive-nav").slideToggle("slow");
         $("#navbar").css("padding-bottom", "30px");
     })
-
 
     //Show portfolio works by category #IsotopeByMe
     var category, elemPort;
@@ -484,8 +415,6 @@ $(document).ready(function () {
         $(this).removeClass("hoverR").addClass("hoverB");
     });
 
-
-
     // Create scrollTop button part
     //Scroll to top function
     function scrollToTop() {
@@ -493,9 +422,9 @@ $(document).ready(function () {
         var windowTopPos = $(window).scrollTop();
 
         if (windowTopPos < 1500) {
-            step = 10;
+            step = 40;
         } else {
-            step = 30;
+            step = 80;
         }
 
         var scrollToTopInt = setInterval(function () {

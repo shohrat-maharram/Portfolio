@@ -12,17 +12,18 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+    <link rel="stylesheet" href="flag-icon-css-master/css/flag-icon.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <header id="navbar" class="section">
         <div class="container">
-            <div class="row">
-                <div class="col-md-2 col-sm-6 logo">
+            <div class="row align-items-center">
+                <div class="col-md-5 col-sm-6 col-6 logo">
                     <a href="#">Shohrat Maharram</a>
                 </div>
-                <div class="col-md-9 col-sm-3 right-nav">
+                <div class="col-md-6 col-sm-4 col-4 right-nav">
                     <ul>
                         <li data-index="1">
                             <a class="active" href="">Intro</a>
@@ -48,19 +49,40 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-1 col-sm-3 lang">
-                    <p>Language</p>
-                    <ul>
-                        <li>
-                            <a href="">Azerbaijani</a>
-                        </li>
-                        <li>
-                            <a href="">English</a>
-                        </li>
-                        <li>
-                            <a href="">Russia</a>
-                        </li>
-                    </ul>
+                <div class="col-md-1 col-sm-2 col-2 lang">
+                    <div class="custamLang">
+                        <p>Language</p>
+                        <ul>
+                            <li>
+                                <a href="">Azerbaijani</a>
+                            </li>
+                            <li>
+                                <a href="">English</a>
+                            </li>
+                            <li>
+                                <a href="">Russia</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="responsiveLang">
+                        <p>
+                            <i class="fas fa-language"></i>
+                        </p>
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <span class="flag-icon flag-icon-az"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href=""><span class="flag-icon flag-icon-gb"></span></a>
+                            </li>
+                            <li>
+                                <a href=""><span class="flag-icon flag-icon-ru"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
                 <div class="col-sm-12 col-xs-12 responsive-nav">
                     <ul>
@@ -91,7 +113,7 @@
     <section id="intro" class="section" data-index="1">
         <div class="container">
             <div class="row">
-                <div class="col-md-5 intro-text">
+                <div class="col-lg-6 col-md-8 intro-text">
                     <h1>Hello !
                         <br> I Am Software Developer</h1>
                     <h1 class="name">My Name Is
@@ -109,7 +131,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-7 intro-image">
+                <div class="col-md-6 offset-md-4 offset-lg-5 col-sm-8 intro-image">
                     <img src="img/me2.png" alt="">
                     <!--  230x300 px -->
                 </div>
@@ -402,13 +424,13 @@
                 <div class="col-md-12">
                     <form>
                         <div class="row">
-                            <div class="col">
+                            <div class="col-sm-4 col-12">
                                 <input type="text" class="form-control input" required placeholder="Name*" name="date">
                             </div>
-                            <div class="col">
+                            <div class="col-sm-4 col-12">
                                 <input type="email" class="form-control input" required placeholder="Email*" name="date">
                             </div>
-                            <div class="col">
+                            <div class="col-sm-4 col-12">
                                 <input type="text" class="form-control input" placeholder="Subject" name="date">
                             </div>
                         </div>
@@ -431,7 +453,7 @@
                                 <p>
                                     <span>Phone :</span> +994 50 760 2822</p>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 submit">
                                 <button type="submit" class="btn btn-primary">SEND MESSAGE</button>
                             </div>
                         </div>
@@ -463,7 +485,7 @@
                         </li>
                     </ul>
                     <h1>Shohrat Maharram</h1>
-                    <p>@ 2018. ALL RIGHTS RESERVED.</p>
+                    <p><i class="far fa-copyright"></i> 2018. ALL RIGHTS RESERVED.</p>
                 </div>
             </div>
         </div>
@@ -476,8 +498,6 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script> -->
     <script src="jquery/jquery-3.3.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>

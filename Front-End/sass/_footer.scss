@@ -79,6 +79,7 @@
     box-shadow: 0 0 10px #211b1b;
     transition: all .3s ease-out;
     opacity: 0;
+    z-index: 10;
 
     &:hover {
       background-color: $txt-col-trend;
@@ -91,6 +92,60 @@
     i {
       font-size: 20px;
       color: #e0d5d5;
+    }
+  }
+}
+@media screen and (max-width: 992px) {
+  #footer {
+    .scrollToTop {
+      width: 40px;
+      height: 40px;
+      right: 10px;
+      line-height: 40px;
+
+      i {
+        font-size: 14px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  #footer {
+    .scrollToTop {
+      right: 4px;
+      bottom: 10px;
+    }
+  }
+}
+@media screen and (max-width: 576px) {
+  #footer {
+    .container {
+      .content {
+
+        h1 {
+          font-size: 15px;
+          letter-spacing: 2px;
+        }
+
+        ul {
+          li {
+            a {
+              margin: 0 10px;
+              font-size: 14px;
+            }
+          }
+        }
+
+        p {
+          font-size: 10px;
+          letter-spacing: 1px;
+        }
+      }
+    }
+
+    .scrollToTop {
+      right: 4px;
+      bottom: 10px;
     }
   }
 }

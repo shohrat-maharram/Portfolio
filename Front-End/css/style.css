@@ -159,7 +159,7 @@ table {
   height: auto;
   background-color: #0c0c0c;
   position: relative;
-  padding: 100px 0px 40px 0px; }
+  padding: 100px 0 40px; }
   #about .container .content {
     margin-top: 50px; }
     #about .container .content .aboutMe {
@@ -176,16 +176,16 @@ table {
           width: 150px;
           position: relative;
           display: inline-block;
-          margin: 30px 50px 0px 0px; }
+          margin: 30px 50px 0 0; }
           #about .container .content .aboutMe ul li strong:before {
             content: ":";
             position: absolute;
-            right: 0px; }
+            right: 0; }
     #about .container .content .knowladge .row {
       text-align: center; }
       #about .container .content .knowladge .row div {
         margin-bottom: 30px;
-        transition: all 0.2s ease-out; }
+        transition: all .2s ease-out; }
         #about .container .content .knowladge .row div i {
           color: #c43235;
           font-size: 55px;
@@ -193,17 +193,33 @@ table {
           width: 110px;
           height: 110px;
           line-height: 110px;
-          transition: all 0.2s ease-out; }
+          transition: all .2s ease-out; }
         #about .container .content .knowladge .row div p {
           margin-top: 10px;
           color: #d4d2d2;
-          transition: all 0.2s ease-out;
+          transition: all .2s ease-out;
           font-weight: 500; }
         #about .container .content .knowladge .row div:hover i {
           border-color: #c43235; }
         #about .container .content .knowladge .row div:hover p {
           color: #c43235; }
 
+@media screen and (max-width: 992px) {
+  #about .container .content .aboutMe ul li strong {
+    width: 115px;
+    margin: 30px 10px 0 0; } }
+@media screen and (max-width: 768px) {
+  #about .container .content .aboutMe ul li strong {
+    width: 150px;
+    margin: 30px 50px 0 0; }
+  #about .container .content .knowladge {
+    margin-top: 60px; } }
+@media screen and (max-width: 576px) {
+  #about .container .content .aboutMe ul li {
+    line-height: 20px; }
+    #about .container .content .aboutMe ul li strong {
+      width: 115px;
+      margin: 30px 10px 0 0; } }
 #contacts {
   font-family: "Montserrat", sans-serif;
   height: auto;
@@ -261,6 +277,19 @@ table {
         transition: none;
         left: -200px; }
 
+@media screen and (max-width: 992px) {
+  #contacts .container .form .row .submit button {
+    float: right; } }
+@media screen and (max-width: 768px) {
+  #contacts .container .form .row .input::placeholder {
+    font-size: 11px; }
+  #contacts .container .form .row .submit {
+    margin-top: 20px; }
+    #contacts .container .form .row .submit button {
+      float: left; } }
+@media screen and (max-width: 576px) {
+  #contacts .container .form .row .input {
+    margin-top: 10px; } }
 #footer {
   font-family: "Montserrat", sans-serif;
   height: auto;
@@ -308,7 +337,8 @@ table {
     cursor: pointer;
     box-shadow: 0 0 10px #211b1b;
     transition: all .3s ease-out;
-    opacity: 0; }
+    opacity: 0;
+    z-index: 10; }
     #footer .scrollToTop:hover {
       background-color: #c43235; }
       #footer .scrollToTop:hover i {
@@ -317,56 +347,105 @@ table {
       font-size: 20px;
       color: #e0d5d5; }
 
+@media screen and (max-width: 992px) {
+  #footer .scrollToTop {
+    width: 40px;
+    height: 40px;
+    right: 10px;
+    line-height: 40px; }
+    #footer .scrollToTop i {
+      font-size: 14px; } }
+@media screen and (max-width: 768px) {
+  #footer .scrollToTop {
+    right: 4px;
+    bottom: 10px; } }
+@media screen and (max-width: 576px) {
+  #footer .container .content h1 {
+    font-size: 15px;
+    letter-spacing: 2px; }
+  #footer .container .content ul li a {
+    margin: 0 10px;
+    font-size: 14px; }
+  #footer .container .content p {
+    font-size: 10px;
+    letter-spacing: 1px; }
+  #footer .scrollToTop {
+    right: 4px;
+    bottom: 10px; } }
 #intro {
   font-family: "Montserrat", sans-serif;
   height: auto;
   background-color: #111;
   position: relative;
-  padding-top: 100px; }
-  #intro .container .row .intro-text h1 {
-    color: white;
-    font-size: 30px;
-    margin-top: 35px;
-    line-height: 40px; }
-  #intro .container .row .intro-text .name span {
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: 3px; }
-  #intro .container .row .intro-text .cv ul {
-    display: flex;
-    justify-content: space-between; }
-    #intro .container .row .intro-text .cv ul li {
-      list-style-type: none;
-      display: inline-block;
-      margin-top: 75px; }
-      #intro .container .row .intro-text .cv ul li a {
-        color: #c43235;
-        text-decoration: none;
-        border: 2px solid #c43235;
-        padding: 8px 18px;
-        font-weight: 500;
-        transition: all .2s ease-out; }
-        #intro .container .row .intro-text .cv ul li a:hover {
-          background-color: #c43235;
-          color: white;
+  padding: 100px 0 150px; }
+  #intro .container .row .intro-text {
+    z-index: 10; }
+    #intro .container .row .intro-text h1 {
+      color: white;
+      font-size: 30px;
+      margin-top: 35px;
+      line-height: 40px; }
+    #intro .container .row .intro-text .name span {
+      font-weight: 600;
+      font-size: 38px;
+      letter-spacing: 3px; }
+    #intro .container .row .intro-text .cv ul {
+      display: flex;
+      justify-content: space-between; }
+      #intro .container .row .intro-text .cv ul li {
+        list-style-type: none;
+        display: inline-block;
+        margin-top: 75px; }
+        #intro .container .row .intro-text .cv ul li a {
+          color: #c43235;
+          text-decoration: none;
+          border: 2px solid #c43235;
+          padding: 8px 18px;
+          font-weight: 500;
           transition: all .2s ease-out; }
-      #intro .container .row .intro-text .cv ul li:last-child {
-        margin-right: 28px; }
+          #intro .container .row .intro-text .cv ul li a:hover {
+            background-color: #c43235;
+            color: white;
+            transition: all .2s ease-out; }
+        #intro .container .row .intro-text .cv ul li:last-child {
+          margin-right: 28px; }
   #intro .container .row .intro-image {
     display: flex;
-    justify-content: center; }
+    justify-content: center;
+    position: absolute; }
     #intro .container .row .intro-image img {
       height: 575px; }
 
+@media screen and (min-width: 1200px) {
+  #intro .container .row .intro-text .cv ul li:last-child {
+    margin-right: 127px; } }
+@media screen and (max-width: 1200px) {
+  #intro .container .row .intro-text .cv ul li:last-child {
+    margin-right: 36px; } }
+@media screen and (max-width: 768px) {
+  #intro .container .row .intro-text .cv ul li:last-child {
+    margin-right: 95px; } }
+@media screen and (max-width: 576px) {
+  #intro .container .row .intro-text h1 {
+    font-size: 22px; }
+  #intro .container .row .intro-text .name span {
+    font-size: 26px; }
+  #intro .container .row .intro-text .cv ul {
+    display: block; }
+    #intro .container .row .intro-text .cv ul li a {
+      padding: 5px 12px;
+      font-size: 14px; }
+    #intro .container .row .intro-text .cv ul li:last-child {
+      margin-top: 30px; } }
 #navbar {
   position: absolute;
-  left: 0px;
-  right: 0px;
-  top: 0px;
+  left: 0;
+  right: 0;
+  top: 0;
   z-index: 99;
   height: auto;
   font-family: "Montserrat", sans-serif;
-  padding: 30px 0px; }
+  padding: 30px 0; }
   #navbar .container {
     position: relative; }
     #navbar .container .row .logo {
@@ -375,7 +454,8 @@ table {
       #navbar .container .row .logo a {
         text-decoration: none;
         color: #c43235;
-        font-weight: 700; }
+        font-weight: 700;
+        font-size: 20px; }
     #navbar .container .row .right-nav ul {
       list-style-type: none;
       float: right; }
@@ -386,27 +466,27 @@ table {
           font-size: 13px;
           font-weight: 600;
           text-decoration: none;
-          margin: 0px 20px;
-          padding: 10px 0px;
+          margin: 0 20px;
+          padding: 10px 0;
           position: relative;
-          transition: all 0.3s ease-in-out; }
+          transition: all .3s ease-in-out; }
           #navbar .container .row .right-nav ul li a::after {
             content: "";
             position: absolute;
             bottom: -10px;
             left: 50%;
             height: 2px;
-            width: 0%;
+            width: 0;
             background-color: white;
             opacity: 0;
-            transition: all 0.3s ease-in-out; }
+            transition: all .3s ease-in-out; }
           #navbar .container .row .right-nav ul li a:hover {
             color: #a9abb0; }
         #navbar .container .row .right-nav ul li .active::after {
-          bottom: 0px;
+          bottom: 0;
           opacity: 1;
           width: 100%;
-          left: 0%; }
+          left: 0; }
     #navbar .container .row .right-nav .menuContainer {
       height: 30px;
       width: 30px;
@@ -425,7 +505,7 @@ table {
         z-index: 6; }
         #navbar .container .row .right-nav .menuContainer .menu::before {
           position: absolute;
-          left: 0px;
+          left: 0;
           top: -10px;
           content: "";
           height: 3px;
@@ -433,14 +513,15 @@ table {
           background-color: white; }
         #navbar .container .row .right-nav .menuContainer .menu::after {
           position: absolute;
-          left: 0px;
+          left: 0;
           bottom: -10px;
           content: "";
           height: 3px;
           width: 30px;
           background-color: white; }
     #navbar .container .row .lang {
-      position: relative; }
+      position: relative;
+      z-index: 100; }
       #navbar .container .row .lang p {
         color: white;
         font-size: 13px;
@@ -456,7 +537,7 @@ table {
         #navbar .container .row .lang ul li {
           padding: 5px 10px;
           background-color: #222;
-          margin: 5px 0px;
+          margin: 5px 0;
           border-radius: 5px;
           line-height: 16px; }
           #navbar .container .row .lang ul li a {
@@ -464,21 +545,27 @@ table {
             color: #9a9a9a;
             font-size: 12px;
             font-weight: 600;
-            transition: all 0.2s ease-out; }
+            transition: all .2s ease-out; }
             #navbar .container .row .lang ul li a:hover {
               color: #c43235; }
+      #navbar .container .row .lang .responsiveLang {
+        display: none; }
+        #navbar .container .row .lang .responsiveLang p {
+          font-size: 20px; }
+        #navbar .container .row .lang .responsiveLang ul {
+          margin: 15px 0 0 -6px; }
     #navbar .container .row .responsive-nav {
       background-color: #111;
-      padding: 0px 15px;
+      padding: 0 15px;
       display: none; }
       #navbar .container .row .responsive-nav ul li {
-        margin: 40px 0px; }
+        margin: 40px 0; }
         #navbar .container .row .responsive-nav ul li a {
           color: white;
           font-weight: 600;
           font-size: 13px;
           text-decoration: none;
-          padding: 10px 0px;
+          padding: 10px 0;
           position: relative; }
           #navbar .container .row .responsive-nav ul li a::after {
             content: "";
@@ -486,31 +573,51 @@ table {
             bottom: -10px;
             left: 50%;
             height: 2px;
-            width: 0%;
+            width: 0;
             background-color: white;
             opacity: 0;
-            transition: all 0.3s ease-in-out; }
+            transition: all .3s ease-in-out; }
         #navbar .container .row .responsive-nav ul li .active::after {
-          bottom: 0px;
+          bottom: 0;
           opacity: 1;
           width: 100%;
-          left: 0%; }
+          left: 0; }
     #navbar .container .row .active-nav {
       display: block; }
 
 @media screen and (max-width: 992px) {
-  #navbar .container .row .right-nav ul {
+  #navbar {
+    background-color: #151515; }
+    #navbar .container .row .right-nav ul {
+      display: none; }
+    #navbar .container .row .right-nav .menuContainer {
+      display: flex;
+      top: 0; }
+    #navbar .container .row .lang .responsiveLang {
+      display: none; }
+      #navbar .container .row .lang .responsiveLang p {
+        font-size: 20px; }
+      #navbar .container .row .lang .responsiveLang ul {
+        margin: 32px 0 0 -6px; }
+    #navbar .container .row .responsive-nav {
+      margin-top: 20px; } }
+@media screen and (max-width: 768px) {
+  #navbar .container .row .lang .custamLang {
     display: none; }
-  #navbar .container .row .right-nav .menuContainer {
-    display: flex; }
+  #navbar .container .row .lang .responsiveLang {
+    display: block;
+    float: right; }
   #navbar .container .row .responsive-nav {
     margin-top: 20px; } }
+@media screen and (max-width: 992px) {
+  #navbar .container .row .logo a {
+    font-size: 16px; } }
 #portfolio {
   font-family: "Montserrat", sans-serif;
   height: auto;
   background-color: #111;
   position: relative;
-  padding: 100px 0px 40px 0px; }
+  padding: 100px 0 40px; }
   #portfolio .container .menu ul {
     text-align: center;
     margin-top: 70px; }
@@ -523,10 +630,10 @@ table {
         font-size: 13px;
         font-weight: 600;
         padding: 8px 27px;
-        margin: 0px 5px;
+        margin: 0 5px;
         border: 1px dashed #c43235;
         border-radius: 25px;
-        transition: all 0.3s ease-out; }
+        transition: all .3s ease-out; }
         #portfolio .container .menu ul li a:hover {
           color: white;
           background-color: #c43235; }
@@ -543,7 +650,7 @@ table {
         max-height: 250px;
         position: relative;
         overflow: hidden;
-        transition: all 0.3s ease-out;
+        transition: all .3s ease-out;
         border: 5px solid white; }
         #portfolio .container .itemsCover .items .item:hover .overlay {
           opacity: 1; }
@@ -564,7 +671,7 @@ table {
           background-color: #111;
           opacity: 0;
           text-align: center;
-          transition: all 0.3s ease-out; }
+          transition: all .3s ease-out; }
           #portfolio .container .itemsCover .items .item .overlay h2 {
             color: white;
             font-size: 19px;
@@ -572,13 +679,13 @@ table {
             letter-spacing: 2px;
             position: relative;
             top: 85px;
-            transition: all 0.3s ease-out; }
+            transition: all .3s ease-out; }
           #portfolio .container .itemsCover .items .item .overlay p {
             color: #a5a2a2;
             font-size: 15px;
             position: relative;
             top: 115px;
-            transition: all 0.3s ease-out; }
+            transition: all .3s ease-out; }
           #portfolio .container .itemsCover .items .item .overlay i {
             position: absolute;
             right: 15px;
@@ -588,10 +695,10 @@ table {
             cursor: pointer; }
     #portfolio .container .itemsCover .hide {
       transform: translate(-100px, -100px) scale(0);
-      transition: all 0.5s ease-out; }
+      transition: all .5s ease-out; }
     #portfolio .container .itemsCover .show {
       transform: scale(1);
-      transition: all 0.5s ease-out; }
+      transition: all .5s ease-out; }
 
 #slideCover {
   font-family: "Times New Roman";
@@ -620,7 +727,7 @@ table {
       width: 26px;
       height: 26px;
       cursor: pointer;
-      transition: all 0.2s ease-out; }
+      transition: all .2s ease-out; }
       #slideCover .slideContainer .closeSlide:hover:before {
         background-color: white; }
       #slideCover .slideContainer .closeSlide:hover:after {
@@ -634,7 +741,7 @@ table {
         top: 6px;
         transform: rotate(45deg);
         left: 12px;
-        transition: all 0.2s ease-out; }
+        transition: all .2s ease-out; }
       #slideCover .slideContainer .closeSlide:after {
         content: "";
         height: 2px;
@@ -644,7 +751,7 @@ table {
         bottom: 18px;
         transform: rotate(-45deg);
         left: 12px;
-        transition: all 0.2s ease-out; }
+        transition: all .2s ease-out; }
     #slideCover .slideContainer .countSlide {
       position: absolute;
       bottom: -20px;
@@ -674,7 +781,7 @@ table {
       color: #a9abb0;
       font-size: 60px;
       align-self: center;
-      transition: all 0.2s ease-out; }
+      transition: all .2s ease-out; }
     #slideCover .angleBoth:hover i {
       color: white; }
   #slideCover .angleRight {
@@ -684,6 +791,23 @@ table {
     left: 10px;
     justify-content: flex-start; }
 
+@media screen and (max-width: 992px) {
+  #portfolio .container .menu ul li {
+    margin-top: 20px; }
+    #portfolio .container .menu ul li a {
+      font-size: 10px;
+      padding: 6px 16px; } }
+@media screen and (max-width: 576px) {
+  #portfolio .container .menu ul li a {
+    font-size: 10px;
+    padding: 6px 16px; }
+
+  #slideCover .angleBoth i {
+    font-size: 35px; }
+  #slideCover .angleRight {
+    right: 5px; }
+  #slideCover .angleLeft {
+    left: 5px; } }
 #skills {
   font-family: "Montserrat", sans-serif;
   height: auto;
@@ -745,5 +869,23 @@ table {
               bottom: -2px;
               right: 20px;
               transform: rotate(45deg); }
+
+@media screen and (max-width: 576px) {
+  #skills .container .content .col-md-6 {
+    margin-bottom: 60px; }
+    #skills .container .content .col-md-6 h2 {
+      font-size: 14px; }
+    #skills .container .content .col-md-6 .range {
+      height: 14px; }
+      #skills .container .content .col-md-6 .range .rating {
+        height: 16px; }
+        #skills .container .content .col-md-6 .range .rating span {
+          font-size: 10px;
+          width: 40px;
+          height: 20px;
+          right: -20px;
+          top: -28px; }
+          #skills .container .content .col-md-6 .range .rating span:after {
+            right: 18px; } }
 
 /*# sourceMappingURL=style.css.map */
