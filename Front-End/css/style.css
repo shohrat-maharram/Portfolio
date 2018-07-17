@@ -234,7 +234,7 @@ table {
   height: auto;
   background-color: #0c0c0c;
   position: relative;
-  padding: 100px 0 40px; }
+  padding: 100px 0 70px; }
   #contacts .container .form {
     margin-top: 60px; }
     #contacts .container .form .row {
@@ -806,10 +806,16 @@ table {
     #portfolio .container .menu ul li a {
       font-size: 10px;
       padding: 6px 16px; } }
+@media screen and (max-width: 768px) {
+  #portfolio .container .menu ul li a {
+    font-size: 10px;
+    padding: 4px 12px;
+    margin: 0px 3px; } }
 @media screen and (max-width: 576px) {
   #portfolio .container .menu ul li a {
     font-size: 10px;
-    padding: 6px 16px; }
+    padding: 4px 12px;
+    margin: 0px 3px; }
 
   #slideCover .angleBoth i {
     font-size: 35px; }
@@ -852,7 +858,7 @@ table {
           position: absolute;
           left: 0;
           top: -1px;
-          width: 30%;
+          width: 10%;
           height: 20px;
           background-color: #c43235;
           box-shadow: 0 0 1px #c43239; }

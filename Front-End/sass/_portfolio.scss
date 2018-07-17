@@ -307,7 +307,7 @@
     }
   }
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   #portfolio {
     .container {
       .menu {
@@ -315,11 +315,9 @@
           li {
             a {
               font-size: 10px;
-              padding: 6px 16px;
+              padding: 4px 12px;
+              margin: 0px 3px;
             }
-
-            .active {
-              }
           }
         }
       }
@@ -342,12 +340,6 @@
             }
           }
         }
-
-        .hide {
-          }
-
-        .show {
-          }
       }
     }
   }
@@ -366,23 +358,57 @@
       
       }
     }
-
-    .overlay {
-     
+  }
+}
+@media screen and (max-width: 576px) {
+  #portfolio {
+    .container {
+      .menu {
+        ul {
+          li {
+            a {
+              font-size: 10px;
+              padding: 4px 12px;
+              margin: 0px 3px;
+            }
+            .active {}
+          }
+        }
+      }
+      .itemsCover {
+        .items {
+          .item {
+            img {}
+            .overlay {
+              h2 {}
+              p {}
+              i {}
+            }
+          }
+        }
+        .hide {}
+        .show {}
+      }
     }
-
+  }
+  #slideCover {
+    .slideContainer {
+      .item {}
+      .closeSlide {}
+      .countSlide {}
+    }
+    .overlay {}
     .angleBoth {
       i {
         font-size: 35px;
       }
     }
-
     .angleRight {
       right: 5px;
     }
-
     .angleLeft {
       left: 5px;
     }
   }
 }
+
