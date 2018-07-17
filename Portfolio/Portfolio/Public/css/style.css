@@ -256,6 +256,9 @@ table {
         margin-top: 12px; }
         #contacts .container .form .row p span {
           font-weight: bold; }
+      #contacts .container .form .row .submit .message {
+        width: 270px;
+        float: left; }
       #contacts .container .form .row .submit button {
         background-color: #151515;
         border: none;

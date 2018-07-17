@@ -1,5 +1,6 @@
-﻿@{ 
+﻿@{
     Layout = null;
+    DateTime date = DateTime.Now;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -423,7 +424,7 @@
             </div>
             <div class="row form">
                 <div class="col-md-12">
-                    <form>
+                    <form method="post" action="@Url.Action("SendMessage", "home")">
                         <div class="row">
                             <div class="col-sm-4 col-12">
                                 <input type="text" class="form-control input" required placeholder="Name*" name="name">
@@ -442,7 +443,7 @@
                         </div>
                         <div class="row" style="margin-top:0px;">
                             <div class="col">
-                                <input type="hidden" value="" name="date">
+                                <input type="hidden" value="@date" name="date">
                             </div>
                         </div>
                         <div class="row">
@@ -457,6 +458,14 @@
                                 </p>
                             </div>
                             <div class="col-md-6 submit">
+                                @if (Session["MessageSent"] != null)
+                                {
+                                    <div class="alert alert-success message">
+                                        <strong>Success!</strong> Your message sent.
+                                    </div>
+                                    Session["MessageSent"] = null;
+                                }
+                                
                                 <button type="submit" class="btn btn-primary">
                                     <span></span>
                                     SEND MESSAGE

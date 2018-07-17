@@ -44,6 +44,10 @@
         }
 
         .submit {
+          .message{
+            width: 270px;
+            float: left;
+          }
           button {
             background-color: $bg-col-input;
             border: none;
