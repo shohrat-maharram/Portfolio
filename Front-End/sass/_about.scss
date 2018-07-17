@@ -4,28 +4,22 @@
   background-color: $bg-col;
   position: relative;
   padding: 100px 0 40px;
-
   .container {
     .title {
       @extend %title-style;
     }
-
     .content {
       margin-top: 50px;
-
       .aboutMe {
         color: $txt-col2;
         font-size: 14px;
-
         p {
           line-height: 24px;
           margin-bottom: 40px;
         }
-
         ul {
           li {
             font-size: 13px;
-
             strong {
               color: $txt-col-trend;
               font-weight: 600;
@@ -33,7 +27,6 @@
               position: relative;
               display: inline-block;
               margin: 30px 50px 0 0;
-
               &:before {
                 content: ":";
                 position: absolute;
@@ -43,38 +36,44 @@
           }
         }
       }
-
       .knowladge {
         .row {
           text-align: center;
-
-          div {
+          .iconContainer {
             margin-bottom: 30px;
             transition: all .2s ease-out;
-
-            i {
-              color: $txt-col-trend;
-              font-size: 55px;
-              border: 1px solid $txt-col2;
+            .icon {
               width: 110px;
               height: 110px;
-              line-height: 110px;
+              border: 1px solid white;
+              margin: 0 auto;
+              display: flex;
+              justify-content: center;
+              align-items: center;
               transition: all .2s ease-out;
+              i {
+                color: $txt-col-trend;
+                font-size: 55px;
+                transition: all .2s ease-out;
+              }
+              img {
+                width: 70px;
+              }
             }
-
             p {
               margin-top: 10px;
               color: $txt-col2;
               transition: all .2s ease-out;
               font-weight: 500;
             }
-
             &:hover i {
               border-color: $txt-col-trend;
             }
-
             &:hover p {
               color: $txt-col-trend;
+            }
+            &:hover .icon {
+              border-color: $txt-col-trend;
             }
           }
         }
@@ -82,15 +81,14 @@
     }
   }
 }
+
 @media screen and (max-width: 992px) {
   #about {
     .container {
       .title {}
-
       .content {
         .aboutMe {
           p {}
-
           ul {
             li {
               strong {
@@ -100,14 +98,11 @@
             }
           }
         }
-
         .knowladge {
           .row {
             div {
               i {}
-
               p {}
-
             }
           }
         }
@@ -115,15 +110,14 @@
     }
   }
 }
+
 @media screen and (max-width: 768px) {
   #about {
     .container {
       .title {}
-
       .content {
         .aboutMe {
           p {}
-
           ul {
             li {
               strong {
@@ -133,16 +127,12 @@
             }
           }
         }
-
         .knowladge {
           margin-top: 60px;
-
           .row {
             div {
               i {}
-
               p {}
-
             }
           }
         }
@@ -150,15 +140,14 @@
     }
   }
 }
+
 @media screen and (max-width: 576px) {
   #about {
     .container {
       .title {}
-
       .content {
         .aboutMe {
           p {}
-
           ul {
             li {
               line-height: 20px;
@@ -169,14 +158,11 @@
             }
           }
         }
-
         .knowladge {
           .row {
             div {
               i {}
-
               p {}
-
             }
           }
         }
