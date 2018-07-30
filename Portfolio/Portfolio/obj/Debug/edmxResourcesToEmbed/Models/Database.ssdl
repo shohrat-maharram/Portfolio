@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PortfolioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AboutMe">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Birth" Type="int" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="30" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="200" />
+    <Property Name="CV" Type="nvarchar" MaxLength="200" />
+    <Property Name="Position" Type="nvarchar" MaxLength="200" />
+    <Property Name="Text" Type="text" />
+    <Property Name="Lang" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="AdminsData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="200" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Gallery">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Media" Type="nvarchar" MaxLength="100" />
+    <Property Name="PortfolioId" Type="int" />
+    <Property Name="Lang" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="Knowledge">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="30" />
+    <Property Name="IsIcon" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Messages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="200" />
+    <Property Name="Text" Type="text" />
+    <Property Name="Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Portfolio">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="Slogan" Type="nvarchar" MaxLength="150" />
+    <Property Name="CategoryId" Type="int" />
+    <Property Name="Lang" Type="nvarchar" MaxLength="15" />
+    <Property Name="Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Skills">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" />
+    <Property Name="Percentage" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Social">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="50" />
+    <Property Name="Link" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <Association Name="FK_Gallery_Portfolio">
+    <End Role="Portfolio" Type="Self.Portfolio" Multiplicity="0..1" />
+    <End Role="Gallery" Type="Self.Gallery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Portfolio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gallery">
+        <PropertyRef Name="PortfolioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Portfolio_Categories">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+    <End Role="Portfolio" Type="Self.Portfolio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Portfolio">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PortfolioModelStoreContainer">
+    <EntitySet Name="AboutMe" EntityType="Self.AboutMe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdminsData" EntityType="Self.AdminsData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gallery" EntityType="Self.Gallery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Knowledge" EntityType="Self.Knowledge" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Portfolio" EntityType="Self.Portfolio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Skills" EntityType="Self.Skills" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Social" EntityType="Self.Social" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Gallery_Portfolio" Association="Self.FK_Gallery_Portfolio">
+      <End Role="Portfolio" EntitySet="Portfolio" />
+      <End Role="Gallery" EntitySet="Gallery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Portfolio_Categories" Association="Self.FK_Portfolio_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Portfolio" EntitySet="Portfolio" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

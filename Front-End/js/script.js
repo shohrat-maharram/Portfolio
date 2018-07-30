@@ -398,7 +398,6 @@ $(document).ready(function () {
         $(this).removeClass("hoverR").addClass("hoverB");      
     });
 
-
     // Create scrollTop button part
     //Scroll to top function
     function scrollToTop() {

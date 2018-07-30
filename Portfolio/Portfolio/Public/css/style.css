@@ -249,6 +249,10 @@ table {
           color: #696969; }
         #contacts .container .form .row .input:focus {
           box-shadow: none; }
+        #contacts .container .form .row .input:-webkit-autofill, #contacts .container .form .row .input:-webkit-autofill:focus, #contacts .container .form .row .input:-webkit-autofill:hover {
+          border-radius: 0;
+          -webkit-text-fill-color: #d4d2d2;
+          box-shadow: 0 0 0 100px #151515 inset; }
       #contacts .container .form .row p {
         position: relative;
         font-size: 12px;
@@ -257,8 +261,13 @@ table {
         #contacts .container .form .row p span {
           font-weight: bold; }
       #contacts .container .form .row .submit .message {
+        display: none;
         width: 270px;
+        height: 41px;
         float: left; }
+      #contacts .container .form .row .submit .message-error {
+        font-size: 11px;
+        padding: 15px 10px; }
       #contacts .container .form .row .submit button {
         background-color: #151515;
         border: none;
@@ -285,23 +294,59 @@ table {
           z-index: -1;
           transition: left .2s ease-in-out; }
       #contacts .container .form .row .submit .hoverR:before {
-        left: 0px; }
+        left: 0; }
       #contacts .container .form .row .submit .hoverB:before {
         left: -200px; }
 
+@media screen and (min-width: 992px) {
+  #contacts .container .form .row .submit .message {
+    font-size: 14px;
+    width: 242px; }
+  #contacts .container .form .row .submit .message-error {
+    font-size: 11px;
+    padding: 15px 10px; } }
 @media screen and (max-width: 992px) {
-  #contacts .container .form .row .submit button {
-    float: right; } }
+  #contacts .container .form .row .submit {
+    margin-top: 30px; }
+    #contacts .container .form .row .submit .message {
+      width: 270px;
+      height: 41px;
+      float: right; }
+    #contacts .container .form .row .submit button {
+      float: left; } }
 @media screen and (max-width: 768px) {
   #contacts .container .form .row .input::placeholder {
     font-size: 11px; }
   #contacts .container .form .row .submit {
     margin-top: 20px; }
+    #contacts .container .form .row .submit .message {
+      width: 220px;
+      height: 41px;
+      float: right;
+      padding: 13px 8px;
+      font-size: 14px; }
+    #contacts .container .form .row .submit .message-error {
+      font-size: 11px;
+      padding: 15px 10px;
+      width: 242px; }
     #contacts .container .form .row .submit button {
       float: left; } }
 @media screen and (max-width: 576px) {
   #contacts .container .form .row .input {
-    margin-top: 10px; } }
+    margin-top: 10px; }
+  #contacts .container .form .row .submit {
+    margin-top: 20px; }
+    #contacts .container .form .row .submit .message {
+      margin-right: 20px;
+      width: 193px;
+      height: 38px;
+      float: left;
+      padding: 12px 6px;
+      font-size: 12px; }
+    #contacts .container .form .row .submit .message-error {
+      padding: 7px 6px; }
+    #contacts .container .form .row .submit button {
+      float: left; } }
 #footer {
   font-family: "Montserrat", sans-serif;
   height: auto;
@@ -329,8 +374,10 @@ table {
           color: #4875B4; }
         #footer .container .content ul li:nth-child(2):hover a {
           color: #1da1f2; }
-        #footer .container .content ul li:last-child:hover a {
+        #footer .container .content ul li:nth-child(3):hover a {
           color: #3B5998; }
+        #footer .container .content ul li:last-child:hover a {
+          color: #00AFF0; }
     #footer .container .content p {
       color: #696969;
       font-size: 13px;
@@ -389,7 +436,7 @@ table {
   height: auto;
   background-color: #111;
   position: relative;
-  padding: 100px 0 150px; }
+  padding: 100px 0 148px; }
   #intro .container .row .intro-text {
     z-index: 10; }
     #intro .container .row .intro-text h1 {
@@ -438,17 +485,21 @@ table {
   #intro .container .row .intro-text .cv ul li:last-child {
     margin-right: 95px; } }
 @media screen and (max-width: 576px) {
-  #intro .container .row .intro-text h1 {
-    font-size: 22px; }
-  #intro .container .row .intro-text .name span {
-    font-size: 26px; }
-  #intro .container .row .intro-text .cv ul {
-    display: block; }
-    #intro .container .row .intro-text .cv ul li a {
-      padding: 5px 12px;
-      font-size: 14px; }
-    #intro .container .row .intro-text .cv ul li:last-child {
-      margin-top: 30px; } }
+  #intro {
+    padding-bottom: 100px; }
+    #intro .container .row .intro-text h1 {
+      font-size: 22px; }
+    #intro .container .row .intro-text .name span {
+      font-size: 26px; }
+    #intro .container .row .intro-text .cv ul {
+      display: block; }
+      #intro .container .row .intro-text .cv ul li a {
+        padding: 5px 12px;
+        font-size: 14px; }
+      #intro .container .row .intro-text .cv ul li:last-child {
+        margin-top: 30px; }
+    #intro .container .row .intro-image img {
+      max-height: 430px; } }
 #navbar {
   position: absolute;
   left: 0;

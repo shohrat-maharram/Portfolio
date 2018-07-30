@@ -3,8 +3,7 @@
   height: auto;
   background-color: $bg-col2;
   position: relative;
-  // top: -80px;
-  padding: 100px 0 150px;
+  padding: 100px 0 148px;
 
   .container {
     .row {
@@ -167,6 +166,7 @@
 }
 @media screen and (max-width: 576px) {
   #intro {
+    padding-bottom: 100px;
     .container {
       .row {
         .intro-text {
@@ -200,7 +200,9 @@
         }
 
         .intro-image {
-          img {}
+          img {
+            max-height: 430px;
+          }
         }
       }
     }

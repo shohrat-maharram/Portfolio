@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using Portfolio.Filters;
+using System.Web;
 using System.Web.Mvc;
 
 namespace Portfolio
@@ -8,6 +9,7 @@ namespace Portfolio
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new LocalizationAttribute("en"), 0);
         }
     }
 }

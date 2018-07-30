@@ -1,16 +1,5 @@
 $(document).ready(function () {
 
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  << Functions Executed on Window load >>  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-    $(function () {
-        $(window).on("load", function () {
-
-            var width = $(window).width();
-            var height = $(window).height();
-        });
-    });
-    //~~~~~~~~~~~~~~~~~~~~  << End of Window load >>  ~~~~~~~~~~~~~~~~~~~~//
-
-
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  << Functions Executed on Window scroll >>  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
     //Variables    
     //New Function which create dynamic variables
@@ -124,7 +113,7 @@ $(document).ready(function () {
         //Hide responsive nav
         $("#navbar .responsive-nav").slideUp("slow");
         $("#navbar").css("padding-bottom", "30px");
-
+        
         //Navbar data index
         var indexNav = $(".right-nav .active").parent().data("index");
         var indexNavR = $(".responsive-nav .active").parent().data("index");
@@ -187,8 +176,7 @@ $(document).ready(function () {
         }
     }
     //~~~~~~~~~~ << End of Function : Element position settings >> ~~~~~~~~~~//
-
-
+    
     //~~~~~~~~~~ << New Function : Adjust top of Slider >> ~~~~~~~~~~//
     function adjElemTop(elemAdj, elemHeight, windowHeight) {
         if (((windowHeight - elemHeight) / 2) <= 0) {
@@ -210,9 +198,6 @@ $(document).ready(function () {
             $("#navbar .row .lang ul").slideUp("slow");
             shift = 0;
         }
-    });
-    $("#navbar .row .lang ul li a").click(function (e) {
-        e.preventDefault();
     });
 
     // Navbar section
@@ -309,36 +294,99 @@ $(document).ready(function () {
             }, 500);
         }
     })
-
+        
     //Slider of portfolio section
     var slideImgIcon = $("#portfolio .itemsCover .items .item .overlay .slideImgIcon");
     slideImgIcon.click(function () {
         var This = $(this);
         var slideImgIconIndex = This.data("index");
         $("#slideCover").css("display", "flex").addClass("active");
+        
+        var portfolioId = $(this).data("index");
+        var slides = $("#slideCover .slideContainer .slides");
+        slides.empty();
+        var imageHeightAjax;       
+        
+        $.ajax({
+            type: "get",
+            url: "/home/portfolioMedia/" + portfolioId,
+            dataType: "json",
+            success: function (response) {
+                for (var i = 0; i < response.length; i++) {
+                    var mediaFormat = response[i].split(".")[1];
 
-        //Margins of slider
-        var imageHeight = $("#slideCover .slideContainer .active").height();
-        var elemAdj = $("#slideCover .slideContainer")
-        adjElemTop(elemAdj, imageHeight, $(window).height());
+                    if (mediaFormat == "mp4") {
+                        var video = $("<video class='item " + ((i == 0) ? 'active' : '') + "' controls data-pos='" + (i + 1) + "'></video>");
+                        var source = $("<source src='/Public/img/" + response[i] + "' type='video/mp4'>");
+                        video.append(source);
+                        slides.append(video);
+                    } else {
+                        var img = $("<img class='item " + ((i == 0) ? 'active' : '') + "' src='/Public/img/" + response[i] + "' data-pos='" + (i + 1) + "'>");
+                        slides.append(img);
+                        imageHeightAjax = img[0];
+                    };                           
+                }                
 
-        //Margins of angles
-        var buttonHeight = $("#slideCover .angleBoth").height();
-        var buttonAdj = $("#slideCover .angleBoth")
-        adjElemTop(buttonAdj, buttonHeight, $(window).height());
-    });
+                //Window width and height
+                var width = $(window).width();
+                var height = $(window).height();
+
+                //Max-Width and max-height of Slider
+                $("#slideCover .slideContainer .item").css({
+                    "maxWidth": "" + (width * 70) / 100 + "px",
+                    "maxHeight": "" + (height * 70) / 100 + "px"
+                });
+
+                //Margins of slider
+                var imageHeight = $("#slideCover .slideContainer .active").height();
+                var elemAdj = $("#slideCover .slideContainer")
+                adjElemTop(elemAdj, imageHeight, height);
+
+                //Margins of slider
+                var buttonHeight = $("#slideCover .angleBoth").height();
+                var buttonAdj = $("#slideCover .angleBoth")
+                adjElemTop(buttonAdj, buttonHeight, height); 
+
+
+                //Number of Image
+                var imageCount = 1;
+                $("#slideCover .slideContainer .countSlide").empty();
+                $("#slideCover .slideContainer .countSlide").text(imageCount + " / " + response.length);
+
+                $("#slideCover .angleBoth").click(function () {
+                    if ($(this).hasClass("angleRight")) {
+                        imageCount++;
+                    } else if ($(this).hasClass("angleLeft")) {
+                        imageCount--;
+                    }
+                    if (imageCount > response.length){
+                        imageCount = 1;
+                    }
+                    if (imageCount <= 0) {
+                        imageCount = response.length;
+                    }
+
+                    $("#slideCover .slideContainer .countSlide").text(imageCount + " / " + response.length);
+                });
+            }
+        });
+    });    
 
     //Closing slider
     $("#slideCover .closeSlide").click(function () {
         $("#slideCover").css("display", "none").removeClass("active");
-        $("#slideCover .slideContainer video")[0].pause();
+        if ($("#slideCover .slideContainer video").length > 0) {
+            $("#slideCover .slideContainer video")[0].pause();
+        } 
     });
 
     //Changing slider to next one
     $("#slideCover .angleBoth").click(function () {
         var directionName = $(this).data("name");
         changeSlide(directionName);
-        $("#slideCover .slideContainer video")[0].pause();
+        if ($("#slideCover .slideContainer video").length>0){
+            $("#slideCover .slideContainer video")[0].pause();
+        }        
     });
 
     function changeSlide(direction) {
@@ -386,7 +434,7 @@ $(document).ready(function () {
             "maxHeight": "" + (height * 70) / 100 + "px"
         });
 
-        console.log("Image height: " + imageHeight + " Container top: " + (height - imageHeight) / 2);
+        //console.log("Image height: " + imageHeight + " Container top: " + (height - imageHeight) / 2);
     }
 
     //Send message button
@@ -395,9 +443,8 @@ $(document).ready(function () {
     });
 
     $("#contacts .form .submit button").mouseout(function () {
-        $(this).removeClass("hoverR").addClass("hoverB");      
+        $(this).removeClass("hoverR").addClass("hoverB");
     });
-
 
     // Create scrollTop button part
     //Scroll to top function
@@ -443,4 +490,32 @@ $(document).ready(function () {
             });
         }
     }
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  << Functions Execute AJAX codes >>  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+    //Sending message with Ajax
+    $("#sendMessageForm .myButton").click(function (e) {
+        e.preventDefault();
+        var data = $("#sendMessageForm").serialize();
+
+        $.ajax({
+
+            type: "POST",
+            url: "/home/SendMessage",
+            data: data,
+            success: function (response) {
+                console.log(response.response);
+                if (response.response == true) {
+                    $("#contacts .container .form .submit .message-error").css({ "display": "none" });
+                    $("#contacts .container .form .submit .message-success").css({ "display": "block" });
+                    $("#sendMessageForm input").val('');
+                    $("#sendMessageForm textarea").val('');
+                } else {
+                    $("#contacts .container .form .submit .message-success").css({ "display": "none" });
+                    $("#contacts .container .form .submit .message-error").css({ "display": "block" });
+                }
+            }
+
+        })
+    });    
+    //~~~~~~~~~~~~~~~~~~~~  << End of AJAX codes >>  ~~~~~~~~~~~~~~~~~~~~//
 });

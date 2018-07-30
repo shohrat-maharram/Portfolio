@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PortfolioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AboutMe">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Birth" Type="Int32" />
+    <Property Name="Phone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CV" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Position" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Lang" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Portfolio" Relationship="Self.FK_Portfolio_Categories" FromRole="Categories" ToRole="Portfolio" />
+  </EntityType>
+  <EntityType Name="Gallery">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Media" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PortfolioId" Type="Int32" />
+    <Property Name="Lang" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Portfolio" Relationship="Self.FK_Gallery_Portfolio" FromRole="Gallery" ToRole="Portfolio" />
+  </EntityType>
+  <EntityType Name="Knowledge">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Icon" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="IsIcon" Type="Byte" />
+  </EntityType>
+  <EntityType Name="Messages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Portfolio">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Slogan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="Lang" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Categories" Relationship="Self.FK_Portfolio_Categories" FromRole="Portfolio" ToRole="Categories" />
+    <NavigationProperty Name="Gallery" Relationship="Self.FK_Gallery_Portfolio" FromRole="Portfolio" ToRole="Gallery" />
+  </EntityType>
+  <EntityType Name="Skills">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Percentage" Type="Byte" />
+  </EntityType>
+  <EntityType Name="Social">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Icon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Portfolio_Categories">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+    <End Role="Portfolio" Type="Self.Portfolio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Portfolio">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gallery_Portfolio">
+    <End Role="Portfolio" Type="Self.Portfolio" Multiplicity="0..1" />
+    <End Role="Gallery" Type="Self.Gallery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Portfolio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gallery">
+        <PropertyRef Name="PortfolioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PortfolioEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AboutMe" EntityType="Self.AboutMe" />
+    <EntitySet Name="Categories" EntityType="Self.Categories" />
+    <EntitySet Name="Gallery" EntityType="Self.Gallery" />
+    <EntitySet Name="Knowledge" EntityType="Self.Knowledge" />
+    <EntitySet Name="Messages" EntityType="Self.Messages" />
+    <EntitySet Name="Portfolio" EntityType="Self.Portfolio" />
+    <EntitySet Name="Skills" EntityType="Self.Skills" />
+    <EntitySet Name="Social" EntityType="Self.Social" />
+    <AssociationSet Name="FK_Portfolio_Categories" Association="Self.FK_Portfolio_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Portfolio" EntitySet="Portfolio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gallery_Portfolio" Association="Self.FK_Gallery_Portfolio">
+      <End Role="Portfolio" EntitySet="Portfolio" />
+      <End Role="Gallery" EntitySet="Gallery" />
+    </AssociationSet>
+    <EntitySet Name="AdminsData" EntityType="PortfolioModel.AdminsData" />
+  </EntityContainer>
+  <EntityType Name="AdminsData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

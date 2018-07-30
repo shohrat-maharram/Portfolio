@@ -20,7 +20,7 @@
           background-color: $bg-col-input;
           border: none;
           font-size: 14px;
-          color: $txt-col2; // resize: none;
+          color: $txt-col2;
           max-height: 200px;
 
           &::placeholder {
@@ -30,6 +30,15 @@
           &:focus {
             box-shadow: none;
           }
+
+          &:-webkit-autofill,
+          &:-webkit-autofill:focus,
+          &:-webkit-autofill:hover {
+            border-radius: 0;
+            -webkit-text-fill-color: $txt-col2;
+            box-shadow: 0 0 0 100px $bg-col-input inset;
+          }
+
         }
 
         p {
@@ -44,10 +53,18 @@
         }
 
         .submit {
-          .message{
+          .message {
+            display: none;
             width: 270px;
+            height: 41px;
             float: left;
           }
+
+          .message-error {
+            font-size: 11px;
+            padding: 15px 10px;
+          }
+
           button {
             background-color: $bg-col-input;
             border: none;
@@ -60,9 +77,11 @@
             z-index: 1;
             overflow: hidden;
             font-weight: 500;
+
             &:focus {
               box-shadow: none;
             }
+
             &:before {
               content: "";
               position: absolute;
@@ -74,18 +93,55 @@
               border-radius: 4px;
               z-index: -1;
               transition: left .2s ease-in-out;
-            }            
-          }
-          .hoverR {
-            &:before {
-              left: 0px;
             }
           }
+
+          .hoverR {
+            &:before {
+              left: 0;
+            }
+          }
+
           .hoverB {
             &:before {
               left: -200px;
             }
-          }         
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 992px) {
+  #contacts {
+    .container {
+      .form {
+        .row {
+          .input {}
+
+          p {
+            span {}
+          }
+
+          .submit {
+            .message {
+              font-size: 14px;
+              width: 242px;
+            }
+
+            .message-error {
+              font-size: 11px;
+              padding: 15px 10px;
+            }
+
+            button {}
+          }
+
+          .hoverR {}
+
+          .hoverB {}
+
+          .back {}
         }
       }
     }
@@ -103,8 +159,16 @@
           }
 
           .submit {
-            button {
+            margin-top: 30px;
+
+            .message {
+              width: 270px;
+              height: 41px;
               float: right;
+            }
+
+            button {
+              float: left;
             }
           }
 
@@ -134,18 +198,25 @@
           }
 
           .submit {
+            .message {
+              width: 220px;
+              height: 41px;
+              float: right;
+              padding: 13px 8px;
+              font-size: 14px;
+            }
+
+            .message-error {
+              font-size: 11px;
+              padding: 15px 10px;
+              width: 242px;
+            }
             margin-top: 20px;
 
             button {
               float: left;
             }
           }
-
-          .hoverR {}
-
-          .hoverB {}
-
-          .back {}
         }
       }
     }
@@ -164,13 +235,26 @@
             span {}
           }
 
-          button {}
+          .submit {
+            .message {
+              margin-right: 20px;
+              width: 193px;
+              height: 38px;
+              float: left;
+              padding: 12px 6px;
+              font-size: 12px;
+            }
 
-          .hoverR {}
+            .message-error {
+              padding: 7px 6px;
+            }
 
-          .hoverB {}
+            margin-top: 20px;
 
-          .back {}
+            button {
+              float: left;
+            }
+          }
         }
       }
     }

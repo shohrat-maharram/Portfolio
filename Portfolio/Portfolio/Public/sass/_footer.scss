@@ -46,10 +46,18 @@
             }
           }
 
-          &:last-child {
+          &:nth-child(3) {
             &:hover {
               a {
                 color: #3B5998;
+              }
+            }
+          }
+
+          &:last-child {
+            &:hover {
+              a {
+                color: #00AFF0;
               }
             }
           }
@@ -121,7 +129,6 @@
   #footer {
     .container {
       .content {
-
         h1 {
           font-size: 15px;
           letter-spacing: 2px;

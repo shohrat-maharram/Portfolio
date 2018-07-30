@@ -25,6 +25,6 @@ namespace Portfolio.Models
 
         [DataType(DataType.DateTime)]
         [Display(Name = "Date")]
-        public string date { get; set; }
+        public DateTime date { get; set; }
     }
 }
