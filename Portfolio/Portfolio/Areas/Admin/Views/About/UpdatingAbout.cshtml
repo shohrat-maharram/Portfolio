@@ -1,0 +1,87 @@
+﻿@using Portfolio.Models
+@{
+    ViewBag.Title = "Update About";
+
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" style="margin-bottom:30px;">
+    <div class="row">
+        <div class="col-md-8">
+            <form method="post" action="@Url.Action("UpdatingAbout","about")" enctype="multipart/form-data">
+
+                <input type="hidden" name="id" value="@ViewBag.About.Id" />
+
+                <div class="form-group">
+                    <label for="title">Full Name</label>
+                    <input type="text" name="FullName" class="form-control" id="FullName" value="@ViewBag.About.FullName">
+                </div>
+                <div class="form-group">
+                    <label for="title">Birth</label>
+                    <input type="number" name="Birth" class="form-control" id="Birth" value="@ViewBag.About.Birth">
+                </div>
+                <div class="form-group">
+                    <label for="title">Phone</label>
+                    <input type="text" name="Phone" class="form-control" id="Phone" value="@ViewBag.About.Phone">
+                </div>
+                <div class="form-group">
+                    <label for="title">Email</label>
+                    <input type="text" name="Email" class="form-control" id="Email" value="@ViewBag.About.Email">
+                </div>
+                <div class="form-group">
+                    <label for="title">Address</label>
+                    <input type="text" name="Address" class="form-control" id="Address" value="@ViewBag.About.Address">
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Photo*</label>
+                    <input type="image" src="~/Uploads/@ViewBag.About.Photo" width="100" />
+                    <input type="hidden" name="OldPhoto" value="@ViewBag.About.Photo" />
+                    <input type="file" name="Photo" class="form-control" id="Photo" value="">
+                </div>
+
+                @if (Session["InvalidPhotoType"] != null)
+                {
+                    <div class="alert alert-warning" role="alert">
+                        You can only upload "png, jpg, jpeg" type files!
+                    </div>
+
+                    Session["InvalidPhotoType"] = null;
+                }
+                <div class="form-group">
+                    <label for="title">CV*</label>
+                    <input type="hidden" name="Oldcv" value="@ViewBag.About.CV" />
+                    <input type="file" name="cv" class="form-control" id="cv" value="">
+                </div>
+                @if (Session["InvalidCVType"] != null)
+                {
+                    <div class="alert alert-warning" role="alert">
+                        You can only upload "pdf" type file!
+                    </div>
+
+                    Session["InvalidCVType"] = null;
+                }
+                <div class="form-group">
+                    <label for="title">Position</label>
+                    <input type="text" name="Position" class="form-control" id="Position" value="@ViewBag.About.Position">
+                </div>
+                <div class="form-group">
+                    <label for="title">About</label>
+                    <input type="text" name="text" class="form-control" id="text" value="@ViewBag.About.Text">
+                </div>
+                <div class="form-group">
+                    <label for="Lang">Language</label>
+                    <select type="text" class="form-control" id="Lang" name="Lang">
+                        <option>Select Language</option>
+                        @foreach (Language item in ViewBag.Lang)
+                        {
+                            <option @(@ViewBag.About.Lang == item.LangAbbr ? "selected" : "")>@item.LangAbbr</option>
+                        }
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+</div>

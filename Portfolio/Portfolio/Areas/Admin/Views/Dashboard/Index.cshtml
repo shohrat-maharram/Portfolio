@@ -1,46 +1,9 @@
-﻿@using Portfolio.Models
-@{
+﻿@{
     ViewBag.Title = "Dashboard";
 
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1 style="font-style:italic;float:right;font-size:25px;color:#810004;">Properties Table</h1>
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>No.</th>
-                        <th>Heading</th>
-                        <th>Text</th>
-                        <th>Image</th>
-                        <th>Page</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @*@{int i = 0; }
-                    @foreach (Properties item in ViewBag.Properties)
-                    {
-                        i++;
-                        <tr class="table-active">
-                            <td style="text-align:center;">@i</td>
-                            <td>@item.Heading</td>
-                            <td>@Html.Raw(item.Text.Length > 50 ? item.Text.Substring(0, 50) : item.Text) . . .</td>
-                            <td><img src="~/Uploads/@item.Image" style="max-width:50px;" alt="Logo" /></td>
-                            <td>@item.Page</td>
-                            <td style="text-align:center;">
-                                <a href="@Url.Action("UpdatingProperties", "dashboard",new { id=item.Id})">
-                                    <i class="fas fa-pencil-alt" style="cursor:pointer; color:green;"></i>
-                                </a>
-                            </td>
-                        </tr>
-                    }*@
-                </tbody>
-            </table>
-        </div>
-    </div>
-
+    <h1>Salam Qasim</h1>
 </div>

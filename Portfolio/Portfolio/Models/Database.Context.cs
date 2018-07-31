@@ -34,5 +34,6 @@ namespace Portfolio.Models
         public virtual DbSet<Skills> Skills { get; set; }
         public virtual DbSet<Social> Social { get; set; }
         public virtual DbSet<AdminsData> AdminsData { get; set; }
+        public virtual DbSet<Language> Language { get; set; }
     }
 }

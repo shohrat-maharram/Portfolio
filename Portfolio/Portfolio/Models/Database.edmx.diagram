@@ -16,6 +16,7 @@
         <AssociationConnector Association="PortfolioModel.FK_Portfolio_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="PortfolioModel.FK_Gallery_Portfolio" ManuallyRouted="false" />
         <EntityTypeShape EntityType="PortfolioModel.AdminsData" Width="1.5" PointX="3.375" PointY="7.75" />
+        <EntityTypeShape EntityType="PortfolioModel.Language" Width="1.5" PointX="5.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

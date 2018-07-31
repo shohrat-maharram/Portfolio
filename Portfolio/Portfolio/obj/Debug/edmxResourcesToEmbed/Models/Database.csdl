@@ -125,6 +125,7 @@
       <End Role="Gallery" EntitySet="Gallery" />
     </AssociationSet>
     <EntitySet Name="AdminsData" EntityType="PortfolioModel.AdminsData" />
+    <EntitySet Name="Language" EntityType="PortfolioModel.Language" />
   </EntityContainer>
   <EntityType Name="AdminsData">
     <Key>
@@ -134,5 +135,13 @@
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="FullName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Lang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LangAbbr" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

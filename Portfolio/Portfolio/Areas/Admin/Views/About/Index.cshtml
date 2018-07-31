@@ -1,0 +1,101 @@
+﻿@using Portfolio.Models
+@{
+    ViewBag.Title = "About";
+
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="@Url.Action("add","about")" class="btn btn-primary" style="margin-bottom:5px;">Add New</a>
+
+            <h1 style="font-style:italic;float:right;font-size:25px;color:#810004;">About me</h1>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>No.</th>
+                        <th>Full Name</th>
+                        <th>Birth</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Photo</th>
+                        <th>CV</th>
+                        <th>Position</th>
+                        <th>Text</th>
+                        <th>Lang</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{int i = 0; }
+                    @foreach (AboutMe item in ViewBag.About)
+                    {
+                        i++;
+                        <tr class="table-active">
+                            <td style="text-align:center;">@i</td>
+                            <td>@item.FullName</td>
+                            <td>@item.Birth</td>
+                            <td>@item.Phone</td>
+                            <td>@item.Email</td>
+                            <td>@item.Address</td>
+                            <td><img src="~/Uploads/@item.Photo" style="max-width:50px;" alt="Logo" /></td>
+                            <td>@(item.CV.Length > 10 ? item.CV.Substring(0, 10) : item.CV) . . .</td>
+                            <td>@item.Position</td>
+                            <td>@Html.Raw(item.Text == null ? "" : (item.Text.Length > 50 ? item.Text.Substring(0, 50) : item.Text)) . . .</td>
+                            <td>@item.Lang</td>
+
+                            <td style="text-align:center;">
+                                <a href="@Url.Action("UpdatingAbout", "about",new { id=item.Id})">
+                                    <i class="fas fa-pencil-alt" style="cursor:pointer; color:green;"></i>
+                                </a>
+
+                                <a href="@Url.Action("DeletingAbout","about",new { id=item.Id})" onclick="return confirm('Are you sure?')">
+                                    <i class="fas fa-times" style="cursor:pointer; color:red;"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="row" style="margin-top:30px;">
+        <div class="col-md-12">
+            <a href="@Url.Action("AddSocial","about")" class="btn btn-primary" style="margin-bottom:5px;">Add Social Media</a>
+
+            <h1 style="font-style:italic;float:right;font-size:25px;color:#810004;">Admins</h1>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>No.</th>
+                        <th>Icon</th>
+                        <th>Link</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{int j = 0; }
+                    @foreach (Social item in ViewBag.Social)
+                    {
+                        j++;
+                        <tr class="table-active">
+                            <td style="text-align:center;">@j</td>
+                            <td>@item.Icon</td>
+                            <td>@item.Link</td>
+
+                            <td style="text-align:center;">
+                                <a href="@Url.Action("DeletingSocial","about",new { id=item.Id})" onclick="return confirm('Are you sure?')">
+                                    <i class="fas fa-times" style="cursor:pointer; color:red;"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
