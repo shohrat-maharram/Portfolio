@@ -1151,7 +1151,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Portfolio\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -1325,6 +1324,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\About\AddSocial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Portfolio\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Portfolio\addProject.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Portfolio\UpdateProject.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

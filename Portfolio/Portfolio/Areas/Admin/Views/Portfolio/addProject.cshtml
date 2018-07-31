@@ -1,0 +1,51 @@
+﻿@using Portfolio.Models
+@{
+    ViewBag.Title = "Add Project";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+    DateTime date = DateTime.Now;
+}
+
+<div class="container" style="margin-bottom:30px;">
+    <div class="row">
+        <div class="col-md-8">
+            <form method="post" action="@Url.Action("addProject", "Portfolio")">
+                
+                <div class="form-group">
+                    <label for="Name">Project Name</label>
+                    <input type="text" name="Name" class="form-control" id="Name" value="">
+                </div>
+                <div class="form-group">
+                    <label for="Slogan">Slogan</label>
+                    <input type="text" name="Slogan" class="form-control" id="Slogan" value="">
+                </div>
+
+                <div class="form-group">
+                    <label for="Category">Category</label>
+                    <select class="form-control" id="Category" name="CategoryId">
+                        <option>Select Category</option>
+                        @foreach (Categories item in ViewBag.Category)
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Lang">Language</label>
+                    <select class="form-control" id="Lang" name="Lang">
+                        <option>Select Language</option>
+                        @foreach (Language item2 in ViewBag.Lang)
+                        {
+                            <option value="@item2.LangAbbr">@item2.Lang</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <input type="hidden" name="Date" id="date" value="@date.ToString("dd.MM.yyyy HH:mm:ss")">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+        </div>
+    </div>
+</div>

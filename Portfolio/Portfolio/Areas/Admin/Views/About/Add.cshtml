@@ -65,11 +65,11 @@
                 </div>
                 <div class="form-group">
                     <label for="Lang">Language</label>
-                    <select type="text" class="form-control" id="Lang" name="Lang">
+                    <select class="form-control" id="Lang" name="Lang">
                         <option>Select Language</option>
                         @foreach (Language item in ViewBag.Lang)
                         {
-                            <option>@item.LangAbbr</option>
+                            <option value="@item.LangAbbr">@item.Lang</option>
                         }
                     </select>
                 </div>

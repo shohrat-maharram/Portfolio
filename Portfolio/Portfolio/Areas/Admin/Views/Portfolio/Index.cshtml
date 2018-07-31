@@ -1,0 +1,96 @@
+﻿@using Portfolio.Models
+@{
+    ViewBag.Title = "Portfolio";
+
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="@Url.Action("addProject","Portfolio")" class="btn btn-primary" style="margin-bottom:5px;">Add New Project</a>
+
+            <h1 style="font-style:italic;float:right;font-size:25px;color:#810004;">Projects</h1>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Slogan</th>
+                        <th>Category</th>
+                        <th>Language</th>
+                        <th>Date</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{int i = 0; }
+                    @foreach (Portfolio item in ViewBag.Projects)
+                    {
+                        i++;
+                        <tr class="table-active">
+                            <td style="text-align:center;">@i</td>
+                            <td>@item.Name</td>
+                            <td>@Html.Raw(item.Slogan == null ? "" : (item.Slogan.Length > 30 ? item.Slogan.Substring(0, 30) : item.Slogan)) . . .</td>
+                            <td>@item.Categories.Name</td>
+                            <td>@item.Lang</td>
+                            <td>@item.Date</td>
+                            <td style="text-align:center;">
+                                <a href="@Url.Action("UpdateProject", "Portfolio",new { id=item.Id})">
+                                    <i class="fas fa-pencil-alt" style="cursor:pointer; color:green;"></i>
+                                </a>
+
+                                <a href="@Url.Action("DeleteProject","Portfolio",new { id=item.Id})" onclick="return confirm('Are you sure?')">
+                                    <i class="fas fa-times" style="cursor:pointer; color:red;"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="row" style="margin-top:30px;">
+        <div class="col-md-12">
+            <a href="@Url.Action("AddGallery","Portfolio")" class="btn btn-primary" style="margin-bottom:5px;">Add Media</a>
+
+            <h1 style="font-style:italic;float:right;font-size:25px;color:#810004;">Project Media</h1>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>No.</th>
+                        <th>Media</th>
+                        <th>Project</th>
+                        <th>Language</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{int j = 0; }
+                    @foreach (Gallery item in ViewBag.Gallery)
+                    {
+                        j++;
+                        <tr class="table-active">
+                            <td style="text-align:center;">@j</td>
+                            <td>@item.Media</td>
+                            <td>@item.Portfolio.Name</td>
+                            <td>@item.Lang</td>
+
+                            <td style="text-align:center;">
+                                <a href="@Url.Action("UpdateGallery", "Portfolio",new { id=item.Id})">
+                                    <i class="fas fa-pencil-alt" style="cursor:pointer; color:green;"></i>
+                                </a>
+
+                                <a href="@Url.Action("DeleteGallery","Portfolio",new { id=item.Id})" onclick="return confirm('Are you sure?')">
+                                    <i class="fas fa-times" style="cursor:pointer; color:red;"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
