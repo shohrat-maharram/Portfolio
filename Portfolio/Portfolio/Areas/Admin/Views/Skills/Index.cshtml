@@ -1,0 +1,90 @@
+﻿@using Portfolio.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="@Url.Action("addKnowladge","skills")" class="btn btn-primary" style="margin-bottom:5px;">Add New Knowladge</a>
+
+            <h1 style="font-style:italic;float:right;font-size:25px;color:#810004;">Knowladges</h1>
+
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Icon</th>
+                        <th>IsIcon</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{int j = 0; }
+                    @foreach (Knowledge item2 in ViewBag.Knowladge)
+                    {
+                        j++;
+                        <tr class="table-active">
+                            <td style="text-align:center;">@j</td>
+                            <td>@item2.Name</td>
+                            <td>@item2.Icon</td>
+                            <td>@item2.IsIcon</td>
+                            <
+                            <td style="text-align:center;">
+                                <a href="@Url.Action("UpdateKnowladge", "Skills",new { id=item2.Id})">
+                                    <i class="fas fa-pencil-alt" style="cursor:pointer; color:green;"></i>
+                                </a>
+
+                                <a href="@Url.Action("DeleteKnowladge","Skills",new { id=item2.Id})" onclick="return confirm('Are you sure?')">
+                                    <i class="fas fa-times" style="cursor:pointer; color:red;"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>  
+
+    <div class="row" style="margin-top:30px;">
+        <div class="col-md-12">
+            <a href="@Url.Action("addSkill","skills")" class="btn btn-primary" style="margin-bottom:5px;">Add New Skill</a>
+
+           <h1 style="font-style:italic;float:right;font-size:25px;color:#810004;">Skills</h1>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Percente</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{int i = 0; }
+                    @foreach (Skills item in ViewBag.Skill)
+                    {
+                        i++;
+                        <tr class="table-active">
+                            <td style="text-align:center;">@i</td>
+                            <td>@item.Name</td>
+                            <td>@item.Percentage</td>
+                            <
+                            <td style="text-align:center;">
+                                <a href="@Url.Action("UpdateSkill", "Skills",new { id=item.Id})">
+                                    <i class="fas fa-pencil-alt" style="cursor:pointer; color:green;"></i>
+                                </a>
+
+                                <a href="@Url.Action("DeleteSkill","Skills",new { id=item.Id})" onclick="return confirm('Are you sure?')">
+                                    <i class="fas fa-times" style="cursor:pointer; color:red;"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>  
+</div>

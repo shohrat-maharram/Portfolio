@@ -1,0 +1,31 @@
+﻿@using Portfolio.Models
+@{
+    ViewBag.Title = "Add Knowladge";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+<div class="container" style="margin-bottom:30px;">
+    <div class="row">
+        <div class="col-md-8">
+            <form method="post" action="@Url.Action("addKnowladge", "skills")">
+
+                <div class="form-group">
+                    <label for="Name">Knowladge Name</label>
+                    <input type="text" name="Name" class="form-control" id="Name" value="">
+                </div>
+
+                <div class="form-group">
+                    <label for="Icon">Icon</label>
+                    <input type="text" name="Icon" class="form-control" id="Icon" value="">
+                </div>
+                
+                <div class="form-group form-check">
+                    <input type="checkbox" name="IsIcon" class="form-check-input" id="IsIcon">
+                    <label class="form-check-label" for="IsIcon">Is Icon</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+        </div>
+    </div>
+</div>
