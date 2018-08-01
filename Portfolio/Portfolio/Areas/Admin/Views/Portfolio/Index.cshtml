@@ -56,7 +56,7 @@
         <div class="col-md-12">
             <a href="@Url.Action("AddGallery","Portfolio")" class="btn btn-primary" style="margin-bottom:5px;">Add Media</a>
 
-            <h1 style="font-style:italic;float:right;font-size:25px;color:#810004;">Project Media</h1>
+            <h1 style="font-style:italic;float:right;font-size:25px;color:#810004;">Project's Media</h1>
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
@@ -96,6 +96,43 @@
                                 </a>
 
                                 <a href="@Url.Action("DeleteGallery","Portfolio",new { id=item.Id})" onclick="return confirm('Are you sure?')">
+                                    <i class="fas fa-times" style="cursor:pointer; color:red;"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:30px;">
+        <div class="col-md-12">
+            <a href="@Url.Action("AddCategory","Portfolio")" class="btn btn-primary" style="margin-bottom:5px;">Add Category</a>
+
+            <h1 style="font-style:italic;float:right;font-size:25px;color:#810004;">Project's Category</h1>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>No.</th>
+                        <th>Category</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{int k = 0; }
+                    @foreach (Categories item in ViewBag.Category)
+                    {
+                        k++;
+                        <tr class="table-active">
+                            <td style="text-align:center;">@k</td>   
+                            <td>@item.Name</td>
+                            <td style="text-align:center;">
+                                <a href="@Url.Action("UpdateCategory", "Portfolio",new { id=item.Id})">
+                                    <i class="fas fa-pencil-alt" style="cursor:pointer; color:green;"></i>
+                                </a>
+
+                                <a href="@Url.Action("DeleteCategory","Portfolio",new { id=item.Id})" onclick="return confirm('Are you sure?')">
                                     <i class="fas fa-times" style="cursor:pointer; color:red;"></i>
                                 </a>
                             </td>

@@ -1,0 +1,25 @@
+﻿@using Portfolio.Models
+
+@{
+    ViewBag.Title = "Update Category";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+<div class="container" style="margin-bottom:30px;">
+    <div class="row">
+        <div class="col-md-8">
+            <form method="post" action="@Url.Action("UpdateCategory","portfolio")" enctype="multipart/form-data">
+
+                <input type="hidden" name="id" value="@ViewBag.Category.Id" />
+
+                <div class="form-group">
+                    <label for="Category">Category</label>
+                    <input type="text" name="Name" class="form-control" id="Category" value="@ViewBag.Category.Name">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
+

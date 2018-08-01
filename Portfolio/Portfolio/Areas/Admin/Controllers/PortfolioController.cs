@@ -167,13 +167,71 @@ namespace Portfolio.Areas.Admin.Controllers
             }
             return View();
         }
-
-
+        
         //Deleting Gallery
         public ActionResult DeleteGallery(int id)
         {
             Gallery gallery = db.Gallery.Find(id);
             db.Gallery.Remove(gallery);
+            db.SaveChanges();
+            return RedirectToAction("index");
+        }
+
+        //Adding Category GET
+        public ActionResult addCategory()
+        {
+            return View();
+        }
+
+        //Adding Category POST
+        [HttpPost, ValidateInput(false)]
+        public ActionResult addCategory(Categories category)
+        {
+            if (ModelState.IsValid)
+            {
+                if (category == null)
+                {
+                    return Content("Oppan");
+                }
+
+                db.Categories.Add(category);
+                db.SaveChanges();
+                return RedirectToAction("index");
+            }
+            return View();
+        }
+
+        //Updating Category GET
+        public ActionResult UpdateCategory(int id)
+        {
+            Categories category = db.Categories.Find(id);
+            if (category == null)
+            {
+                return RedirectToAction("index");
+            }
+            
+            ViewBag.Category = category;
+            return View();
+        }
+
+        //Updating Category POST
+        [HttpPost, ValidateInput(false)]
+        public ActionResult UpdateCategory(Categories category)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(category).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        //Deleting Category
+        public ActionResult DeleteCategory(int id)
+        {
+            Categories category = db.Categories.Find(id);
+            db.Categories.Remove(category);
             db.SaveChanges();
             return RedirectToAction("index");
         }

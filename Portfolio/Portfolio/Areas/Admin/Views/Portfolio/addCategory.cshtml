@@ -1,0 +1,23 @@
+﻿@using Portfolio.Models
+
+@{
+    ViewBag.Title = "Add Category";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+<div class="container" style="margin-bottom:30px;">
+    <div class="row">
+        <div class="col-md-8">
+            <form method="post" action="@Url.Action("AddCategory","portfolio")" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <label for="Category">Category</label>
+                    <input type="text" name="Name" class="form-control" id="Category" value="">
+                </div>
+              
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+        </div>
+    </div>
+</div>
+
