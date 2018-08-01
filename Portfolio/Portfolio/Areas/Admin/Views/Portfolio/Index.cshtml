@@ -74,7 +74,19 @@
                         j++;
                         <tr class="table-active">
                             <td style="text-align:center;">@j</td>
-                            <td>@item.Media</td>
+                            @if (item.Media.Split('.')[1] == "mp4")
+                            {
+                                <td>
+                                    <video style="max-width:50px;" controls>
+                                        <source src="~/Uploads/@item.Media" type="video/mp4">                                        
+                                    </video>
+                                </td>
+                            }
+                            else
+                            {
+                                <td><img src="~/Uploads/@item.Media" style="max-width:50px;" alt="Media" /></td>
+                            }
+                            
                             <td>@item.Portfolio.Name</td>
                             <td>@item.Lang</td>
 

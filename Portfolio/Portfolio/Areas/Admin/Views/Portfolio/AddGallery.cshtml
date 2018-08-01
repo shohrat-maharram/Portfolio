@@ -1,0 +1,51 @@
+﻿@using Portfolio.Models
+@{
+    ViewBag.Title = "Add Gallery";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+<div class="container" style="margin-bottom:30px;">
+    <div class="row">
+        <div class="col-md-8">
+            <form method="post" action="@Url.Action("AddGallery","portfolio")" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <label for="Media">Media*</label>
+                    <input type="file" name="Media" class="form-control" id="Media" value="">
+                </div>
+                @if (Session["InvalidPhotoType"] != null)
+                {
+                    <div class="alert alert-warning" role="alert">
+                        You can only upload ".png, .jpg, .jpeg, .mp4" type files!
+                    </div>
+
+                    Session["InvalidPhotoType"] = null;
+                }
+
+                <div class="form-group">
+                    <label for="Portfolio">Portfolio</label>
+                    <select class="form-control" id="Portfolio" name="PortfolioId">
+                        <option>Select Portfolio</option>
+                        @foreach (Portfolio item in ViewBag.Project)
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="Lang">Language</label>
+                    <select class="form-control" id="Lang" name="Lang">
+                        <option>Select Language</option>
+                        @foreach (Language item2 in ViewBag.Lang)
+                        {
+                            <option value="@item2.LangAbbr">@item2.Lang</option>
+                        }
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+﻿@using Portfolio.Models
+
+@{
+    ViewBag.Title = "Update Gallery";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+<div class="container" style="margin-bottom:30px;">
+    <div class="row">
+        <div class="col-md-8">
+            <form method="post" action="@Url.Action("UpdateGallery","portfolio")" enctype="multipart/form-data">
+
+                <input type="hidden" name="id" value="@ViewBag.Gallery.Id" />
+                               
+                <div class="form-group">
+                    <label for="Media">Media*</label>
+                    @if (@ViewBag.Gallery.Media.Split('.')[1] == "mp4")
+                    {
+                            <video style="max-width:80px;" controls>
+                                <source src="~/Uploads/@ViewBag.Gallery.Media" type="video/mp4">
+                            </video>
+                    }
+                    else
+                    {
+                        <img src="~/Uploads/@ViewBag.Gallery.Media" style="max-width:80px;" alt="Media" />
+                    }
+                    <input type="hidden" name="OldMedia" value="@ViewBag.Gallery.Media" />
+                    <input type="file" name="Media" class="form-control" id="Media" value="">
+                </div>
+                @if (Session["InvalidPhotoType"] != null)
+                {
+                    <div class="alert alert-warning" role="alert">
+                        You can only upload ".png, .jpg, .jpeg, .mp4" type files!
+                    </div>
+
+                    Session["InvalidPhotoType"] = null;
+                }
+
+                <div class="form-group">
+                    <label for="Project">Project</label>
+                    <select class="form-control" id="Project" name="PortfolioId">
+                        <option>Select Project</option>
+                        @foreach (Portfolio item in ViewBag.Project)
+                        {
+                            <option @(ViewBag.Gallery.PortfolioId==item.Id?"selected":"") value="@item.Id">@item.Name</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="Lang">Language</label>
+                    <select class="form-control" id="Lang" name="Lang">
+                        <option>Select Language</option>
+                        @foreach (Language item2 in ViewBag.Lang)
+                        {
+                            <option @(ViewBag.Gallery.Lang==item2.LangAbbr ? "selected":"") value="@item2.LangAbbr">@item2.Lang</option>
+                        }
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
