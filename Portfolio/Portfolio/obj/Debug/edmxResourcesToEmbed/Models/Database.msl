@@ -18,6 +18,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="AdminsData">
+      <EntityTypeMapping TypeName="PortfolioModel.AdminsData">
+        <MappingFragment StoreEntitySet="AdminsData">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Categories">
       <EntityTypeMapping TypeName="PortfolioModel.Categories">
         <MappingFragment StoreEntitySet="Categories">
@@ -43,6 +53,15 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Icon" ColumnName="Icon" />
           <ScalarProperty Name="IsIcon" ColumnName="IsIcon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Language">
+      <EntityTypeMapping TypeName="PortfolioModel.Language">
+        <MappingFragment StoreEntitySet="Language">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Lang" ColumnName="Lang" />
+          <ScalarProperty Name="LangAbbr" ColumnName="LangAbbr" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -85,25 +104,6 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Icon" ColumnName="Icon" />
           <ScalarProperty Name="Link" ColumnName="Link" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AdminsData">
-      <EntityTypeMapping TypeName="PortfolioModel.AdminsData">
-        <MappingFragment StoreEntitySet="AdminsData">
-          <ScalarProperty Name="FullName" ColumnName="FullName" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Language">
-      <EntityTypeMapping TypeName="PortfolioModel.Language">
-        <MappingFragment StoreEntitySet="Language">
-          <ScalarProperty Name="LangAbbr" ColumnName="LangAbbr" />
-          <ScalarProperty Name="Lang" ColumnName="Lang" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

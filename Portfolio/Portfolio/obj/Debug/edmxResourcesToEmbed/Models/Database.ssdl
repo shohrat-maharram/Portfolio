@@ -48,7 +48,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="30" />
     <Property Name="Icon" Type="nvarchar" MaxLength="30" />
-    <Property Name="IsIcon" Type="tinyint" />
+    <Property Name="IsIcon" Type="bit" />
   </EntityType>
   <EntityType Name="Language">
     <Key>

@@ -26,14 +26,14 @@ namespace Portfolio.Models
         }
     
         public virtual DbSet<AboutMe> AboutMe { get; set; }
+        public virtual DbSet<AdminsData> AdminsData { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<Gallery> Gallery { get; set; }
         public virtual DbSet<Knowledge> Knowledge { get; set; }
+        public virtual DbSet<Language> Language { get; set; }
         public virtual DbSet<Messages> Messages { get; set; }
         public virtual DbSet<Portfolio> Portfolio { get; set; }
         public virtual DbSet<Skills> Skills { get; set; }
         public virtual DbSet<Social> Social { get; set; }
-        public virtual DbSet<AdminsData> AdminsData { get; set; }
-        public virtual DbSet<Language> Language { get; set; }
     }
 }

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Portfolio.Models;
 using Portfolio.Filters;
+using System.Data.Entity;
 
 namespace Portfolio.Areas.Admin.Controllers
 {
@@ -27,23 +28,49 @@ namespace Portfolio.Areas.Admin.Controllers
         }
 
         //Adding Knowladge POST
-        [HttpPost, ValidateInput(false)]
+        [HttpPost]
         public ActionResult addKnowladge(Knowledge knowledge)
         {
-            return Content(knowledge.Name+" "+knowledge.Icon+" "+knowledge.IsIcon);
-            //if (ModelState.IsValid)
-            //{
-            //    if (knowledge == null)
-            //    {
-            //        return Content("Oppan");
-            //    }
+            if (ModelState.IsValid)
+            {
+                if (knowledge == null)
+                {
+                    return Content("Oppan");
+                }
 
-            //    db.Knowledge.Add(knowledge);
-            //    db.SaveChanges();
-            //    return RedirectToAction("index");
-            //}
-            //return View();
+                db.Knowledge.Add(knowledge);
+                db.SaveChanges();
+                return RedirectToAction("index");
+            }
+            return View();
         }
+
+        //Updating Knowladge GET
+        public ActionResult UpdateKnowladge(int id)
+        {
+            Knowledge knowledge = db.Knowledge.Find(id);
+            if (knowledge == null)
+            {
+                return RedirectToAction("index");
+            }
+            ViewBag.Knowledge = knowledge;
+            return View();
+        }
+
+        //Updating Knowladge POST
+        [HttpPost, ValidateInput(false)]
+        public ActionResult UpdateKnowladge(Knowledge knowledge)
+        {
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(knowledge).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
 
         //Deleting Knowladge
         public ActionResult DeleteKnowladge(int id)

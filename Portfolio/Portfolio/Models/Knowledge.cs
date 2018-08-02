@@ -17,6 +17,6 @@ namespace Portfolio.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Icon { get; set; }
-        public Nullable<byte> IsIcon { get; set; }
+        public Nullable<bool> IsIcon { get; set; }
     }
 }

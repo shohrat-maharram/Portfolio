@@ -1,29 +1,29 @@
 ﻿@{
-    ViewBag.Title = "Add Knowladge";
+    ViewBag.Title = "Update Knowladge";
     Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
 }
 
 <div class="container" style="margin-bottom:30px;">
     <div class="row">
         <div class="col-md-8">
-            <form method="post" action="@Url.Action("addKnowladge", "skills")">
+            <form method="post" action="@Url.Action("updateKnowladge", "skills")">
 
                 <div class="form-group">
                     <label for="Name">Knowladge Name</label>
-                    <input type="text" name="Name" class="form-control" id="name" value="">
+                    <input type="text" name="Name" class="form-control" id="name" value="@ViewBag.Knowledge.Name">
                 </div>
 
                 <div class="form-group">
                     <label for="Icon">Icon</label>
-                    <input type="text" name="Icon" class="form-control" id="icon" value="">
+                    <input type="text" name="Icon" class="form-control" id="icon" value="@ViewBag.Knowledge.Icon">
                 </div>
-                
+
                 <div class="form-group form-check">
-                    <input id="isicon" class="form-check-input" type="checkbox" value="true" name="isicon"/>
+                    <input id="isicon" class="form-check-input" type="checkbox" value="true" name="isicon" checked="@(ViewBag.Knowledge.IsIcon==true?"checked":"")"/>
                     <label class="form-check-label" for="isicon">Is Icon</label>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Add</button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </form>
         </div>
     </div>
