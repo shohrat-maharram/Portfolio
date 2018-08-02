@@ -30,15 +30,12 @@ namespace Portfolio.Controllers
             return View();
         }
 
-
-
         //Download CV as pdf format
         public ActionResult DownloadCV()
         {
             var cv = db.AboutMe.FirstOrDefault(c => c.Lang == "en").CV;
             return File("~/Uploads/"+ cv, "application/pdf");
         }
-
 
         //Get portgolio Media and fill to slider
         [HttpGet]
@@ -88,7 +85,6 @@ namespace Portfolio.Controllers
             };
             db.Messages.Add(msgDB);
             db.SaveChanges();
-            //string result = msgDB.Name + " " + msgDB.Email + " " + msgDB.Subject + " " + msgDB.Text + " " + msgDB.Date;
             return Json(new { result=true });
         } 
     }

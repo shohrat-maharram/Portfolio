@@ -300,3 +300,15 @@ C:\Users\shohrat.maharramov\Desktop\code\Projects\Portfolio\Portfolio\Portfolio\
 C:\Users\shohrat.maharramov\Desktop\code\Projects\Portfolio\Portfolio\Portfolio\obj\Debug\ru\Portfolio.resources.dll
 C:\Users\shohrat.maharramov\Desktop\code\Projects\Portfolio\Portfolio\Portfolio\obj\Debug\az\Portfolio.resources.dll
 C:\Users\shohrat.maharramov\Desktop\code\Projects\Portfolio\Portfolio\Portfolio\obj\Debug\Portfolio.csprojResolveAssemblyReference.cache
+C:\Users\Shohrat\Desktop\Programming\Projects\Portfolio\Portfolio\Portfolio\bin\ru\Portfolio.resources.dll
+C:\Users\Shohrat\Desktop\Programming\Projects\Portfolio\Portfolio\Portfolio\bin\az\Portfolio.resources.dll
+C:\Users\Shohrat\Desktop\Programming\Projects\Portfolio\Portfolio\Portfolio\bin\EntityFramework.dll
+C:\Users\Shohrat\Desktop\Programming\Projects\Portfolio\Portfolio\Portfolio\bin\EntityFramework.SqlServer.dll
+C:\Users\Shohrat\Desktop\Programming\Projects\Portfolio\Portfolio\Portfolio\bin\EntityFramework.xml
+C:\Users\Shohrat\Desktop\Programming\Projects\Portfolio\Portfolio\Portfolio\bin\EntityFramework.SqlServer.xml
+C:\Users\Shohrat\Desktop\Programming\Projects\Portfolio\Portfolio\Portfolio\obj\Debug\Portfolio.Resources.Global.resources
+C:\Users\Shohrat\Desktop\Programming\Projects\Portfolio\Portfolio\Portfolio\obj\Debug\Portfolio.Resources.Global.ru.resources
+C:\Users\Shohrat\Desktop\Programming\Projects\Portfolio\Portfolio\Portfolio\obj\Debug\Portfolio.Resources.Global.az.resources
+C:\Users\Shohrat\Desktop\Programming\Projects\Portfolio\Portfolio\Portfolio\obj\Debug\Portfolio.csproj.GenerateResource.Cache
+C:\Users\Shohrat\Desktop\Programming\Projects\Portfolio\Portfolio\Portfolio\obj\Debug\ru\Portfolio.resources.dll
+C:\Users\Shohrat\Desktop\Programming\Projects\Portfolio\Portfolio\Portfolio\obj\Debug\az\Portfolio.resources.dll
