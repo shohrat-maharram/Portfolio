@@ -1,0 +1,50 @@
+﻿@using Portfolio.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <h1 style="font-style:italic;float:right;font-size:25px;color:#810004;">Messages</h1>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Text</th>
+                        <th>Date</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{int j = 0; }
+                    @foreach (Messages item in ViewBag.Messages)
+                    {
+                        j++;
+                        <tr class="table-active">
+                            <td style="text-align:center;">@j</td>
+                            <td>@item.Name</td>
+                            <td>@item.Email</td>
+                            <td>@item.Subject</td>
+                            <td>@item.Text</td>
+                            <td>@item.Date</td>
+                            
+                            <td style="text-align:center;">
+                               
+                                <a href="@Url.Action("DeleteMessage","Messages",new { id=item.Id})" onclick="return confirm('Are you sure?')">
+                                    <i class="fas fa-times" style="cursor:pointer; color:red;"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

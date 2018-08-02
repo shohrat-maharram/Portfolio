@@ -503,7 +503,7 @@ $(document).ready(function () {
             url: "/home/SendMessage",
             data: data,
             success: function (response) {
-                console.log(response.response);
+                //console.log(response.response);
                 if (response.response == true) {
                     $("#contacts .container .form .submit .message-error").css({ "display": "none" });
                     $("#contacts .container .form .submit .message-success").css({ "display": "block" });

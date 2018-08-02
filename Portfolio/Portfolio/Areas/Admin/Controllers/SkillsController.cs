@@ -70,13 +70,71 @@ namespace Portfolio.Areas.Admin.Controllers
             }
             return View();
         }
-
-
+        
         //Deleting Knowladge
         public ActionResult DeleteKnowladge(int id)
         {
             Knowledge knowledge = db.Knowledge.Find(id);
             db.Knowledge.Remove(knowledge);
+            db.SaveChanges();
+            return RedirectToAction("index");
+        }
+
+
+        //Adding Skill GET
+        public ActionResult addSkill()
+        {
+            return View();
+        }
+
+        //Adding Skill POST
+        [HttpPost]
+        public ActionResult addSkill(Skills skill)
+        {
+            if (ModelState.IsValid)
+            {
+                if (skill == null)
+                {
+                    return Content("Oppan");
+                }
+
+                db.Skills.Add(skill);
+                db.SaveChanges();
+                return RedirectToAction("index");
+            }
+            return View();
+        }
+
+        //Updating Skill GET
+        public ActionResult UpdateSkill(int id)
+        {
+            Skills skill = db.Skills.Find(id);
+            if (skill == null)
+            {
+                return RedirectToAction("index");
+            }
+            ViewBag.Skill = skill;
+            return View();
+        }
+
+        //Updating Skill POST
+        [HttpPost]
+        public ActionResult UpdateSkill(Skills skill)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(skill).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        //Deleting Skill
+        public ActionResult DeleteSkill(int id)
+        {
+            Skills skill = db.Skills.Find(id);
+            db.Skills.Remove(skill);
             db.SaveChanges();
             return RedirectToAction("index");
         }

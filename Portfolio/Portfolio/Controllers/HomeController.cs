@@ -61,8 +61,6 @@ namespace Portfolio.Controllers
         [HttpPost]
         public ActionResult SendMessage(MessagesModel msg)
         {
-            //var email = msg.email.Contains("@");
-
             if ((msg.email==null)|| (msg.name == null) || (msg.text == null)|| !msg.email.Contains("@"))
             {
                 return Json(new { response = false });
@@ -91,6 +89,7 @@ namespace Portfolio.Controllers
             db.Messages.Add(msgDB);
             db.SaveChanges();
 
+            //return Content(msgDB.Date.ToString());
             return Json(new { response = true });
         } 
     }

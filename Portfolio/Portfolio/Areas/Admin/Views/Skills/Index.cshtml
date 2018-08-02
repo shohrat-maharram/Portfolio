@@ -10,7 +10,6 @@
             <a href="@Url.Action("addKnowladge","skills")" class="btn btn-primary" style="margin-bottom:5px;">Add New Knowladge</a>
 
             <h1 style="font-style:italic;float:right;font-size:25px;color:#810004;">Knowladges</h1>
-
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
@@ -31,7 +30,7 @@
                             <td>@item2.Name</td>
                             <td>@item2.Icon</td>
                             <td>@item2.IsIcon</td>
-                            <
+                            
                             <td style="text-align:center;">
                                 <a href="@Url.Action("UpdateKnowladge", "Skills",new { id=item2.Id})">
                                     <i class="fas fa-pencil-alt" style="cursor:pointer; color:green;"></i>
@@ -71,7 +70,7 @@
                             <td style="text-align:center;">@i</td>
                             <td>@item.Name</td>
                             <td>@item.Percentage</td>
-                            <
+                            
                             <td style="text-align:center;">
                                 <a href="@Url.Action("UpdateSkill", "Skills",new { id=item.Id})">
                                     <i class="fas fa-pencil-alt" style="cursor:pointer; color:green;"></i>
