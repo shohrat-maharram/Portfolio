@@ -4,9 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Portfolio.Models;
+using Portfolio.Filters;
 
 namespace Portfolio.Areas.Admin.Controllers
 {
+    [Logout]
     public class MessagesController : Controller
     {
         PortfolioEntities db = new PortfolioEntities();

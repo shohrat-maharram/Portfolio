@@ -503,12 +503,11 @@ $(document).ready(function () {
             url: "/home/SendMessage",
             data: data,
             success: function (response) {
-                //console.log(response.response);
-                if (response.response == true) {
+                //console.log(response);
+                if (response.result == true) {
                     $("#contacts .container .form .submit .message-error").css({ "display": "none" });
                     $("#contacts .container .form .submit .message-success").css({ "display": "block" });
-                    $("#sendMessageForm input").val('');
-                    $("#sendMessageForm textarea").val('');
+                    $("#sendMessageForm .input").val('');
                 } else {
                     $("#contacts .container .form .submit .message-success").css({ "display": "none" });
                     $("#contacts .container .form .submit .message-error").css({ "display": "block" });

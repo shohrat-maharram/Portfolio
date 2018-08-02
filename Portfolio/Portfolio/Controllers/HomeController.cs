@@ -73,7 +73,7 @@ namespace Portfolio.Controllers
 
             mailMessage.IsBodyHtml = true;
             mailMessage.Subject = msg.subject;
-            mailMessage.Body = "<strong>Email From:</strong> " + msg.name+ "<br/><strong>Email:</strong> " + msg.email+ "<br/><br/> <strong>Message:</strong> " + msg.text;
+            mailMessage.Body = "<strong>Email From:</strong> " + msg.name+ "<br/><strong>Email:</strong> " + msg.email+ "<br/><strong>Date:</strong> " +msg.date +"<br/><br/> <strong>Message:</strong> " + msg.text;
 
             SmtpClient smtpClient = new SmtpClient();
             smtpClient.Send(mailMessage);
@@ -88,9 +88,8 @@ namespace Portfolio.Controllers
             };
             db.Messages.Add(msgDB);
             db.SaveChanges();
-
-            //return Content(msgDB.Date.ToString());
-            return Json(new { response = true });
+            //string result = msgDB.Name + " " + msgDB.Email + " " + msgDB.Subject + " " + msgDB.Text + " " + msgDB.Date;
+            return Json(new { result=true });
         } 
     }
 }
